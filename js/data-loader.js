@@ -22,6 +22,18 @@
     return data;
   }
 
+  function isOriginalPublicPlatform(row){
+    const match=/^plat-(\d+)$/.exec(String(row&&row.id||''));
+    if(!match)return true;
+    const n=Number(match[1]);
+    return n>=1&&n<=40;
+  }
+
+  function publicCatalog(data){
+    if(!isObject(data)||!Array.isArray(data.platforms))return data;
+    return{...data,platforms:data.platforms.filter(isOriginalPublicPlatform)};
+  }
+
   async function loadSiteData(options = {}){
     const fetchFn = options.fetchFn || ((...args) => fetch(...args));
     const url = options.url || './data.json';
@@ -30,8 +42,8 @@
       const status = response && response.status ? response.status : 'unknown';
       throw new Error(`data.json load failed: ${status}`);
     }
-    return validate(await response.json());
+    return publicCatalog(validate(await response.json()));
   }
 
-  return { validate, loadSiteData };
+  return { validate, publicCatalog, loadSiteData };
 });
