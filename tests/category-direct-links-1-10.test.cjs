@@ -1,5 +1,6 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
+const fs=require('node:fs');
 const path=require('node:path');
 
 const root=path.join(__dirname,'..');
@@ -44,4 +45,12 @@ test('FutureLearn direct subject URLs stay unchanged',()=>{
   for(const field of result.platforms[0].fields){
     assert.match(field.officialUrl,/futurelearn\.com\/subjects\//);
   }
+});
+
+test('platform page loads direct-link layer after category overrides and before detail rendering',()=>{
+  const html=fs.readFileSync(path.join(root,'platform.html'),'utf8');
+  const categories=html.indexOf('js/platform-categories.js');
+  const links=html.indexOf('js/category-direct-links.js');
+  const detail=html.indexOf('js/platform-detail.js');
+  assert.ok(categories>=0&&links>categories&&detail>links,'category link resolver must be wired between categories and platform detail');
 });
