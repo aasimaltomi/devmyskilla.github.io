@@ -26,10 +26,12 @@ test('key approved categories are preserved exactly in English',()=>{
   assert.ok(Categories.forPlatform('plat-10').some(f=>f.name.en==='Digital Power'));
 });
 
-test('platform detail uses approved category overrides without mutating stored platform fields',()=>{
+test('approved categories are applied before platform detail rendering without mutating source data',()=>{
+  const Categories=require(path.join(root,'js','platform-categories.js'));
   const PlatformDetail=require(path.join(root,'js','platform-detail.js'));
   const stored={id:'plat-5',name:{en:'Microsoft Learn'},description:{en:''},fields:[{id:'legacy',name:{en:'Legacy'}}],languageIds:[],editorial:{}};
-  const model=PlatformDetail.buildDetailModel(stored,'en',new Date(),null);
+  const scoped=Categories.applyToData({platforms:[stored]});
+  const model=PlatformDetail.buildDetailModel(scoped.platforms[0],'en',new Date(),null);
   assert.equal(model.fields.length,6);
   assert.equal(model.fields[0].name,'Application Development');
   assert.equal(stored.fields[0].name.en,'Legacy');
