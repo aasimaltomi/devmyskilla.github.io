@@ -34,4 +34,3 @@ jobs:
           fi
       - name: Run branch diff hygiene checks
         run: git diff --check origin/main...HEAD
-
