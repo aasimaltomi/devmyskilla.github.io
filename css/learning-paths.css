@@ -1,0 +1,21 @@
+.approved-learning-section{background:color-mix(in srgb,var(--surface) 62%,transparent);border-block:1px solid var(--border)}
+.approved-learning-stack{display:grid;gap:22px}
+.approved-learning-platform{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:var(--shadow-sm)}
+.approved-learning-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.approved-learning-head a{font-size:20px;font-weight:800;color:var(--text)}
+.approved-learning-head a:hover{color:var(--primary)}
+.approved-learning-head small{color:var(--muted);font-size:10px;font-weight:800}
+.approved-fields{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.approved-field{display:inline-flex;align-items:center;gap:5px;padding:7px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg);color:var(--muted);font-size:10px;font-weight:800;transition:.18s}
+a.approved-field:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
+.approved-paths-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.approved-path-card{min-height:150px;border:1px solid var(--border);background:var(--bg);border-radius:17px;padding:15px;display:flex;flex-direction:column;gap:9px;transition:.18s}
+.approved-path-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--primary) 38%,var(--border));box-shadow:var(--shadow-sm)}
+.approved-path-type{align-self:flex-start;padding:4px 7px;border-radius:999px;background:var(--primary-soft);color:var(--primary);font-size:8px;font-weight:800}
+.approved-path-card strong{font-size:14px;line-height:1.45}
+.approved-path-card small{margin-top:auto;color:var(--muted);font-size:9px;font-weight:700}
+.approved-path-card em{font-style:normal;color:var(--primary);font-size:9px;font-weight:800}
+.approved-learning-footer{display:flex;justify-content:flex-end;margin-top:16px}
+.approved-learning-footer .btn{font-size:10px}
+@media(max-width:900px){.approved-paths-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.approved-learning-platform{padding:16px}.approved-learning-head{align-items:flex-start;flex-direction:column}.approved-paths-grid{grid-template-columns:1fr}}
