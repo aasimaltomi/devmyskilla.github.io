@@ -1,5 +1,6 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
+const fs=require('node:fs');
 const path=require('node:path');
 
 const root=path.join(__dirname,'..');
@@ -35,4 +36,12 @@ test('approved categories are applied before platform detail rendering without m
   assert.equal(model.fields.length,6);
   assert.equal(model.fields[0].name,'Application Development');
   assert.equal(stored.fields[0].name.en,'Legacy');
+});
+
+test('platform page loads approved category overrides before platform detail code',()=>{
+  const html=fs.readFileSync(path.join(root,'platform.html'),'utf8');
+  const categoriesIndex=html.indexOf('js/platform-categories.js');
+  const detailIndex=html.indexOf('js/platform-detail.js');
+  assert.ok(categoriesIndex>=0,'platform categories script must be loaded');
+  assert.ok(detailIndex>categoriesIndex,'platform categories must load before platform detail');
 });
