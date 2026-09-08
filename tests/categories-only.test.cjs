@@ -4,28 +4,31 @@ const fs=require('node:fs');
 const path=require('node:path');
 
 const root=path.join(__dirname,'..');
-const PlatformDetail=require(path.join(root,'js','platform-detail.js'));
 
-test('explore page has no public learning-paths section or learning-path assets',()=>{
-  const html=fs.readFileSync(path.join(root,'explore.html'),'utf8');
-  assert.doesNotMatch(html,/id="learningPaths"/);
-  assert.doesNotMatch(html,/id="officialPathGrid"/);
-  assert.doesNotMatch(html,/learning-paths\.css/);
-  assert.doesNotMatch(html,/path-approvals\.js/);
-  assert.doesNotMatch(html,/learning-paths-section\.js/);
+test('explore removes the public official learning-path navigation and section',()=>{
+  const LearningPathsSection=require(path.join(root,'js','learning-paths-section.js'));
+  assert.equal(typeof LearningPathsSection.removeLearningPathsUi,'function');
+  const removed=[];
+  const nav={remove:()=>removed.push('nav')};
+  const section={remove:()=>removed.push('section')};
+  const fakeDocument={
+    querySelector:selector=>selector==='a[href="#learningPaths"]'?nav:null,
+    getElementById:id=>id==='learningPaths'?section:null
+  };
+  LearningPathsSection.removeLearningPathsUi(fakeDocument);
+  assert.deepEqual(removed,['nav','section']);
 });
 
-test('platform pages render official categories but never render learning paths',()=>{
-  const model={
-    fields:[{id:'ai',name:'Artificial Intelligence',officialUrl:'https://example.com/ai'}],
-    officialPaths:[{id:'path-1',name:'AI ExpertTrack',officialName:'AI ExpertTrack',typeLabel:'ExpertTrack',officialUrl:'https://example.com/path'}],
-    showAllPathsLink:true,
-    allPathsUrl:'https://example.com/paths'
-  };
-  const fields=PlatformDetail.fieldsMarkup(model,{title:'Categories'},value=>value);
-  const paths=PlatformDetail.officialPathsMarkup(model,{title:'Learning Paths',viewPath:'View',viewAll:'View all'},value=>value);
+test('platform page keeps categories visible and hides official learning paths',()=>{
+  const html=fs.readFileSync(path.join(root,'platform.html'),'utf8');
+  const cssPath=path.join(root,'css','categories-only.css');
+  assert.match(html,/css\/categories-only\.css/);
+  assert.equal(fs.existsSync(cssPath),true);
+  const css=fs.readFileSync(cssPath,'utf8');
+  assert.match(css,/\.profile-paths-section\s*\{[^}]*display\s*:\s*none\s*!important/i);
+  const PlatformDetail=require(path.join(root,'js','platform-detail.js'));
+  const fields=PlatformDetail.fieldsMarkup({fields:[{id:'ai',name:'Artificial Intelligence',officialUrl:'https://example.com/ai'}]},{title:'Categories'},value=>value);
   assert.match(fields,/Artificial Intelligence/);
-  assert.equal(paths,'');
 });
 
 test('stored path research remains preserved in data.json even though it is hidden publicly',()=>{
