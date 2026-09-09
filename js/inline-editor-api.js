@@ -10,7 +10,7 @@
   function create(options={}){
     const config=(typeof globalThis!=='undefined'&&globalThis.InlineEditorConfig)||{};
     const apiBase=trimBase(options.apiBase||config.apiBase);
-    const siteOrigin=String(options.siteOrigin||config.siteOrigin||'https://devmyskilla.github.io').replace(/\/$/,'');
+    const siteOrigin=String(options.siteOrigin||config.siteOrigin||'https://aasimaltomi.github.io').replace(/\/$/,'');
     let apiOrigin='';try{apiOrigin=new URL(apiBase).origin}catch{}
     const sessionKey=String(options.sessionKey||config.sessionKey||DEFAULT_KEY);
     const storage=options.storage||(typeof sessionStorage!=='undefined'?sessionStorage:null);
