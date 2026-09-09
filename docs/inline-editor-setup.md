@@ -4,10 +4,11 @@
 
 ## المكونات
 
-- الواجهة العامة: `https://devmyskilla.github.io/?edit=1`
+- الواجهة العامة: `https://aasimaltomi.github.io/devmyskilla.github.io/?edit=1`
+- Origin المتصفح المستخدم في CORS: `https://aasimaltomi.github.io`
 - Worker المتوقع: `https://dunya-inline-editor.atomy8774.workers.dev`
 - OAuth callback: `https://dunya-inline-editor.atomy8774.workers.dev/inline/callback`
-- المستودع: `devmyskilla/devmyskilla.github.io`
+- المستودع: `aasimaltomi/devmyskilla.github.io`
 - الفرع الذي يكتب إليه Worker: `main`
 - تخزين الجلسات: Cloudflare Workers KV عبر binding باسم `INLINE_SESSIONS`
 
@@ -21,7 +22,7 @@
 
 ## 2. GitHub Actions Secrets للنشر
 
-GitHub يحجز البادئة `GITHUB_` ولا يسمح بإنشاء Repository Secrets تبدأ بها. لذلك أضف في:
+أضف في:
 
 `Settings → Secrets and variables → Actions → New repository secret`
 
@@ -32,19 +33,19 @@ GitHub يحجز البادئة `GITHUB_` ولا يسمح بإنشاء Repository
 - `INLINE_GITHUB_OAUTH_ID` — قيمته هي GitHub OAuth Client ID
 - `INLINE_GITHUB_OAUTH_SECRET` — قيمته هي GitHub OAuth Client Secret
 
-Workflow النشر يحوّل الاسمين الأخيرين وقت النشر إلى متغيري Worker الداخليين `GITHUB_OAUTH_ID` و`GITHUB_OAUTH_SECRET`. لا تحتاج إلى إنشاء GitHub Actions Secrets بهذه الأسماء المحجوزة.
+Workflow النشر يحوّل الاسمين الأخيرين وقت النشر إلى متغيري Worker الداخليين `GITHUB_OAUTH_ID` و`GITHUB_OAUTH_SECRET`.
 
 ## 3. إعداد Cloudflare Worker
 
-ملف الإعداد هو `inline-worker/wrangler.toml`. يحتوي المتغيرات العامة التالية:
+ملف الإعداد هو `inline-worker/wrangler.toml`. القيم العامة للإنتاج هي:
 
-- `ALLOWED_ORIGIN=https://devmyskilla.github.io`
-- `GITHUB_REPO=devmyskilla/devmyskilla.github.io`
+- `ALLOWED_ORIGIN=https://aasimaltomi.github.io`
+- `GITHUB_REPO=aasimaltomi/devmyskilla.github.io`
 - `GITHUB_BRANCH=main`
 - `SESSION_TTL_SECONDS=3600`
 - KV binding: `INLINE_SESSIONS`
 
-Wrangler الحديث يستطيع provision مورد KV تلقائيًا عند أول deploy لأن `INLINE_SESSIONS` معرّف بدون namespace ID. استخدم Wrangler 4.45 أو أحدث.
+مهم: قيمة `ALLOWED_ORIGIN` هي **Origin فقط**، وليست رابط GitHub Pages الكامل؛ لذلك لا نضيف `/devmyskilla.github.io` إليها.
 
 إذا نشرت يدويًا من جهازك بدل GitHub Actions، فمن مجلد `inline-worker` خزّن بيانات OAuth كأسرار Cloudflare بالأسماء الداخلية:
 
@@ -58,13 +59,13 @@ npx wrangler deploy
 
 ## 4. التحقق بعد النشر
 
-افتح `https://devmyskilla.github.io/?edit=1`. عند عدم وجود جلسة سيعرض المحرر زر تسجيل الدخول. بعد نجاح GitHub OAuth يجب أن تظهر أدوات التحرير فقط للحقول المسموح بها. المتصفح يحتفظ بمعرّف جلسة opaque فقط؛ GitHub access token يبقى داخل Worker/KV ولا يُرسل إلى الواجهة.
+افتح `https://aasimaltomi.github.io/devmyskilla.github.io/?edit=1`. عند عدم وجود جلسة سيعرض المحرر زر تسجيل الدخول. بعد نجاح GitHub OAuth يجب أن تظهر أدوات التحرير فقط للحقول المسموح بها. المتصفح يحتفظ بمعرّف جلسة opaque فقط؛ GitHub access token يبقى داخل Worker/KV ولا يُرسل إلى الواجهة.
 
 الحفظ يقرأ أحدث `data.json` من `main` ويقارن `baseSha`. إذا تغيّر الملف منذ بدء التعديل، يرجع Worker تعارض HTTP 409 بدل الكتابة فوق تعديل أحدث. بعد نجاح الحفظ يكتب Worker `data.json` فقط.
 
 ## 5. لوحة Decap
 
-`/admin/` تبقى لوحة Decap CMS الكاملة، وبداخلها رابط **تحرير مباشر** يعيد إلى الصفحة الرئيسية مع `?edit=1`. النظامان يحرران المصدر نفسه `data.json`؛ لذلك حماية SHA في المحرر المباشر تمنع الكتابة الصامتة فوق تغييرات أحدث من Decap.
+`/admin/` تبقى لوحة Decap CMS الكاملة، وبداخلها رابط **تحرير مباشر** يعيد إلى الصفحة الرئيسية مع `?edit=1`.
 
 ## أسرار يجب ألا تظهر في المستودع
 
