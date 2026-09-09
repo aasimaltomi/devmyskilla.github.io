@@ -4,38 +4,35 @@ The public site remains a static GitHub Pages site. Decap CMS edits the central 
 
 ## What the CMS controls
 
-The `/admin/` editor now exposes the full editable content surface:
-
-- **إعدادات الموقع** — site name, developer name, copyright, default language, theme color, public links, featured/platform-cloud IDs.
-- **الهوية والصور** — brand logo, favicon, hero logo, fallback platform logo, localized alt text, editable visual icons.
-- **نصوص الموقع** — all user-facing Arabic, English and Turkish copy grouped by function.
-- **التصنيفات** — stable ID, localized label, icon, enabled state, display order.
-- **اللغات** — stable ID, localized label, enabled state, display order.
-- **الاختبار والترشيحات** — quick filters, questions, answer labels, result labels and learning paths.
-- **المقارنة** — comparison limit and empty-value presentation.
-- **SEO** — page title, meta description, Open Graph title/description/image for home, explore and platform pages in all three languages.
-- **المنصات** — localized name/description, stable category/language references, pricing, free content, certificates, links, logo/alt, official count, verification date, editorial lists, featured flag and display order.
+The `/admin/` editor exposes the editable content surface defined in `data.json`, including site settings, assets, localized text, taxonomy, quiz/comparison settings, SEO metadata and platform records.
 
 The application logic, HTML component structure, CSS classes and routing logic remain code, not editable CMS content. Raw HTML/CSS/JavaScript injection is intentionally not supported.
 
-## Authentication
+## Production identity
 
-The configured backend is:
+The current production repository and site are:
+
+- Repository: `aasimaltomi/devmyskilla.github.io`
+- Branch: `main`
+- GitHub Pages site: `https://aasimaltomi.github.io/devmyskilla.github.io/`
+- Browser origin used by CORS checks: `https://aasimaltomi.github.io`
+
+The configured Decap backend is:
 
 ```yaml
 backend:
   name: github
-  repo: devmyskilla/devmyskilla.github.io
+  repo: aasimaltomi/devmyskilla.github.io
   branch: main
   base_url: https://dunya-decap-oauth.atomy8774.workers.dev
   auth_endpoint: auth
 ```
 
-GitHub Pages cannot store the OAuth client secret. The secret must stay only in the Cloudflare Worker secret/environment store and must never be committed to this repository. The GitHub OAuth callback must match the callback used by the deployed proxy. Anyone publishing through the GitHub backend needs write access to the repository.
+GitHub Pages cannot store the OAuth client secret. The secret must stay only in the OAuth proxy/Worker secret store and must never be committed to this repository. Anyone publishing through the GitHub backend needs write access to the repository.
 
 ## Editing and publishing
 
-Open `https://devmyskilla.github.io/admin/`, sign in with GitHub, edit the appropriate group, then publish. Decap commits the updated `data.json` to `main`; GitHub Pages redeploys it and the site fetches the fresh JSON on the next load.
+Open `https://aasimaltomi.github.io/devmyskilla.github.io/admin/`, sign in with GitHub, edit the appropriate group, then publish. Decap commits the updated `data.json` to `main`; GitHub Pages redeploys it and the site fetches the fresh JSON on the next load.
 
 Images use Decap's Media Library:
 
@@ -81,7 +78,7 @@ node scripts/validate-content.cjs
 node scripts/generate-decap-config.cjs --check
 ```
 
-The validator requires exactly 110 current platforms, unique stable IDs, valid category/language references and the expected Arabic/English/Turkish content shapes.
+The deployment-identity test additionally verifies that Decap, the inline editor and the Worker all point at the current repository and GitHub Pages origin.
 
 ## Content rules
 
