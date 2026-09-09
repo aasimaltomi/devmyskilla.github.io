@@ -22,7 +22,11 @@ test('CMS, inline editor, and Worker target the production repository and origin
 
   assert.ok(worker.includes(`env.ALLOWED_ORIGIN||'${ORIGIN}'`));
   assert.ok(worker.includes(`env.GITHUB_REPO||'${REPO}'`));
-  assert.ok(inlineConfig.includes(`siteOrigin:'${ORIGIN}'`));
+  assert.equal(
+    inlineConfig.includes(`siteOrigin:'${ORIGIN}'`),
+    true,
+    `inline editor config did not contain the production origin; actual file: ${JSON.stringify(inlineConfig)}`
+  );
   assert.ok(inlineApi.includes(`config.siteOrigin||'${ORIGIN}'`));
 
   assert.ok(decap.includes(`repo: ${REPO}`));
