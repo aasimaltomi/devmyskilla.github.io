@@ -1,0 +1,34 @@
+name: Temporary deployment identity migration
+
+on:
+  push:
+    branches:
+      - feature/fix-cms-deployment-identity
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/fix-cms-deployment-identity
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply identity migration
+        run: node scripts/apply-deployment-identity-fix.cjs
+      - name: Commit migrated files
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No migration changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add admin/config.yml inline-worker/wrangler.toml inline-worker/src/worker.mjs js/inline-editor-config.js js/inline-editor-api.js scripts/generate-decap-config.cjs
+          git commit -m "fix: align CMS and editor deployment identity"
+          git push origin HEAD:feature/fix-cms-deployment-identity
