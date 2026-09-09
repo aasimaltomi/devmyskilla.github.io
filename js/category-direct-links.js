@@ -35,6 +35,21 @@
     'certification-prep':'https://www.codecademy.com/catalog/certification-prep',
     it:'https://www.codecademy.com/catalog/subject/information-technology'
   });
+  const NVIDIA_TABS=Object.freeze({
+    'accelerated-computing':'accelerated-computing',
+    'ai-infrastructure':'infrastructure',
+    'data-science':'data-science',
+    'deep-learning':'deep-learning',
+    'generative-ai-llms':'generative-ai-llm',
+    'graphics-simulation':'simulation-and-physical-ai'
+  });
+  const EDRAAK_CATEGORIES=Object.freeze({
+    'career-readiness':'career-readiness',
+    technology:'technology',
+    'personal-development':'personal-development',
+    'business-entrepreneurship':'business-and-entrepreneurship',
+    languages:'languages'
+  });
 
   function resolve(platformId,field){
     const id=text(field&&field.id||'');
@@ -62,6 +77,14 @@
         return `https://event.unitar.org/full-catalog?search=${enc(id==='unosat'?'UNOSAT':label)}`;
       case 'plat-10':
         return `https://e.huawei.com/en/talent/search/?q=${enc(label)}`;
+      case 'plat-13':
+        if(NVIDIA_TABS[id])return `https://www.nvidia.com/en-us/training/self-paced-courses/?tab=${enc(NVIDIA_TABS[id])}&section=self-paced-courses`;
+        return text(field&&field.officialUrl||'');
+      case 'plat-17':
+        return 'https://www.sololearn.com/en/learn/';
+      case 'plat-31':
+        if(EDRAAK_CATEGORIES[id])return `https://www.edraak.org/explore/?category=${enc(EDRAAK_CATEGORIES[id])}`;
+        return text(field&&field.officialUrl||'');
       default:
         return text(field&&field.officialUrl||'');
     }
