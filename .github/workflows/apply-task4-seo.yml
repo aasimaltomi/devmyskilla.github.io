@@ -1,0 +1,59 @@
+name: Apply task4 seo hardening
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-task4-seo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/full-site-hardening
+      - name: Add static metadata defaults
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          const base='https://aasimaltomi.github.io/devmyskilla.github.io';
+          const pages={
+            'index.html':{
+              title:'دنيا الدورات | دليل منصات التعلم',
+              description:'دنيا الدورات دليل لاكتشاف ومقارنة منصات التعلم حسب المجال واللغة والسعر والشهادات.',
+              canonical:`${base}/`
+            },
+            'explore.html':{
+              title:'استكشف منصات التعلم | دنيا الدورات',
+              description:'استكشف وقارن منصات التعلم الموثقة واختر المنصة المناسبة لمجالك ولغتك واحتياجاتك.',
+              canonical:`${base}/explore.html`
+            },
+            'platform.html':{
+              title:'تفاصيل المنصة | دنيا الدورات',
+              description:'تعرف على تفاصيل منصة التعلم وتصنيفاتها الرسمية وروابطها الموثقة في دنيا الدورات.',
+              canonical:`${base}/platform.html`
+            }
+          };
+          const old=/<meta name="theme-color" content="">\s*<meta name="description" content="">\s*<meta property="og:title" content="">\s*<meta property="og:description" content="">\s*<meta property="og:image" content="">\s*<title><\/title>/;
+          for(const [path,meta] of Object.entries(pages)){
+            let text=fs.readFileSync(path,'utf8');
+            if(!old.test(text))throw new Error(`blank SEO head not found in ${path}`);
+            const replacement=`<meta name="theme-color" content="#4f46e5">\n  <meta name="description" content="${meta.description}">\n  <meta property="og:title" content="${meta.title}">\n  <meta property="og:description" content="${meta.description}">\n  <meta property="og:image" content="${base}/assets/dunya-logo-hero-v3.webp">\n  <meta property="og:url" content="${meta.canonical}">\n  <meta property="og:type" content="website">\n  <meta name="twitter:card" content="summary_large_image">\n  <link rel="canonical" href="${meta.canonical}">\n  <title>${meta.title}</title>`;
+            text=text.replace(old,replacement);
+            fs.writeFileSync(path,text);
+          }
+          NODE
+      - name: Verify task4 before commit
+        run: node --test tests/seo-hardening.test.cjs
+      - name: Commit SEO hardening
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html explore.html platform.html
+          git commit -m 'fix: add static seo metadata defaults'
+          git push origin HEAD:fix/full-site-hardening
