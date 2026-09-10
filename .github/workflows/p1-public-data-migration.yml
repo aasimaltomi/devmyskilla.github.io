@@ -19,11 +19,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Regenerate Decap config from split schemas
-        run: |
-          node scripts/generate-decap-config.cjs
-          node scripts/generate-decap-config.cjs --check
-          node --test tests/decap-cms.test.cjs tests/p1-public-data-split.test.cjs
+      - name: Generate split Decap config
+        run: node scripts/generate-decap-config.cjs
+      - name: Verify generated config is deterministic
+        run: node scripts/generate-decap-config.cjs --check
+      - name: Run split CMS focused tests
+        run: node --test tests/decap-cms.test.cjs tests/p1-public-data-split.test.cjs
       - name: Commit generated config
         run: |
           git config user.name "github-actions[bot]"
