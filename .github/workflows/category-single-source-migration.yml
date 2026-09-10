@@ -1,0 +1,60 @@
+name: Temporary category single-source migration
+
+on:
+  push:
+    branches: [refactor/category-single-source]
+    paths:
+      - '.github/workflows/category-single-source-migration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/category-single-source
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Capture current effective category fields
+        run: |
+          mkdir -p tests/fixtures
+          node <<'NODE'
+          const fs = require('node:fs');
+          let data = JSON.parse(fs.readFileSync('data.json','utf8'));
+          for (const file of [
+            './js/platform-categories.js',
+            './js/platform-categories-10-20.js',
+            './js/platform-categories-21-30.js',
+            './js/platform-categories-31-40.js',
+            './js/category-direct-links.js',
+          ]) {
+            const mod = require(file);
+            if (mod && typeof mod.applyToData === 'function') data = mod.applyToData(data);
+          }
+          const rows = data.platforms
+            .filter(p => /^plat-(?:[1-9]|[1-3][0-9]|40)$/.test(String(p && p.id || '')))
+            .sort((a,b) => Number(a.id.split('-')[1]) - Number(b.id.split('-')[1]));
+          const baseline = Object.fromEntries(rows.map(p => [p.id, Array.isArray(p.fields) ? p.fields : []]));
+          const total = Object.values(baseline).reduce((n, fields) => n + fields.length, 0);
+          console.log(`TOTAL_FIELDS=${total}`);
+          for (const [id, fields] of Object.entries(baseline)) console.log(`${id}=${fields.length}`);
+          if (rows.length !== 40) throw new Error(`expected 40 public platforms, got ${rows.length}`);
+          if (total !== 363) throw new Error(`expected 363 effective fields, got ${total}`);
+          fs.writeFileSync('tests/fixtures/category-effective-baseline.json', JSON.stringify(baseline, null, 2) + '\n');
+          NODE
+      - name: Commit baseline fixture
+        run: |
+          if git diff --quiet -- tests/fixtures/category-effective-baseline.json && git ls-files --error-unmatch tests/fixtures/category-effective-baseline.json >/dev/null 2>&1; then
+            echo 'Baseline already committed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tests/fixtures/category-effective-baseline.json
+          git commit -m 'test: freeze effective category runtime baseline'
+          git push origin HEAD:refactor/category-single-source
