@@ -26,44 +26,65 @@ jobs:
           done
           cat /tmp/devmyskill-http.log
           exit 1
-      - name: Run repeated Lighthouse measurements
+      - name: Measure Explore geometry before and after data hydration
         run: |
-          for page in index explore; do
-            for run in 1 2; do
-              npx --yes lighthouse@12.8.2 "http://127.0.0.1:8080/${page}.html" --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path="lighthouse-${page}-${run}.json"
-            done
-          done
-      - name: Print repeated scores, Web Vitals and long-task diagnostics
+          npm install --no-save --package-lock=false puppeteer-core@24.16.0 >/dev/null 2>&1
+          CHROME="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
+          test -n "$CHROME"
+          CHROME="$CHROME" node <<'NODE'
+          const puppeteer=require('puppeteer-core');
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          (async()=>{
+            const browser=await puppeteer.launch({executablePath:process.env.CHROME,headless:true,args:['--no-sandbox','--disable-gpu']});
+            const page=await browser.newPage();
+            await page.setViewport({width:412,height:823,deviceScaleFactor:1,isMobile:true});
+            await page.setRequestInterception(true);
+            let held=null;
+            page.on('request',req=>{
+              if(!held && /\/data\.json(?:\?|$)/.test(req.url())){held=req;return;}
+              req.continue().catch(()=>{});
+            });
+            await page.goto('http://127.0.0.1:8080/explore.html',{waitUntil:'domcontentloaded'});
+            for(let i=0;i<50&&!held;i++)await sleep(20);
+            const snapshot=()=>page.evaluate(()=>{
+              const rect=sel=>{const el=document.querySelector(sel);if(!el)return null;const r=el.getBoundingClientRect();return{top:Math.round(r.top),bottom:Math.round(r.bottom),height:Math.round(r.height),width:Math.round(r.width)}};
+              return{
+                scrollHeight:document.documentElement.scrollHeight,
+                innerWidth:innerWidth,clientWidth:document.documentElement.clientWidth,
+                header:rect('.site-header'),navInner:rect('.nav-inner'),mobileToggle:rect('.mobile-nav-toggle'),
+                hero:rect('.hero-platform'),heroCopy:rect('.hero-copy'),stats:rect('.stats-strip'),
+                categories:rect('#categories'),featured:rect('#featured'),explore:rect('#explore'),footer:rect('.site-footer')
+              };
+            });
+            const before=await snapshot();
+            console.log('EXPLORE_BEFORE='+JSON.stringify(before));
+            if(!held)throw new Error('data.json request was not intercepted');
+            await held.continue();
+            await page.waitForFunction(()=>document.querySelectorAll('#platformGrid .platform-card').length>0,{timeout:10000});
+            await sleep(500);
+            const after=await snapshot();
+            console.log('EXPLORE_AFTER='+JSON.stringify(after));
+            for(const key of Object.keys(after)){
+              if(before[key]&&after[key]&&typeof before[key]==='object'){
+                console.log(`DELTA ${key}: top=${after[key].top-before[key].top} height=${after[key].height-before[key].height}`);
+              }
+            }
+            console.log(`DELTA scrollHeight=${after.scrollHeight-before.scrollHeight} clientWidth=${after.clientWidth-before.clientWidth}`);
+            await browser.close();
+          })().catch(err=>{console.error(err);process.exit(1)});
+          NODE
+      - name: Run Lighthouse after CTA and Explore reservations
+        run: |
+          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/index.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-index.json
+          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/explore.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-explore.json
+      - name: Print Lighthouse scores and layout shifts
         run: |
           node <<'NODE'
           const fs=require('node:fs');
-          const rows=[];
-          for(const page of ['index','explore']){
-            for(const run of [1,2]){
-              const r=JSON.parse(fs.readFileSync(`lighthouse-${page}-${run}.json`,'utf8'));
-              const pct=k=>Math.round((r.categories[k]?.score||0)*100);
-              const a=r.audits;
-              const row={
-                page:page==='index'?'home':'explore',run,
-                performance:pct('performance'),accessibility:pct('accessibility'),bestPractices:pct('best-practices'),seo:pct('seo'),
-                fcp:a['first-contentful-paint']?.numericValue||0,lcp:a['largest-contentful-paint']?.numericValue||0,
-                tbt:a['total-blocking-time']?.numericValue||0,cls:a['cumulative-layout-shift']?.numericValue||0
-              };
-              rows.push(row);
-              console.log(`${row.page}#${run}: performance=${row.performance} accessibility=${row.accessibility} best-practices=${row.bestPractices} seo=${row.seo} FCP=${Math.round(row.fcp)}ms LCP=${Math.round(row.lcp)}ms TBT=${Math.round(row.tbt)}ms CLS=${row.cls.toFixed(3)}`);
-              const shifts=a['layout-shifts']?.details?.items||[];
-              for(const item of shifts.slice(0,3)) console.log(`${row.page}#${run} shift: ${JSON.stringify(item)}`);
-              if(page==='index'){
-                const tasks=a['long-tasks']?.details?.items||[];
-                console.log(`${row.page}#${run} long tasks: ${JSON.stringify(tasks.slice(0,5))}`);
-                const boot=a['bootup-time']?.details?.items||[];
-                console.log(`${row.page}#${run} bootup top: ${JSON.stringify(boot.sort((x,y)=>(y.total||0)-(x.total||0)).slice(0,5))}`);
-              }
-            }
-          }
-          for(const page of ['home','explore']){
-            const values=rows.filter(r=>r.page===page);
-            const avg=k=>values.reduce((s,r)=>s+r[k],0)/values.length;
-            console.log(`${page} avg: performance=${avg('performance').toFixed(1)} TBT=${Math.round(avg('tbt'))}ms CLS=${avg('cls').toFixed(3)} LCP=${Math.round(avg('lcp'))}ms`);
+          for(const [name,file] of [['home','lighthouse-index.json'],['explore','lighthouse-explore.json']]){
+            const r=JSON.parse(fs.readFileSync(file,'utf8')),a=r.audits;
+            const pct=k=>Math.round((r.categories[k]?.score||0)*100);
+            console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${a['cumulative-layout-shift']?.displayValue}`);
+            for(const item of (a['layout-shifts']?.details?.items||[]).slice(0,5)) console.log(`${name} shift: ${JSON.stringify(item)}`);
           }
           NODE
