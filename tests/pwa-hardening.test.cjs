@@ -3,23 +3,18 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const sw=fs.readFileSync('sw.js','utf8');
 const manifest=JSON.parse(fs.readFileSync('manifest.webmanifest','utf8'));
+const legacy=['platform-categories.js','platform-categories-10-20.js','platform-categories-21-30.js','platform-categories-31-40.js','category-direct-links.js'];
 
-test('service worker precaches current platform category runtime',()=>{
-  for(const asset of [
-    './css/categories-only.css',
-    './js/platform-categories.js',
-    './js/platform-categories-10-20.js',
-    './js/platform-categories-21-30.js',
-    './js/platform-categories-31-40.js',
-    './js/category-direct-links.js'
-  ]) assert.ok(sw.includes(`'${asset}'`),`missing from precache: ${asset}`);
-  assert.match(sw,/dunya-al-dawrat-v1[4-9]/);
+test('service worker precaches authoritative category data without legacy mutation scripts',()=>{
+  assert.ok(sw.includes("'./data.json'"));
+  assert.ok(sw.includes("'./css/categories-only.css'"));
+  for(const name of legacy)assert.equal(sw.includes(name),false,`${name} must not be precached`);
+  assert.match(sw,/dunya-al-dawrat-v14/);
 });
 
 test('offline HTML fallback is limited to navigation requests',()=>{
   assert.match(sw,/event\.request\.mode\s*===\s*['"]navigate['"]/);
   assert.match(sw,/networkFirst\(event\.request,\s*null\)/);
-  assert.ok(!sw.includes("['script','style'].includes(event.request.destination);\n  if(needsFreshCopy){\n    event.respondWith(networkFirst(event.request,(isDataRequest||isAdminConfigRequest)?null:'./offline.html'))"));
 });
 
 test('manifest exposes install-quality 192 and 512 PNG icons',()=>{

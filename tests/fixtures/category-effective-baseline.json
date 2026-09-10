@@ -1,0 +1,3341 @@
+{
+  "plat-1": [
+    {
+      "id": "business-management",
+      "name": {
+        "ar": "الأعمال والإدارة",
+        "en": "Business & Management",
+        "tr": "İşletme ve Yönetim"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/business-and-management-courses"
+    },
+    {
+      "id": "creative-arts-media",
+      "name": {
+        "ar": "الفنون الإبداعية والإعلام",
+        "en": "Creative Arts & Media",
+        "tr": "Yaratıcı Sanatlar ve Medya"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/creative-arts-and-media-courses"
+    },
+    {
+      "id": "healthcare-medicine",
+      "name": {
+        "ar": "الرعاية الصحية والطب",
+        "en": "Healthcare & Medicine",
+        "tr": "Sağlık ve Tıp"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/healthcare-medicine-courses"
+    },
+    {
+      "id": "history",
+      "name": {
+        "ar": "التاريخ",
+        "en": "History",
+        "tr": "Tarih"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/history-courses"
+    },
+    {
+      "id": "it-computer-science",
+      "name": {
+        "ar": "تقنية المعلومات وعلوم الحاسوب",
+        "en": "IT & Computer Science",
+        "tr": "BT ve Bilgisayar Bilimleri"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/it-and-computer-science-courses"
+    },
+    {
+      "id": "language",
+      "name": {
+        "ar": "اللغات",
+        "en": "Language",
+        "tr": "Dil"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/language-courses"
+    },
+    {
+      "id": "law",
+      "name": {
+        "ar": "القانون",
+        "en": "Law",
+        "tr": "Hukuk"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/law-courses"
+    },
+    {
+      "id": "literature",
+      "name": {
+        "ar": "الأدب",
+        "en": "Literature",
+        "tr": "Edebiyat"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/literature-courses"
+    },
+    {
+      "id": "nature-environment",
+      "name": {
+        "ar": "الطبيعة والبيئة",
+        "en": "Nature & Environment",
+        "tr": "Doğa ve Çevre"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/nature-and-environment-courses"
+    },
+    {
+      "id": "politics-society",
+      "name": {
+        "ar": "السياسة والمجتمع",
+        "en": "Politics & Society",
+        "tr": "Siyaset ve Toplum"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/politics-and-society-courses"
+    },
+    {
+      "id": "psychology-mental-health",
+      "name": {
+        "ar": "علم النفس والصحة النفسية",
+        "en": "Psychology & Mental Health",
+        "tr": "Psikoloji ve Ruh Sağlığı"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/psychology-and-mental-health-courses"
+    },
+    {
+      "id": "science-engineering-maths",
+      "name": {
+        "ar": "العلوم والهندسة والرياضيات",
+        "en": "Science, Engineering & Maths",
+        "tr": "Fen, Mühendislik ve Matematik"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/science-engineering-and-maths-courses"
+    },
+    {
+      "id": "study-skills",
+      "name": {
+        "ar": "مهارات الدراسة",
+        "en": "Study Skills",
+        "tr": "Çalışma Becerileri"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/study-skills-courses"
+    },
+    {
+      "id": "teaching",
+      "name": {
+        "ar": "التدريس",
+        "en": "Teaching",
+        "tr": "Öğretim"
+      },
+      "officialUrl": "https://www.futurelearn.com/subjects/teaching-courses"
+    }
+  ],
+  "plat-2": [
+    {
+      "id": "focus-areas",
+      "name": {
+        "ar": "مجالات العمل",
+        "en": "Focus areas",
+        "tr": "Odak alanları"
+      },
+      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?query=Focus%20areas"
+    },
+    {
+      "id": "strategies",
+      "name": {
+        "ar": "الاستراتيجيات",
+        "en": "Strategies",
+        "tr": "Stratejiler"
+      },
+      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?query=Strategies"
+    },
+    {
+      "id": "leading-managing",
+      "name": {
+        "ar": "القيادة والإدارة",
+        "en": "Leading and managing",
+        "tr": "Liderlik ve yönetim"
+      },
+      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?query=Leading%20and%20managing"
+    },
+    {
+      "id": "operational-support",
+      "name": {
+        "ar": "الدعم التشغيلي",
+        "en": "Operational support",
+        "tr": "Operasyonel destek"
+      },
+      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?query=Operational%20support"
+    },
+    {
+      "id": "communication-languages",
+      "name": {
+        "ar": "التواصل واللغات",
+        "en": "Communication & languages",
+        "tr": "İletişim ve diller"
+      },
+      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?query=Communication%20%26%20languages"
+    },
+    {
+      "id": "career-support",
+      "name": {
+        "ar": "الدعم المهني",
+        "en": "Career support",
+        "tr": "Kariyer desteği"
+      },
+      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?query=Career%20support"
+    }
+  ],
+  "plat-3": [
+    {
+      "id": "artificial-intelligence",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "Artificial Intelligence",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?topic=ai"
+    },
+    {
+      "id": "business-professional-skills",
+      "name": {
+        "ar": "مهارات الأعمال والمهارات المهنية",
+        "en": "Business & Professional Skills",
+        "tr": "İş ve Profesyonel Beceriler"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?topic=business"
+    },
+    {
+      "id": "cybersecurity",
+      "name": {
+        "ar": "الأمن السيبراني",
+        "en": "Cybersecurity",
+        "tr": "Siber Güvenlik"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?topic=security"
+    },
+    {
+      "id": "data-analytics",
+      "name": {
+        "ar": "البيانات والتحليلات",
+        "en": "Data & Analytics",
+        "tr": "Veri ve Analitik"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?topic=data"
+    },
+    {
+      "id": "design",
+      "name": {
+        "ar": "التصميم",
+        "en": "Design",
+        "tr": "Tasarım"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?topic=design"
+    },
+    {
+      "id": "it-cloud",
+      "name": {
+        "ar": "تقنية المعلومات والحوسبة السحابية",
+        "en": "IT & Cloud",
+        "tr": "BT ve Bulut"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?topic=cloud"
+    },
+    {
+      "id": "software-development",
+      "name": {
+        "ar": "تطوير البرمجيات",
+        "en": "Software Development",
+        "tr": "Yazılım Geliştirme"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?topic=software"
+    },
+    {
+      "id": "education",
+      "name": {
+        "ar": "التعليم",
+        "en": "Education",
+        "tr": "Eğitim"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?industry=Education"
+    },
+    {
+      "id": "healthcare",
+      "name": {
+        "ar": "الرعاية الصحية",
+        "en": "Healthcare",
+        "tr": "Sağlık"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?industry=Healthcare"
+    },
+    {
+      "id": "marketing",
+      "name": {
+        "ar": "التسويق",
+        "en": "Marketing",
+        "tr": "Pazarlama"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?industry=Marketing"
+    },
+    {
+      "id": "sports-entertainment",
+      "name": {
+        "ar": "الرياضة والترفيه",
+        "en": "Sports & Entertainment",
+        "tr": "Spor ve Eğlence"
+      },
+      "officialUrl": "https://skillsbuild.org/learning-catalog?industry=Sports%20%26%20Entertainment"
+    }
+  ],
+  "plat-4": [
+    {
+      "id": "accounting",
+      "name": {
+        "ar": "المحاسبة",
+        "en": "Accounting",
+        "tr": "Muhasebe"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=accounting"
+    },
+    {
+      "id": "banking-financial-services",
+      "name": {
+        "ar": "الخدمات المصرفية والمالية",
+        "en": "Banking & Financial Services",
+        "tr": "Bankacılık ve Finansal Hizmetler"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=banking-and-financial-services"
+    },
+    {
+      "id": "artificial-intelligence",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "Artificial Intelligence",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=ai"
+    },
+    {
+      "id": "data-analytics",
+      "name": {
+        "ar": "البيانات والتحليلات",
+        "en": "Data & Analytics",
+        "tr": "Veri ve Analitik"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=data"
+    },
+    {
+      "id": "design",
+      "name": {
+        "ar": "التصميم",
+        "en": "Design",
+        "tr": "Tasarım"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=design"
+    },
+    {
+      "id": "software-engineering",
+      "name": {
+        "ar": "هندسة البرمجيات",
+        "en": "Software Engineering",
+        "tr": "Yazılım Mühendisliği"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=software-engineering"
+    },
+    {
+      "id": "security",
+      "name": {
+        "ar": "الأمن",
+        "en": "Security",
+        "tr": "Güvenlik"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=security"
+    },
+    {
+      "id": "consulting",
+      "name": {
+        "ar": "الاستشارات",
+        "en": "Consulting",
+        "tr": "Danışmanlık"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=consulting"
+    },
+    {
+      "id": "engineering",
+      "name": {
+        "ar": "الهندسة",
+        "en": "Engineering",
+        "tr": "Mühendislik"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=engineering"
+    },
+    {
+      "id": "law",
+      "name": {
+        "ar": "القانون",
+        "en": "Law",
+        "tr": "Hukuk"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=law"
+    },
+    {
+      "id": "client-services",
+      "name": {
+        "ar": "خدمات العملاء",
+        "en": "Client Services",
+        "tr": "Müşteri Hizmetleri"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=client-services"
+    },
+    {
+      "id": "sales",
+      "name": {
+        "ar": "المبيعات",
+        "en": "Sales",
+        "tr": "Satış"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=sales"
+    },
+    {
+      "id": "project-management",
+      "name": {
+        "ar": "إدارة المشاريع",
+        "en": "Project Management",
+        "tr": "Proje Yönetimi"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=project-management"
+    },
+    {
+      "id": "marketing",
+      "name": {
+        "ar": "التسويق",
+        "en": "Marketing",
+        "tr": "Pazarlama"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=marketing"
+    },
+    {
+      "id": "human-resources",
+      "name": {
+        "ar": "الموارد البشرية",
+        "en": "Human Resources",
+        "tr": "İnsan Kaynakları"
+      },
+      "officialUrl": "https://www.theforage.com/simulations?careers=human-resources"
+    }
+  ],
+  "plat-5": [
+    {
+      "id": "application-development",
+      "name": {
+        "ar": "تطوير التطبيقات",
+        "en": "Application Development",
+        "tr": "Uygulama Geliştirme"
+      },
+      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/?terms=Application%20Development"
+    },
+    {
+      "id": "artificial-intelligence",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "Artificial Intelligence",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/?terms=Artificial%20Intelligence"
+    },
+    {
+      "id": "business-applications",
+      "name": {
+        "ar": "تطبيقات الأعمال",
+        "en": "Business Applications",
+        "tr": "İş Uygulamaları"
+      },
+      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/?terms=Business%20Applications"
+    },
+    {
+      "id": "data-management",
+      "name": {
+        "ar": "إدارة البيانات",
+        "en": "Data Management",
+        "tr": "Veri Yönetimi"
+      },
+      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/?terms=Data%20Management"
+    },
+    {
+      "id": "security",
+      "name": {
+        "ar": "الأمن",
+        "en": "Security",
+        "tr": "Güvenlik"
+      },
+      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/?terms=Security"
+    },
+    {
+      "id": "technical-infrastructure",
+      "name": {
+        "ar": "البنية التحتية التقنية",
+        "en": "Technical Infrastructure",
+        "tr": "Teknik Altyapı"
+      },
+      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/?terms=Technical%20Infrastructure"
+    }
+  ],
+  "plat-6": [
+    {
+      "id": "cybersecurity",
+      "name": {
+        "ar": "الأمن السيبراني",
+        "en": "Cybersecurity",
+        "tr": "Siber Güvenlik"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Cybersecurity"
+    },
+    {
+      "id": "digital-transformation",
+      "name": {
+        "ar": "التحول الرقمي",
+        "en": "Digital Transformation",
+        "tr": "Dijital Dönüşüm"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Digital%20Transformation"
+    },
+    {
+      "id": "digital-inclusion",
+      "name": {
+        "ar": "الشمول الرقمي",
+        "en": "Digital Inclusion",
+        "tr": "Dijital Kapsayıcılık"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Digital%20Inclusion"
+    },
+    {
+      "id": "artificial-intelligence",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "Artificial Intelligence",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Artificial%20Intelligence"
+    },
+    {
+      "id": "wireless-fixed-broadband",
+      "name": {
+        "ar": "النطاق العريض اللاسلكي والثابت",
+        "en": "Wireless and Fixed Broadband",
+        "tr": "Kablosuz ve Sabit Geniş Bant"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Wireless%20and%20Fixed%20Broadband"
+    },
+    {
+      "id": "e-government",
+      "name": {
+        "ar": "الحكومة الإلكترونية",
+        "en": "E-government",
+        "tr": "E-Devlet"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=E-government"
+    },
+    {
+      "id": "ict-applications",
+      "name": {
+        "ar": "تطبيقات تكنولوجيا المعلومات والاتصالات",
+        "en": "ICT Applications",
+        "tr": "BİT Uygulamaları"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=ICT%20Applications"
+    },
+    {
+      "id": "ict-telecom-regulation",
+      "name": {
+        "ar": "تنظيم تكنولوجيا المعلومات والاتصالات",
+        "en": "ICT/Telecom Regulation",
+        "tr": "BİT/Telekom Düzenlemeleri"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=ICT%2FTelecom%20Regulation"
+    },
+    {
+      "id": "satellite-communications",
+      "name": {
+        "ar": "الاتصالات عبر الأقمار الصناعية",
+        "en": "Satellite Communications",
+        "tr": "Uydu Haberleşmesi"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Satellite%20Communications"
+    },
+    {
+      "id": "big-data-statistics",
+      "name": {
+        "ar": "البيانات الضخمة والإحصاءات",
+        "en": "Big Data and Statistics",
+        "tr": "Büyük Veri ve İstatistik"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Big%20Data%20and%20Statistics"
+    },
+    {
+      "id": "e-waste",
+      "name": {
+        "ar": "النفايات الإلكترونية",
+        "en": "E-Waste",
+        "tr": "E-Atık"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=E-Waste"
+    },
+    {
+      "id": "digital-economy",
+      "name": {
+        "ar": "الاقتصاد الرقمي",
+        "en": "Digital Economy",
+        "tr": "Dijital Ekonomi"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Digital%20Economy"
+    },
+    {
+      "id": "emergency-telecommunication",
+      "name": {
+        "ar": "اتصالات الطوارئ",
+        "en": "Emergency Telecommunication",
+        "tr": "Acil Durum Haberleşmesi"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Emergency%20Telecommunication"
+    },
+    {
+      "id": "spectrum-management",
+      "name": {
+        "ar": "إدارة الطيف الترددي",
+        "en": "Spectrum Management",
+        "tr": "Spektrum Yönetimi"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Spectrum%20Management"
+    },
+    {
+      "id": "icts-environment",
+      "name": {
+        "ar": "تكنولوجيا المعلومات والاتصالات والبيئة",
+        "en": "ICTs and the Environment",
+        "tr": "BİT ve Çevre"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=ICTs%20and%20the%20Environment"
+    },
+    {
+      "id": "innovation-entrepreneurship",
+      "name": {
+        "ar": "الابتكار وريادة الأعمال",
+        "en": "Innovation and Entrepreneurship",
+        "tr": "İnovasyon ve Girişimcilik"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Innovation%20and%20Entrepreneurship"
+    },
+    {
+      "id": "smart-cities-communities",
+      "name": {
+        "ar": "المدن والمجتمعات الذكية",
+        "en": "Smart Cities and Communities",
+        "tr": "Akıllı Şehirler ve Topluluklar"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Smart%20Cities%20and%20Communities"
+    },
+    {
+      "id": "ict-climate-change",
+      "name": {
+        "ar": "تكنولوجيا المعلومات والاتصالات وتغير المناخ",
+        "en": "ICT & Climate Change",
+        "tr": "BİT ve İklim Değişikliği"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=ICT%20%26%20Climate%20Change"
+    },
+    {
+      "id": "digital-financial-services",
+      "name": {
+        "ar": "الخدمات المالية الرقمية",
+        "en": "Digital Financial Services",
+        "tr": "Dijital Finansal Hizmetler"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Digital%20Financial%20Services"
+    },
+    {
+      "id": "quality-of-service",
+      "name": {
+        "ar": "جودة الخدمة",
+        "en": "Quality of Service",
+        "tr": "Hizmet Kalitesi"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Quality%20of%20Service"
+    },
+    {
+      "id": "ict-accessibility",
+      "name": {
+        "ar": "إتاحة تكنولوجيا المعلومات والاتصالات",
+        "en": "ICT Accessibility",
+        "tr": "BİT Erişilebilirliği"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=ICT%20Accessibility"
+    },
+    {
+      "id": "basic-digital-skills",
+      "name": {
+        "ar": "المهارات الرقمية الأساسية",
+        "en": "Basic Digital Skills",
+        "tr": "Temel Dijital Beceriler"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Basic%20Digital%20Skills"
+    },
+    {
+      "id": "conformance-interoperability",
+      "name": {
+        "ar": "المطابقة وقابلية التشغيل البيني",
+        "en": "Conformance and Interoperability",
+        "tr": "Uygunluk ve Birlikte Çalışabilirlik"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Conformance%20and%20Interoperability"
+    },
+    {
+      "id": "e-health",
+      "name": {
+        "ar": "الصحة الإلكترونية",
+        "en": "E-health",
+        "tr": "E-Sağlık"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=E-health"
+    },
+    {
+      "id": "internet-of-things",
+      "name": {
+        "ar": "إنترنت الأشياء",
+        "en": "Internet of Things",
+        "tr": "Nesnelerin İnterneti"
+      },
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Internet%20of%20Things"
+    }
+  ],
+  "plat-7": [
+    {
+      "id": "architecture",
+      "name": {
+        "ar": "العمارة",
+        "en": "Architecture",
+        "tr": "Mimarlık"
+      },
+      "officialUrl": "https://www.edx.org/learn/architecture"
+    },
+    {
+      "id": "art",
+      "name": {
+        "ar": "الفنون",
+        "en": "Art",
+        "tr": "Sanat"
+      },
+      "officialUrl": "https://www.edx.org/learn/art"
+    },
+    {
+      "id": "biology",
+      "name": {
+        "ar": "الأحياء",
+        "en": "Biology",
+        "tr": "Biyoloji"
+      },
+      "officialUrl": "https://www.edx.org/learn/biology"
+    },
+    {
+      "id": "business-administration",
+      "name": {
+        "ar": "إدارة الأعمال",
+        "en": "Business Administration",
+        "tr": "İşletme"
+      },
+      "officialUrl": "https://www.edx.org/learn/business-administration"
+    },
+    {
+      "id": "business-communications",
+      "name": {
+        "ar": "اتصالات الأعمال",
+        "en": "Business Communications",
+        "tr": "İş İletişimi"
+      },
+      "officialUrl": "https://www.edx.org/learn/business-communications"
+    },
+    {
+      "id": "chemistry",
+      "name": {
+        "ar": "الكيمياء",
+        "en": "Chemistry",
+        "tr": "Kimya"
+      },
+      "officialUrl": "https://www.edx.org/learn/chemistry"
+    },
+    {
+      "id": "computer-programming",
+      "name": {
+        "ar": "برمجة الحاسوب",
+        "en": "Computer Programming",
+        "tr": "Bilgisayar Programlama"
+      },
+      "officialUrl": "https://www.edx.org/learn/computer-programming"
+    },
+    {
+      "id": "computer-science",
+      "name": {
+        "ar": "علوم الحاسوب",
+        "en": "Computer Science",
+        "tr": "Bilgisayar Bilimi"
+      },
+      "officialUrl": "https://www.edx.org/learn/computer-science"
+    },
+    {
+      "id": "data-analysis",
+      "name": {
+        "ar": "تحليل البيانات",
+        "en": "Data Analysis",
+        "tr": "Veri Analizi"
+      },
+      "officialUrl": "https://www.edx.org/learn/data-analysis"
+    },
+    {
+      "id": "design",
+      "name": {
+        "ar": "التصميم",
+        "en": "Design",
+        "tr": "Tasarım"
+      },
+      "officialUrl": "https://www.edx.org/learn/design"
+    },
+    {
+      "id": "economics",
+      "name": {
+        "ar": "الاقتصاد",
+        "en": "Economics",
+        "tr": "Ekonomi"
+      },
+      "officialUrl": "https://www.edx.org/learn/economics"
+    },
+    {
+      "id": "education",
+      "name": {
+        "ar": "التعليم",
+        "en": "Education",
+        "tr": "Eğitim"
+      },
+      "officialUrl": "https://www.edx.org/learn/education"
+    },
+    {
+      "id": "electronics",
+      "name": {
+        "ar": "الإلكترونيات",
+        "en": "Electronics",
+        "tr": "Elektronik"
+      },
+      "officialUrl": "https://www.edx.org/learn/electronics"
+    },
+    {
+      "id": "engineering",
+      "name": {
+        "ar": "الهندسة",
+        "en": "Engineering",
+        "tr": "Mühendislik"
+      },
+      "officialUrl": "https://www.edx.org/learn/engineering"
+    },
+    {
+      "id": "environmental-science",
+      "name": {
+        "ar": "العلوم البيئية",
+        "en": "Environmental Science",
+        "tr": "Çevre Bilimi"
+      },
+      "officialUrl": "https://www.edx.org/learn/environmental-science"
+    },
+    {
+      "id": "healthcare",
+      "name": {
+        "ar": "الرعاية الصحية",
+        "en": "Healthcare",
+        "tr": "Sağlık"
+      },
+      "officialUrl": "https://www.edx.org/learn/healthcare"
+    },
+    {
+      "id": "history",
+      "name": {
+        "ar": "التاريخ",
+        "en": "History",
+        "tr": "Tarih"
+      },
+      "officialUrl": "https://www.edx.org/learn/history"
+    },
+    {
+      "id": "humanities",
+      "name": {
+        "ar": "العلوم الإنسانية",
+        "en": "Humanities",
+        "tr": "Beşeri Bilimler"
+      },
+      "officialUrl": "https://www.edx.org/learn/humanities"
+    },
+    {
+      "id": "language",
+      "name": {
+        "ar": "اللغات",
+        "en": "Language",
+        "tr": "Dil"
+      },
+      "officialUrl": "https://www.edx.org/learn/language"
+    },
+    {
+      "id": "law",
+      "name": {
+        "ar": "القانون",
+        "en": "Law",
+        "tr": "Hukuk"
+      },
+      "officialUrl": "https://www.edx.org/learn/law"
+    },
+    {
+      "id": "literature",
+      "name": {
+        "ar": "الأدب",
+        "en": "Literature",
+        "tr": "Edebiyat"
+      },
+      "officialUrl": "https://www.edx.org/learn/literature"
+    },
+    {
+      "id": "math",
+      "name": {
+        "ar": "الرياضيات",
+        "en": "Math",
+        "tr": "Matematik"
+      },
+      "officialUrl": "https://www.edx.org/learn/math"
+    },
+    {
+      "id": "medicine",
+      "name": {
+        "ar": "الطب",
+        "en": "Medicine",
+        "tr": "Tıp"
+      },
+      "officialUrl": "https://www.edx.org/learn/medicine"
+    },
+    {
+      "id": "nutrition",
+      "name": {
+        "ar": "التغذية",
+        "en": "Nutrition",
+        "tr": "Beslenme"
+      },
+      "officialUrl": "https://www.edx.org/learn/nutrition"
+    },
+    {
+      "id": "physics",
+      "name": {
+        "ar": "الفيزياء",
+        "en": "Physics",
+        "tr": "Fizik"
+      },
+      "officialUrl": "https://www.edx.org/learn/physics"
+    },
+    {
+      "id": "science",
+      "name": {
+        "ar": "العلوم",
+        "en": "Science",
+        "tr": "Bilim"
+      },
+      "officialUrl": "https://www.edx.org/learn/science"
+    },
+    {
+      "id": "social-science",
+      "name": {
+        "ar": "العلوم الاجتماعية",
+        "en": "Social Science",
+        "tr": "Sosyal Bilimler"
+      },
+      "officialUrl": "https://www.edx.org/learn/social-science"
+    }
+  ],
+  "plat-8": [
+    {
+      "id": "ai",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "AI",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/artificial-intelligence"
+    },
+    {
+      "id": "bash-shell",
+      "name": {
+        "ar": "باش/سطر الأوامر",
+        "en": "Bash/Shell",
+        "tr": "Bash/Shell"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/bash"
+    },
+    {
+      "id": "c",
+      "name": {
+        "ar": "لغة C",
+        "en": "C",
+        "tr": "C"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/c"
+    },
+    {
+      "id": "c-sharp",
+      "name": {
+        "ar": "لغة C#",
+        "en": "C#",
+        "tr": "C#"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/c-sharp"
+    },
+    {
+      "id": "c-plus-plus",
+      "name": {
+        "ar": "لغة C++",
+        "en": "C++",
+        "tr": "C++"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/c-plus-plus"
+    },
+    {
+      "id": "certification-prep",
+      "name": {
+        "ar": "الاستعداد للشهادات",
+        "en": "Certification Prep",
+        "tr": "Sertifika Hazırlığı"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/certification-prep"
+    },
+    {
+      "id": "cloud-computing",
+      "name": {
+        "ar": "الحوسبة السحابية",
+        "en": "Cloud Computing",
+        "tr": "Bulut Bilişim"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/cloud-computing"
+    },
+    {
+      "id": "code-foundations",
+      "name": {
+        "ar": "أساسيات البرمجة",
+        "en": "Code Foundations",
+        "tr": "Kodlama Temelleri"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/code-foundations"
+    },
+    {
+      "id": "computer-science",
+      "name": {
+        "ar": "علوم الحاسوب",
+        "en": "Computer Science",
+        "tr": "Bilgisayar Bilimi"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/computer-science"
+    },
+    {
+      "id": "cybersecurity",
+      "name": {
+        "ar": "الأمن السيبراني",
+        "en": "Cybersecurity",
+        "tr": "Siber Güvenlik"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/cybersecurity"
+    },
+    {
+      "id": "data-analytics",
+      "name": {
+        "ar": "تحليلات البيانات",
+        "en": "Data Analytics",
+        "tr": "Veri Analitiği"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/data-analytics"
+    },
+    {
+      "id": "data-engineering",
+      "name": {
+        "ar": "هندسة البيانات",
+        "en": "Data Engineering",
+        "tr": "Veri Mühendisliği"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/data-engineering"
+    },
+    {
+      "id": "data-science",
+      "name": {
+        "ar": "علم البيانات",
+        "en": "Data Science",
+        "tr": "Veri Bilimi"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/data-science"
+    },
+    {
+      "id": "data-visualization",
+      "name": {
+        "ar": "تصور البيانات",
+        "en": "Data Visualization",
+        "tr": "Veri Görselleştirme"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/data-visualization"
+    },
+    {
+      "id": "devops",
+      "name": {
+        "ar": "ديف أوبس",
+        "en": "DevOps",
+        "tr": "DevOps"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/devops"
+    },
+    {
+      "id": "developer-tools",
+      "name": {
+        "ar": "أدوات المطورين",
+        "en": "Developer Tools",
+        "tr": "Geliştirici Araçları"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/developer-tools"
+    },
+    {
+      "id": "game-development",
+      "name": {
+        "ar": "تطوير الألعاب",
+        "en": "Game Development",
+        "tr": "Oyun Geliştirme"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/game-development"
+    },
+    {
+      "id": "go",
+      "name": {
+        "ar": "لغة Go",
+        "en": "Go",
+        "tr": "Go"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/go"
+    },
+    {
+      "id": "html-css",
+      "name": {
+        "ar": "HTML وCSS",
+        "en": "HTML & CSS",
+        "tr": "HTML ve CSS"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/html-css"
+    },
+    {
+      "id": "it",
+      "name": {
+        "ar": "تقنية المعلومات",
+        "en": "IT",
+        "tr": "BT"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/information-technology"
+    },
+    {
+      "id": "interview-prep",
+      "name": {
+        "ar": "الاستعداد للمقابلات",
+        "en": "Interview Prep",
+        "tr": "Mülakat Hazırlığı"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/interview-prep"
+    },
+    {
+      "id": "java",
+      "name": {
+        "ar": "لغة Java",
+        "en": "Java",
+        "tr": "Java"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/java"
+    },
+    {
+      "id": "javascript",
+      "name": {
+        "ar": "جافاسكربت",
+        "en": "JavaScript",
+        "tr": "JavaScript"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/javascript"
+    },
+    {
+      "id": "kotlin",
+      "name": {
+        "ar": "كوتلن",
+        "en": "Kotlin",
+        "tr": "Kotlin"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/kotlin"
+    },
+    {
+      "id": "machine-learning",
+      "name": {
+        "ar": "التعلم الآلي",
+        "en": "Machine Learning",
+        "tr": "Makine Öğrenmesi"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/machine-learning"
+    },
+    {
+      "id": "math",
+      "name": {
+        "ar": "الرياضيات",
+        "en": "Math",
+        "tr": "Matematik"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/math"
+    },
+    {
+      "id": "mobile-development",
+      "name": {
+        "ar": "تطوير تطبيقات الجوال",
+        "en": "Mobile Development",
+        "tr": "Mobil Geliştirme"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/mobile-development"
+    },
+    {
+      "id": "open-source",
+      "name": {
+        "ar": "المصادر المفتوحة",
+        "en": "Open Source",
+        "tr": "Açık Kaynak"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/open-source"
+    },
+    {
+      "id": "php",
+      "name": {
+        "ar": "لغة PHP",
+        "en": "PHP",
+        "tr": "PHP"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/php"
+    },
+    {
+      "id": "professional-skills",
+      "name": {
+        "ar": "المهارات المهنية",
+        "en": "Professional Skills",
+        "tr": "Profesyonel Beceriler"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/professional-skills"
+    },
+    {
+      "id": "python",
+      "name": {
+        "ar": "بايثون",
+        "en": "Python",
+        "tr": "Python"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/python"
+    },
+    {
+      "id": "r",
+      "name": {
+        "ar": "لغة R",
+        "en": "R",
+        "tr": "R"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/r"
+    },
+    {
+      "id": "ruby",
+      "name": {
+        "ar": "روبي",
+        "en": "Ruby",
+        "tr": "Ruby"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/ruby"
+    },
+    {
+      "id": "sql",
+      "name": {
+        "ar": "SQL",
+        "en": "SQL",
+        "tr": "SQL"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/sql"
+    },
+    {
+      "id": "swift",
+      "name": {
+        "ar": "سويفت",
+        "en": "Swift",
+        "tr": "Swift"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/language/swift"
+    },
+    {
+      "id": "web-design",
+      "name": {
+        "ar": "تصميم الويب",
+        "en": "Web Design",
+        "tr": "Web Tasarımı"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/web-design"
+    },
+    {
+      "id": "web-development",
+      "name": {
+        "ar": "تطوير الويب",
+        "en": "Web Development",
+        "tr": "Web Geliştirme"
+      },
+      "officialUrl": "https://www.codecademy.com/catalog/subject/web-development"
+    }
+  ],
+  "plat-9": [
+    {
+      "id": "peace",
+      "name": {
+        "ar": "السلام",
+        "en": "Peace",
+        "tr": "Barış"
+      },
+      "officialUrl": "https://event.unitar.org/full-catalog?search=Peace"
+    },
+    {
+      "id": "people",
+      "name": {
+        "ar": "الناس",
+        "en": "People",
+        "tr": "İnsanlar"
+      },
+      "officialUrl": "https://event.unitar.org/full-catalog?search=People"
+    },
+    {
+      "id": "planet",
+      "name": {
+        "ar": "الكوكب",
+        "en": "Planet",
+        "tr": "Gezegen"
+      },
+      "officialUrl": "https://event.unitar.org/full-catalog?search=Planet"
+    },
+    {
+      "id": "prosperity",
+      "name": {
+        "ar": "الازدهار",
+        "en": "Prosperity",
+        "tr": "Refah"
+      },
+      "officialUrl": "https://event.unitar.org/full-catalog?search=Prosperity"
+    },
+    {
+      "id": "multilateral-diplomacy",
+      "name": {
+        "ar": "الدبلوماسية متعددة الأطراف",
+        "en": "Multilateral Diplomacy",
+        "tr": "Çok Taraflı Diplomasi"
+      },
+      "officialUrl": "https://event.unitar.org/full-catalog?search=Multilateral%20Diplomacy"
+    },
+    {
+      "id": "unosat",
+      "name": {
+        "ar": "مركز الأمم المتحدة للأقمار الصناعية (UNOSAT)",
+        "en": "United Nations Satellite Centre (UNOSAT)",
+        "tr": "Birleşmiş Milletler Uydu Merkezi (UNOSAT)"
+      },
+      "officialUrl": "https://event.unitar.org/full-catalog?search=UNOSAT"
+    }
+  ],
+  "plat-10": [
+    {
+      "id": "cloud-computing",
+      "name": {
+        "ar": "الحوسبة السحابية",
+        "en": "Cloud Computing",
+        "tr": "Bulut Bilişim"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Cloud%20Computing"
+    },
+    {
+      "id": "cloud-service",
+      "name": {
+        "ar": "الخدمات السحابية",
+        "en": "Cloud Service",
+        "tr": "Bulut Hizmeti"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Cloud%20Service"
+    },
+    {
+      "id": "big-data",
+      "name": {
+        "ar": "البيانات الضخمة",
+        "en": "Big Data",
+        "tr": "Büyük Veri"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Big%20Data"
+    },
+    {
+      "id": "gaussdb",
+      "name": {
+        "ar": "غاوس دي بي",
+        "en": "GaussDB",
+        "tr": "GaussDB"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=GaussDB"
+    },
+    {
+      "id": "iot",
+      "name": {
+        "ar": "إنترنت الأشياء",
+        "en": "IoT",
+        "tr": "IoT"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=IoT"
+    },
+    {
+      "id": "openeuler",
+      "name": {
+        "ar": "openEuler",
+        "en": "openEuler",
+        "tr": "openEuler"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=openEuler"
+    },
+    {
+      "id": "opengauss",
+      "name": {
+        "ar": "openGauss",
+        "en": "openGauss",
+        "tr": "openGauss"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=openGauss"
+    },
+    {
+      "id": "harmonyos",
+      "name": {
+        "ar": "HarmonyOS",
+        "en": "HarmonyOS",
+        "tr": "HarmonyOS"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=HarmonyOS"
+    },
+    {
+      "id": "ai",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "AI",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=AI"
+    },
+    {
+      "id": "kunpeng",
+      "name": {
+        "ar": "Kunpeng",
+        "en": "Kunpeng",
+        "tr": "Kunpeng"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Kunpeng"
+    },
+    {
+      "id": "computing",
+      "name": {
+        "ar": "الحوسبة",
+        "en": "Computing",
+        "tr": "Bilgi İşlem"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Computing"
+    },
+    {
+      "id": "storage",
+      "name": {
+        "ar": "التخزين",
+        "en": "Storage",
+        "tr": "Depolama"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Storage"
+    },
+    {
+      "id": "collaboration",
+      "name": {
+        "ar": "التعاون",
+        "en": "Collaboration",
+        "tr": "İş Birliği"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Collaboration"
+    },
+    {
+      "id": "intelligent-vision",
+      "name": {
+        "ar": "الرؤية الذكية",
+        "en": "Intelligent Vision",
+        "tr": "Akıllı Görüntü"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Intelligent%20Vision"
+    },
+    {
+      "id": "digital-power",
+      "name": {
+        "ar": "الطاقة الرقمية",
+        "en": "Digital Power",
+        "tr": "Dijital Güç"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Digital%20Power"
+    },
+    {
+      "id": "mdc",
+      "name": {
+        "ar": "MDC",
+        "en": "MDC",
+        "tr": "MDC"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=MDC"
+    },
+    {
+      "id": "datacom",
+      "name": {
+        "ar": "اتصالات البيانات",
+        "en": "Datacom",
+        "tr": "Datacom"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Datacom"
+    },
+    {
+      "id": "wlan",
+      "name": {
+        "ar": "الشبكات المحلية اللاسلكية",
+        "en": "WLAN",
+        "tr": "WLAN"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=WLAN"
+    },
+    {
+      "id": "security",
+      "name": {
+        "ar": "الأمن",
+        "en": "Security",
+        "tr": "Güvenlik"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Security"
+    },
+    {
+      "id": "transmission",
+      "name": {
+        "ar": "النقل",
+        "en": "Transmission",
+        "tr": "İletim"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Transmission"
+    },
+    {
+      "id": "access",
+      "name": {
+        "ar": "الوصول",
+        "en": "Access",
+        "tr": "Erişim"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=Access"
+    },
+    {
+      "id": "5g",
+      "name": {
+        "ar": "5G",
+        "en": "5G",
+        "tr": "5G"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=5G"
+    },
+    {
+      "id": "lte",
+      "name": {
+        "ar": "LTE",
+        "en": "LTE",
+        "tr": "LTE"
+      },
+      "officialUrl": "https://e.huawei.com/en/talent/search/?q=LTE"
+    }
+  ],
+  "plat-11": [],
+  "plat-12": [
+    {
+      "id": "communication",
+      "name": {
+        "ar": "التواصل",
+        "en": "Communication",
+        "tr": "İletişim"
+      },
+      "officialUrl": "https://www.life-global.org/categorylist/1-communication"
+    },
+    {
+      "id": "digital-business-skills",
+      "name": {
+        "ar": "مهارات الأعمال الرقمية",
+        "en": "Digital Business Skills",
+        "tr": "Dijital İş Becerileri"
+      },
+      "officialUrl": "https://www.life-global.org/categorylist/7-digital-business-skills"
+    },
+    {
+      "id": "entrepreneurship",
+      "name": {
+        "ar": "ريادة الأعمال",
+        "en": "Entrepreneurship",
+        "tr": "Girişimcilik"
+      },
+      "officialUrl": "https://www.life-global.org/categorylist/2-entrepreneurship"
+    },
+    {
+      "id": "finance",
+      "name": {
+        "ar": "التمويل",
+        "en": "Finance",
+        "tr": "Finans"
+      },
+      "officialUrl": "https://www.life-global.org/categorylist/3-finance"
+    },
+    {
+      "id": "marketing",
+      "name": {
+        "ar": "التسويق",
+        "en": "Marketing",
+        "tr": "Pazarlama"
+      },
+      "officialUrl": "https://www.life-global.org/categorylist/4-marketing"
+    },
+    {
+      "id": "professional-development",
+      "name": {
+        "ar": "التطوير المهني",
+        "en": "Professional Development",
+        "tr": "Mesleki Gelişim"
+      },
+      "officialUrl": "https://www.life-global.org/categorylist/6-career-development"
+    }
+  ],
+  "plat-13": [
+    {
+      "id": "accelerated-computing",
+      "name": {
+        "ar": "الحوسبة المسرّعة",
+        "en": "Accelerated Computing",
+        "tr": "Hızlandırılmış Hesaplama"
+      },
+      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/?tab=accelerated-computing&section=self-paced-courses"
+    },
+    {
+      "id": "ai-infrastructure",
+      "name": {
+        "ar": "البنية التحتية للذكاء الاصطناعي",
+        "en": "AI Infrastructure",
+        "tr": "Yapay Zekâ Altyapısı"
+      },
+      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/?tab=infrastructure&section=self-paced-courses"
+    },
+    {
+      "id": "data-science",
+      "name": {
+        "ar": "علم البيانات",
+        "en": "Data Science",
+        "tr": "Veri Bilimi"
+      },
+      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/?tab=data-science&section=self-paced-courses"
+    },
+    {
+      "id": "deep-learning",
+      "name": {
+        "ar": "التعلم العميق",
+        "en": "Deep Learning",
+        "tr": "Derin Öğrenme"
+      },
+      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/?tab=deep-learning&section=self-paced-courses"
+    },
+    {
+      "id": "generative-ai-llms",
+      "name": {
+        "ar": "الذكاء الاصطناعي التوليدي والنماذج اللغوية الكبيرة",
+        "en": "Generative AI / LLMs",
+        "tr": "Üretken Yapay Zekâ / LLM’ler"
+      },
+      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/?tab=generative-ai-llm&section=self-paced-courses"
+    },
+    {
+      "id": "graphics-simulation",
+      "name": {
+        "ar": "الرسوم والمحاكاة",
+        "en": "Graphics and Simulation",
+        "tr": "Grafik ve Simülasyon"
+      },
+      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/?tab=simulation-and-physical-ai&section=self-paced-courses"
+    }
+  ],
+  "plat-14": [
+    {
+      "id": "cybersecurity",
+      "name": {
+        "ar": "الأمن السيبراني",
+        "en": "Cybersecurity",
+        "tr": "Siber Güvenlik"
+      },
+      "officialUrl": "https://www.netacad.com/catalogs/learn/cybersecurity"
+    },
+    {
+      "id": "networking",
+      "name": {
+        "ar": "الشبكات",
+        "en": "Networking",
+        "tr": "Ağ"
+      },
+      "officialUrl": "https://www.netacad.com/catalogs/learn/networking"
+    },
+    {
+      "id": "ai-data-science",
+      "name": {
+        "ar": "الذكاء الاصطناعي وعلوم البيانات",
+        "en": "AI & Data Science",
+        "tr": "Yapay Zekâ ve Veri Bilimi"
+      },
+      "officialUrl": "https://www.netacad.com/catalogs/learn/data-science"
+    },
+    {
+      "id": "programming",
+      "name": {
+        "ar": "البرمجة",
+        "en": "Programming",
+        "tr": "Programlama"
+      },
+      "officialUrl": "https://www.netacad.com/catalogs/learn/programming"
+    },
+    {
+      "id": "information-technology",
+      "name": {
+        "ar": "تقنية المعلومات",
+        "en": "Information Technology",
+        "tr": "Bilgi Teknolojileri"
+      },
+      "officialUrl": "https://www.netacad.com/catalogs/learn/information-technology"
+    },
+    {
+      "id": "digital-literacy",
+      "name": {
+        "ar": "محو الأمية الرقمية",
+        "en": "Digital Literacy",
+        "tr": "Dijital Okuryazarlık"
+      },
+      "officialUrl": "https://www.netacad.com/catalogs/learn/digital-literacy"
+    },
+    {
+      "id": "professional-skills",
+      "name": {
+        "ar": "المهارات المهنية",
+        "en": "Professional Skills",
+        "tr": "Profesyonel Beceriler"
+      },
+      "officialUrl": "https://www.netacad.com/learning-collections/professionalskills?courseLang=en-US"
+    },
+    {
+      "id": "sustainability",
+      "name": {
+        "ar": "الاستدامة",
+        "en": "Sustainability",
+        "tr": "Sürdürülebilirlik"
+      },
+      "officialUrl": "https://www.netacad.com/catalogs/learn/sustainability"
+    },
+    {
+      "id": "cisco-packet-tracer",
+      "name": {
+        "ar": "سيسكو باكيت تريسر",
+        "en": "Cisco Packet Tracer",
+        "tr": "Cisco Packet Tracer"
+      },
+      "officialUrl": "https://www.netacad.com/learning-collections/cisco-packet-tracer"
+    }
+  ],
+  "plat-15": [
+    {
+      "id": "money-business",
+      "name": {
+        "ar": "المال والأعمال",
+        "en": "Money & Business",
+        "tr": "Para ve İşletme"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/money-management/free-courses"
+    },
+    {
+      "id": "education-development",
+      "name": {
+        "ar": "التعليم والتنمية",
+        "en": "Education & Development",
+        "tr": "Eğitim ve Gelişim"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/education/free-courses"
+    },
+    {
+      "id": "health-sports-psychology",
+      "name": {
+        "ar": "الصحة والرياضة وعلم النفس",
+        "en": "Health, Sports & Psychology",
+        "tr": "Sağlık, Spor ve Psikoloji"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/body-mind/free-courses"
+    },
+    {
+      "id": "history-arts",
+      "name": {
+        "ar": "التاريخ والفنون",
+        "en": "History & The Arts",
+        "tr": "Tarih ve Sanat"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/history-the-arts/free-courses"
+    },
+    {
+      "id": "languages",
+      "name": {
+        "ar": "اللغات",
+        "en": "Languages",
+        "tr": "Diller"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/languages/free-courses"
+    },
+    {
+      "id": "nature-environment",
+      "name": {
+        "ar": "الطبيعة والبيئة",
+        "en": "Nature & Environment",
+        "tr": "Doğa ve Çevre"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/nature-environment/free-courses"
+    },
+    {
+      "id": "science-maths-technology",
+      "name": {
+        "ar": "العلوم والرياضيات والتقنية",
+        "en": "Science, Maths & Technology",
+        "tr": "Bilim, Matematik ve Teknoloji"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/science-maths-technology/free-courses"
+    },
+    {
+      "id": "society-politics-law",
+      "name": {
+        "ar": "المجتمع والسياسة والقانون",
+        "en": "Society, Politics & Law",
+        "tr": "Toplum, Siyaset ve Hukuk"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/society/free-courses"
+    },
+    {
+      "id": "digital-computing",
+      "name": {
+        "ar": "الرقميات والحوسبة",
+        "en": "Digital & Computing",
+        "tr": "Dijital ve Bilgi İşlem"
+      },
+      "officialUrl": "https://www.open.edu/openlearn/digital/free-courses"
+    }
+  ],
+  "plat-16": [
+    {
+      "id": "google-ads",
+      "name": {
+        "ar": "إعلانات Google",
+        "en": "Google Ads",
+        "tr": "Google Ads"
+      },
+      "officialUrl": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=419-google-ads"
+    },
+    {
+      "id": "google-digital-garage",
+      "name": {
+        "ar": "مرآب Google الرقمي",
+        "en": "Google Digital Garage",
+        "tr": "Google Dijital Atölye"
+      },
+      "officialUrl": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=7836-grow-with-google"
+    },
+    {
+      "id": "google-for-education",
+      "name": {
+        "ar": "Google للتعليم",
+        "en": "Google for Education",
+        "tr": "Google for Education"
+      },
+      "officialUrl": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=3351-google-for-education"
+    },
+    {
+      "id": "google-marketing-platform",
+      "name": {
+        "ar": "منصة Google للتسويق",
+        "en": "Google Marketing Platform",
+        "tr": "Google Marketing Platform"
+      },
+      "officialUrl": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=638-google-marketing-platform"
+    },
+    {
+      "id": "youtube",
+      "name": {
+        "ar": "يوتيوب",
+        "en": "YouTube",
+        "tr": "YouTube"
+      },
+      "officialUrl": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=676-youtube"
+    },
+    {
+      "id": "waze-academy",
+      "name": {
+        "ar": "أكاديمية Waze",
+        "en": "Waze Academy",
+        "tr": "Waze Academy"
+      },
+      "officialUrl": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=2885-waze-academy"
+    }
+  ],
+  "plat-17": [
+    {
+      "id": "programming-foundations",
+      "name": {
+        "ar": "أساسيات البرمجة",
+        "en": "Programming Foundations",
+        "tr": "Programlama Temelleri"
+      },
+      "officialUrl": "https://www.sololearn.com/en/learn/"
+    },
+    {
+      "id": "data-analytics",
+      "name": {
+        "ar": "البيانات والتحليلات",
+        "en": "Data & Analytics",
+        "tr": "Veri ve Analitik"
+      },
+      "officialUrl": "https://www.sololearn.com/en/learn/"
+    },
+    {
+      "id": "web-app-development",
+      "name": {
+        "ar": "تطوير الويب والتطبيقات",
+        "en": "Web & App Development",
+        "tr": "Web ve Uygulama Geliştirme"
+      },
+      "officialUrl": "https://www.sololearn.com/en/learn/"
+    },
+    {
+      "id": "advanced-programming-frameworks",
+      "name": {
+        "ar": "البرمجة المتقدمة وأطر العمل",
+        "en": "Advanced Programming & Frameworks",
+        "tr": "İleri Programlama ve Frameworkler"
+      },
+      "officialUrl": "https://www.sololearn.com/en/learn/"
+    },
+    {
+      "id": "ai-generative-technologies",
+      "name": {
+        "ar": "الذكاء الاصطناعي والتقنيات التوليدية",
+        "en": "AI & Generative Technologies",
+        "tr": "Yapay Zekâ ve Üretken Teknolojiler"
+      },
+      "officialUrl": "https://www.sololearn.com/en/learn/"
+    }
+  ],
+  "plat-18": [
+    {
+      "id": "research-preparation",
+      "name": {
+        "ar": "التحضير للبحث",
+        "en": "Research Preparation",
+        "tr": "Araştırma Hazırlığı"
+      },
+      "officialUrl": "https://researcheracademy.elsevier.com/research-preparation"
+    },
+    {
+      "id": "writing-research",
+      "name": {
+        "ar": "الكتابة للبحث",
+        "en": "Writing for Research",
+        "tr": "Araştırma Yazımı"
+      },
+      "officialUrl": "https://researcheracademy.elsevier.com/writing-research"
+    },
+    {
+      "id": "publication-process",
+      "name": {
+        "ar": "عملية النشر",
+        "en": "Publication Process",
+        "tr": "Yayın Süreci"
+      },
+      "officialUrl": "https://researcheracademy.elsevier.com/publication-process"
+    },
+    {
+      "id": "navigating-peer-review",
+      "name": {
+        "ar": "التعامل مع مراجعة الأقران",
+        "en": "Navigating Peer Review",
+        "tr": "Hakem Değerlendirmesi"
+      },
+      "officialUrl": "https://researcheracademy.elsevier.com/navigating-peer-review"
+    },
+    {
+      "id": "communicating-research",
+      "name": {
+        "ar": "التواصل حول بحثك",
+        "en": "Communicating Your Research",
+        "tr": "Araştırmanı İletme"
+      },
+      "officialUrl": "https://researcheracademy.elsevier.com/communicating-research"
+    }
+  ],
+  "plat-19": [
+    {
+      "id": "html",
+      "name": {
+        "ar": "HTML",
+        "en": "HTML",
+        "tr": "HTML"
+      },
+      "officialUrl": "https://www.w3schools.com/html/"
+    },
+    {
+      "id": "css",
+      "name": {
+        "ar": "CSS",
+        "en": "CSS",
+        "tr": "CSS"
+      },
+      "officialUrl": "https://www.w3schools.com/css/"
+    },
+    {
+      "id": "javascript",
+      "name": {
+        "ar": "جافاسكربت",
+        "en": "JavaScript",
+        "tr": "JavaScript"
+      },
+      "officialUrl": "https://www.w3schools.com/js/"
+    },
+    {
+      "id": "python",
+      "name": {
+        "ar": "بايثون",
+        "en": "Python",
+        "tr": "Python"
+      },
+      "officialUrl": "https://www.w3schools.com/python/"
+    },
+    {
+      "id": "sql",
+      "name": {
+        "ar": "SQL",
+        "en": "SQL",
+        "tr": "SQL"
+      },
+      "officialUrl": "https://www.w3schools.com/sql/"
+    },
+    {
+      "id": "java",
+      "name": {
+        "ar": "Java",
+        "en": "Java",
+        "tr": "Java"
+      },
+      "officialUrl": "https://www.w3schools.com/java/"
+    },
+    {
+      "id": "c",
+      "name": {
+        "ar": "لغة C",
+        "en": "C",
+        "tr": "C"
+      },
+      "officialUrl": "https://www.w3schools.com/c/"
+    },
+    {
+      "id": "cpp",
+      "name": {
+        "ar": "لغة C++",
+        "en": "C++",
+        "tr": "C++"
+      },
+      "officialUrl": "https://www.w3schools.com/cpp/"
+    },
+    {
+      "id": "csharp",
+      "name": {
+        "ar": "لغة C#",
+        "en": "C#",
+        "tr": "C#"
+      },
+      "officialUrl": "https://www.w3schools.com/cs/"
+    },
+    {
+      "id": "php",
+      "name": {
+        "ar": "PHP",
+        "en": "PHP",
+        "tr": "PHP"
+      },
+      "officialUrl": "https://www.w3schools.com/php/"
+    },
+    {
+      "id": "react",
+      "name": {
+        "ar": "React",
+        "en": "React",
+        "tr": "React"
+      },
+      "officialUrl": "https://www.w3schools.com/react/"
+    },
+    {
+      "id": "w3css",
+      "name": {
+        "ar": "W3.CSS",
+        "en": "W3.CSS",
+        "tr": "W3.CSS"
+      },
+      "officialUrl": "https://www.w3schools.com/w3css/"
+    },
+    {
+      "id": "bootstrap5",
+      "name": {
+        "ar": "Bootstrap 5",
+        "en": "Bootstrap 5",
+        "tr": "Bootstrap 5"
+      },
+      "officialUrl": "https://www.w3schools.com/bootstrap5/"
+    },
+    {
+      "id": "mysql",
+      "name": {
+        "ar": "MySQL",
+        "en": "MySQL",
+        "tr": "MySQL"
+      },
+      "officialUrl": "https://www.w3schools.com/mysql/"
+    },
+    {
+      "id": "jquery",
+      "name": {
+        "ar": "jQuery",
+        "en": "jQuery",
+        "tr": "jQuery"
+      },
+      "officialUrl": "https://www.w3schools.com/jquery/"
+    },
+    {
+      "id": "dsa",
+      "name": {
+        "ar": "هياكل البيانات والخوارزميات",
+        "en": "DSA",
+        "tr": "Veri Yapıları ve Algoritmalar"
+      },
+      "officialUrl": "https://www.w3schools.com/dsa/"
+    },
+    {
+      "id": "typescript",
+      "name": {
+        "ar": "TypeScript",
+        "en": "TypeScript",
+        "tr": "TypeScript"
+      },
+      "officialUrl": "https://www.w3schools.com/typescript/"
+    },
+    {
+      "id": "swift",
+      "name": {
+        "ar": "Swift",
+        "en": "Swift",
+        "tr": "Swift"
+      },
+      "officialUrl": "https://www.w3schools.com/swift/"
+    },
+    {
+      "id": "angularjs",
+      "name": {
+        "ar": "AngularJS",
+        "en": "AngularJS",
+        "tr": "AngularJS"
+      },
+      "officialUrl": "https://www.w3schools.com/angular/"
+    },
+    {
+      "id": "r",
+      "name": {
+        "ar": "لغة R",
+        "en": "R",
+        "tr": "R"
+      },
+      "officialUrl": "https://www.w3schools.com/r/"
+    },
+    {
+      "id": "rust",
+      "name": {
+        "ar": "Rust",
+        "en": "Rust",
+        "tr": "Rust"
+      },
+      "officialUrl": "https://www.w3schools.com/rust/"
+    }
+  ],
+  "plat-20": [
+    {
+      "id": "math",
+      "name": {
+        "ar": "الرياضيات",
+        "en": "Math",
+        "tr": "Matematik"
+      },
+      "officialUrl": "https://www.khanacademy.org/math"
+    },
+    {
+      "id": "test-prep",
+      "name": {
+        "ar": "الاستعداد للاختبارات",
+        "en": "Test Prep",
+        "tr": "Sınav Hazırlığı"
+      },
+      "officialUrl": "https://www.khanacademy.org/test-prep"
+    },
+    {
+      "id": "ela",
+      "name": {
+        "ar": "فنون اللغة الإنجليزية",
+        "en": "English Language Arts (ELA)",
+        "tr": "İngilizce Dil Sanatları (ELA)"
+      },
+      "officialUrl": "https://www.khanacademy.org/ela"
+    },
+    {
+      "id": "science",
+      "name": {
+        "ar": "العلوم",
+        "en": "Science",
+        "tr": "Fen Bilimleri"
+      },
+      "officialUrl": "https://www.khanacademy.org/science"
+    },
+    {
+      "id": "social-studies",
+      "name": {
+        "ar": "الدراسات الاجتماعية",
+        "en": "Social Studies",
+        "tr": "Sosyal Bilgiler"
+      },
+      "officialUrl": "https://www.khanacademy.org/humanities"
+    },
+    {
+      "id": "computing",
+      "name": {
+        "ar": "الحوسبة",
+        "en": "Computing",
+        "tr": "Bilgi İşlem"
+      },
+      "officialUrl": "https://www.khanacademy.org/computing"
+    },
+    {
+      "id": "economics",
+      "name": {
+        "ar": "الاقتصاد",
+        "en": "Economics",
+        "tr": "Ekonomi"
+      },
+      "officialUrl": "https://www.khanacademy.org/economics-finance-domain"
+    },
+    {
+      "id": "life-skills",
+      "name": {
+        "ar": "مهارات الحياة",
+        "en": "Life Skills",
+        "tr": "Yaşam Becerileri"
+      },
+      "officialUrl": "https://www.khanacademy.org/college-careers-more"
+    },
+    {
+      "id": "partner-courses",
+      "name": {
+        "ar": "دورات الشركاء",
+        "en": "Partner Courses",
+        "tr": "İş Ortağı Kursları"
+      },
+      "officialUrl": "https://www.khanacademy.org/partner-content"
+    }
+  ],
+  "plat-21": [
+    {
+      "id": "development",
+      "name": {
+        "ar": "التطوير والبرمجة",
+        "en": "Development",
+        "tr": "Geliştirme"
+      },
+      "officialUrl": "https://www.couponami.com/category/development"
+    },
+    {
+      "id": "graphic-design",
+      "name": {
+        "ar": "التصميم الجرافيكي",
+        "en": "Graphic Design",
+        "tr": "Grafik Tasarım"
+      },
+      "officialUrl": "https://www.couponami.com/category/graphic-design"
+    },
+    {
+      "id": "network-system",
+      "name": {
+        "ar": "الشبكات والأنظمة",
+        "en": "Network & System",
+        "tr": "Ağ ve Sistem"
+      },
+      "officialUrl": "https://www.couponami.com/category/network-system"
+    },
+    {
+      "id": "business",
+      "name": {
+        "ar": "الأعمال",
+        "en": "Business",
+        "tr": "İşletme"
+      },
+      "officialUrl": "https://www.couponami.com/category/business"
+    },
+    {
+      "id": "marketing",
+      "name": {
+        "ar": "التسويق",
+        "en": "Marketing",
+        "tr": "Pazarlama"
+      },
+      "officialUrl": "https://www.couponami.com/category/marketing"
+    },
+    {
+      "id": "personal-development",
+      "name": {
+        "ar": "التطوير الشخصي",
+        "en": "Personal Development",
+        "tr": "Kişisel Gelişim"
+      },
+      "officialUrl": "https://www.couponami.com/category/personal-development"
+    }
+  ],
+  "plat-22": [],
+  "plat-23": [],
+  "plat-24": [
+    {
+      "id": "infrastructure-modernization",
+      "name": {
+        "ar": "تحديث البنية التحتية",
+        "en": "Infrastructure Modernization",
+        "tr": "Altyapı Modernizasyonu"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Infrastructure%20Modernization"
+    },
+    {
+      "id": "application-modernization",
+      "name": {
+        "ar": "تحديث التطبيقات",
+        "en": "Application Modernization",
+        "tr": "Uygulama Modernizasyonu"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Application%20Modernization"
+    },
+    {
+      "id": "smart-analytics-data-management",
+      "name": {
+        "ar": "التحليلات الذكية وإدارة البيانات",
+        "en": "Smart Analytics & Data Management",
+        "tr": "Akıllı Analitik ve Veri Yönetimi"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Smart%20Analytics%20Data%20Management"
+    },
+    {
+      "id": "machine-learning-ai",
+      "name": {
+        "ar": "تعلم الآلة والذكاء الاصطناعي",
+        "en": "Machine Learning & AI",
+        "tr": "Makine Öğrenmesi ve Yapay Zekâ"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Machine%20Learning%20AI"
+    },
+    {
+      "id": "cloud-security-network-engineering",
+      "name": {
+        "ar": "أمن السحابة وهندسة الشبكات",
+        "en": "Cloud Security & Network Engineering",
+        "tr": "Bulut Güvenliği ve Ağ Mühendisliği"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Cloud%20Security%20Network%20Engineering"
+    },
+    {
+      "id": "hybrid-multicloud",
+      "name": {
+        "ar": "السحابة الهجينة ومتعددة السحابات",
+        "en": "Hybrid & Multi-cloud",
+        "tr": "Hibrit ve Çoklu Bulut"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Hybrid%20Multicloud"
+    },
+    {
+      "id": "api-management-apigee",
+      "name": {
+        "ar": "إدارة واجهات API وApigee",
+        "en": "API Management / Apigee",
+        "tr": "API Yönetimi / Apigee"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Apigee"
+    },
+    {
+      "id": "google-workspace",
+      "name": {
+        "ar": "Google Workspace",
+        "en": "Google Workspace",
+        "tr": "Google Workspace"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Google%20Workspace"
+    },
+    {
+      "id": "cloud-business-leadership",
+      "name": {
+        "ar": "قيادة الأعمال السحابية",
+        "en": "Cloud Business Leadership",
+        "tr": "Bulut İş Liderliği"
+      },
+      "officialUrl": "https://www.skills.google/catalog?keywords=Cloud%20Business%20Leadership"
+    }
+  ],
+  "plat-25": [
+    {
+      "id": "certified-full-stack-developer",
+      "name": {
+        "ar": "مطور Full Stack معتمد",
+        "en": "Certified Full Stack Developer",
+        "tr": "Sertifikalı Full Stack Geliştirici"
+      },
+      "officialUrl": "https://www.freecodecamp.org/learn/full-stack-developer/"
+    },
+    {
+      "id": "responsive-web-design",
+      "name": {
+        "ar": "تصميم الويب المتجاوب",
+        "en": "Responsive Web Design",
+        "tr": "Duyarlı Web Tasarımı"
+      },
+      "officialUrl": "https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+    },
+    {
+      "id": "javascript-algorithms-data-structures",
+      "name": {
+        "ar": "خوارزميات JavaScript وهياكل البيانات",
+        "en": "JavaScript Algorithms and Data Structures",
+        "tr": "JavaScript Algoritmaları ve Veri Yapıları"
+      },
+      "officialUrl": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/"
+    },
+    {
+      "id": "front-end-libraries",
+      "name": {
+        "ar": "مكتبات الواجهة الأمامية",
+        "en": "Front End Libraries",
+        "tr": "Ön Uç Kütüphaneleri"
+      },
+      "officialUrl": "https://www.freecodecamp.org/learn/front-end-development-libraries/"
+    },
+    {
+      "id": "python-programming",
+      "name": {
+        "ar": "برمجة Python",
+        "en": "Python Programming",
+        "tr": "Python Programlama"
+      },
+      "officialUrl": "https://www.freecodecamp.org/learn/scientific-computing-with-python/"
+    },
+    {
+      "id": "relational-databases",
+      "name": {
+        "ar": "قواعد البيانات العلائقية",
+        "en": "Relational Databases",
+        "tr": "İlişkisel Veritabanları"
+      },
+      "officialUrl": "https://www.freecodecamp.org/learn/relational-database/"
+    },
+    {
+      "id": "back-end-development-apis",
+      "name": {
+        "ar": "تطوير الواجهة الخلفية وواجهات API",
+        "en": "Back End Development and APIs",
+        "tr": "Arka Uç Geliştirme ve API’ler"
+      },
+      "officialUrl": "https://www.freecodecamp.org/learn/back-end-development-and-apis/"
+    }
+  ],
+  "plat-26": [
+    {
+      "id": "arts-humanities",
+      "name": {
+        "ar": "الفنون والعلوم الإنسانية",
+        "en": "Arts and Humanities",
+        "tr": "Sanat ve Beşeri Bilimler"
+      },
+      "officialUrl": "https://www.coursera.org/browse/arts-and-humanities"
+    },
+    {
+      "id": "business",
+      "name": {
+        "ar": "الأعمال",
+        "en": "Business",
+        "tr": "İşletme"
+      },
+      "officialUrl": "https://www.coursera.org/browse/business"
+    },
+    {
+      "id": "computer-science",
+      "name": {
+        "ar": "علوم الحاسوب",
+        "en": "Computer Science",
+        "tr": "Bilgisayar Bilimleri"
+      },
+      "officialUrl": "https://www.coursera.org/browse/computer-science"
+    },
+    {
+      "id": "data-science",
+      "name": {
+        "ar": "علم البيانات",
+        "en": "Data Science",
+        "tr": "Veri Bilimi"
+      },
+      "officialUrl": "https://www.coursera.org/browse/data-science"
+    },
+    {
+      "id": "health",
+      "name": {
+        "ar": "الصحة",
+        "en": "Health",
+        "tr": "Sağlık"
+      },
+      "officialUrl": "https://www.coursera.org/browse/health"
+    },
+    {
+      "id": "information-technology",
+      "name": {
+        "ar": "تقنية المعلومات",
+        "en": "Information Technology",
+        "tr": "Bilgi Teknolojileri"
+      },
+      "officialUrl": "https://www.coursera.org/browse/information-technology"
+    },
+    {
+      "id": "language-learning",
+      "name": {
+        "ar": "تعلم اللغات",
+        "en": "Language Learning",
+        "tr": "Dil Öğrenimi"
+      },
+      "officialUrl": "https://www.coursera.org/browse/language-learning"
+    },
+    {
+      "id": "math-logic",
+      "name": {
+        "ar": "الرياضيات والمنطق",
+        "en": "Math and Logic",
+        "tr": "Matematik ve Mantık"
+      },
+      "officialUrl": "https://www.coursera.org/browse/math-and-logic"
+    },
+    {
+      "id": "personal-development",
+      "name": {
+        "ar": "التطوير الشخصي",
+        "en": "Personal Development",
+        "tr": "Kişisel Gelişim"
+      },
+      "officialUrl": "https://www.coursera.org/browse/personal-development"
+    },
+    {
+      "id": "physical-science-engineering",
+      "name": {
+        "ar": "العلوم الفيزيائية والهندسة",
+        "en": "Physical Science and Engineering",
+        "tr": "Fizik Bilimleri ve Mühendislik"
+      },
+      "officialUrl": "https://www.coursera.org/browse/physical-science-and-engineering"
+    },
+    {
+      "id": "social-sciences",
+      "name": {
+        "ar": "العلوم الاجتماعية",
+        "en": "Social Sciences",
+        "tr": "Sosyal Bilimler"
+      },
+      "officialUrl": "https://www.coursera.org/browse/social-sciences"
+    }
+  ],
+  "plat-27": [
+    {
+      "id": "generative-ai",
+      "name": {
+        "ar": "الذكاء الاصطناعي التوليدي",
+        "en": "Generative AI",
+        "tr": "Üretken Yapay Zekâ"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/generative-ai"
+    },
+    {
+      "id": "ai-machine-learning",
+      "name": {
+        "ar": "الذكاء الاصطناعي وتعلم الآلة",
+        "en": "AI & Machine Learning",
+        "tr": "Yapay Zekâ ve Makine Öğrenmesi"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/ai"
+    },
+    {
+      "id": "data-science-business-analytics",
+      "name": {
+        "ar": "علم البيانات وتحليلات الأعمال",
+        "en": "Data Science & Business Analytics",
+        "tr": "Veri Bilimi ve İş Analitiği"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/data-science"
+    },
+    {
+      "id": "project-management",
+      "name": {
+        "ar": "إدارة المشاريع",
+        "en": "Project Management",
+        "tr": "Proje Yönetimi"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/project-management"
+    },
+    {
+      "id": "cyber-security",
+      "name": {
+        "ar": "الأمن السيبراني",
+        "en": "Cyber Security",
+        "tr": "Siber Güvenlik"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/cyber-security"
+    },
+    {
+      "id": "agile-scrum",
+      "name": {
+        "ar": "أجايل وسكرم",
+        "en": "Agile and Scrum",
+        "tr": "Agile ve Scrum"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/agile-and-scrum"
+    },
+    {
+      "id": "cloud-computing-devops",
+      "name": {
+        "ar": "الحوسبة السحابية وDevOps",
+        "en": "Cloud Computing & DevOps",
+        "tr": "Bulut Bilişim ve DevOps"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/cloud-computing"
+    },
+    {
+      "id": "business-leadership",
+      "name": {
+        "ar": "الأعمال والقيادة",
+        "en": "Business and Leadership",
+        "tr": "İşletme ve Liderlik"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/leadership"
+    },
+    {
+      "id": "software-development",
+      "name": {
+        "ar": "تطوير البرمجيات",
+        "en": "Software Development",
+        "tr": "Yazılım Geliştirme"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/software-development"
+    },
+    {
+      "id": "it-service-architecture",
+      "name": {
+        "ar": "خدمات تقنية المعلومات وهندستها",
+        "en": "IT Service and Architecture",
+        "tr": "BT Hizmetleri ve Mimarisi"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/management"
+    },
+    {
+      "id": "quality-management",
+      "name": {
+        "ar": "إدارة الجودة",
+        "en": "Quality Management",
+        "tr": "Kalite Yönetimi"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/quality-assurance"
+    },
+    {
+      "id": "digital-marketing",
+      "name": {
+        "ar": "التسويق الرقمي",
+        "en": "Digital Marketing",
+        "tr": "Dijital Pazarlama"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/digital-marketing"
+    },
+    {
+      "id": "product-design",
+      "name": {
+        "ar": "المنتجات والتصميم",
+        "en": "Product and Design",
+        "tr": "Ürün ve Tasarım"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/ui-ux"
+    },
+    {
+      "id": "personal-development",
+      "name": {
+        "ar": "التطوير الشخصي",
+        "en": "Personal Development",
+        "tr": "Kişisel Gelişim"
+      },
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/self-development"
+    }
+  ],
+  "plat-28": [
+    {
+      "id": "it",
+      "name": {
+        "ar": "تقنية المعلومات",
+        "en": "Information Technology (IT)",
+        "tr": "Bilgi Teknolojileri"
+      },
+      "officialUrl": "https://alison.com/courses/it"
+    },
+    {
+      "id": "health",
+      "name": {
+        "ar": "الصحة",
+        "en": "Health",
+        "tr": "Sağlık"
+      },
+      "officialUrl": "https://alison.com/courses/health"
+    },
+    {
+      "id": "language",
+      "name": {
+        "ar": "اللغات",
+        "en": "Language",
+        "tr": "Dil"
+      },
+      "officialUrl": "https://alison.com/courses/language"
+    },
+    {
+      "id": "business",
+      "name": {
+        "ar": "الأعمال",
+        "en": "Business",
+        "tr": "İşletme"
+      },
+      "officialUrl": "https://alison.com/courses/business"
+    },
+    {
+      "id": "management",
+      "name": {
+        "ar": "الإدارة",
+        "en": "Management",
+        "tr": "Yönetim"
+      },
+      "officialUrl": "https://alison.com/courses/management"
+    },
+    {
+      "id": "personal-development",
+      "name": {
+        "ar": "التطوير الشخصي",
+        "en": "Personal Development",
+        "tr": "Kişisel Gelişim"
+      },
+      "officialUrl": "https://alison.com/courses/personal-development"
+    },
+    {
+      "id": "sales-marketing",
+      "name": {
+        "ar": "المبيعات والتسويق",
+        "en": "Sales & Marketing",
+        "tr": "Satış ve Pazarlama"
+      },
+      "officialUrl": "https://alison.com/courses/marketing"
+    },
+    {
+      "id": "engineering-construction",
+      "name": {
+        "ar": "الهندسة والإنشاءات",
+        "en": "Engineering & Construction",
+        "tr": "Mühendislik ve İnşaat"
+      },
+      "officialUrl": "https://alison.com/courses/engineering"
+    },
+    {
+      "id": "teaching-academics",
+      "name": {
+        "ar": "التدريس والأكاديميا",
+        "en": "Teaching & Academics",
+        "tr": "Öğretim ve Akademi"
+      },
+      "officialUrl": "https://alison.com/courses/education"
+    }
+  ],
+  "plat-29": [
+    {
+      "id": "arts-humanities",
+      "name": {
+        "ar": "الفنون والعلوم الإنسانية",
+        "en": "Arts & Humanities",
+        "tr": "Sanat ve Beşeri Bilimler"
+      },
+      "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=82"
+    },
+    {
+      "id": "business-administration",
+      "name": {
+        "ar": "إدارة الأعمال",
+        "en": "Business Administration",
+        "tr": "İşletme Yönetimi"
+      },
+      "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=6"
+    },
+    {
+      "id": "computer-science",
+      "name": {
+        "ar": "علوم الحاسوب",
+        "en": "Computer Science",
+        "tr": "Bilgisayar Bilimleri"
+      },
+      "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=9"
+    },
+    {
+      "id": "english-second-language",
+      "name": {
+        "ar": "الإنجليزية كلغة ثانية",
+        "en": "English as a Second Language",
+        "tr": "İkinci Dil Olarak İngilizce"
+      },
+      "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=29"
+    },
+    {
+      "id": "professional-development",
+      "name": {
+        "ar": "التطوير المهني",
+        "en": "Professional Development",
+        "tr": "Mesleki Gelişim"
+      },
+      "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=19"
+    },
+    {
+      "id": "science-mathematics",
+      "name": {
+        "ar": "العلوم والرياضيات",
+        "en": "Science and Mathematics",
+        "tr": "Fen ve Matematik"
+      },
+      "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=84"
+    },
+    {
+      "id": "social-science",
+      "name": {
+        "ar": "العلوم الاجتماعية",
+        "en": "Social Science",
+        "tr": "Sosyal Bilimler"
+      },
+      "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=85"
+    }
+  ],
+  "plat-30": [],
+  "plat-31": [
+    {
+      "id": "business-entrepreneurship",
+      "name": {
+        "ar": "الأعمال والريادة",
+        "en": "Business & Entrepreneurship",
+        "tr": "İşletme ve Girişimcilik"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?category=business-and-entrepreneurship"
+    },
+    {
+      "id": "health-nutrition",
+      "name": {
+        "ar": "الصحة والتغذية",
+        "en": "Health & Nutrition",
+        "tr": "Sağlık ve Beslenme"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?query=%D8%A7%D9%84%D8%B5%D8%AD%D8%A9%20%D9%88%D8%A7%D9%84%D8%AA%D8%BA%D8%B0%D9%8A%D8%A9"
+    },
+    {
+      "id": "science-environment",
+      "name": {
+        "ar": "العلوم والبيئة",
+        "en": "Science & Environment",
+        "tr": "Bilim ve Çevre"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?query=%D8%A7%D9%84%D8%B9%D9%84%D9%88%D9%85%20%D9%88%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9"
+    },
+    {
+      "id": "education-teacher-training",
+      "name": {
+        "ar": "التعليم وتدريب المعلمين",
+        "en": "Education & Teacher Training",
+        "tr": "Eğitim ve Öğretmen Eğitimi"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?query=%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85%20%D9%88%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%D9%8A%D9%86"
+    },
+    {
+      "id": "personal-development",
+      "name": {
+        "ar": "تطوير الذات",
+        "en": "Personal Development",
+        "tr": "Kişisel Gelişim"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?category=personal-development"
+    },
+    {
+      "id": "technology",
+      "name": {
+        "ar": "التكنولوجيا",
+        "en": "Technology",
+        "tr": "Teknoloji"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?category=technology"
+    },
+    {
+      "id": "humanities",
+      "name": {
+        "ar": "العلوم الإنسانية",
+        "en": "Humanities",
+        "tr": "Beşeri Bilimler"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?query=%D8%A7%D9%84%D8%B9%D9%84%D9%88%D9%85%20%D8%A7%D9%84%D8%A5%D9%86%D8%B3%D8%A7%D9%86%D9%8A%D8%A9"
+    },
+    {
+      "id": "art-design-media",
+      "name": {
+        "ar": "الفن والتصميم والإعلام",
+        "en": "Art, Design & Media",
+        "tr": "Sanat, Tasarım ve Medya"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?query=%D8%A7%D9%84%D9%81%D9%86%20%D9%88%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D9%88%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85"
+    },
+    {
+      "id": "career-readiness",
+      "name": {
+        "ar": "الاستعداد الوظيفي",
+        "en": "Career Readiness",
+        "tr": "Kariyer Hazırlığı"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?category=career-readiness"
+    },
+    {
+      "id": "languages",
+      "name": {
+        "ar": "اللغات",
+        "en": "Languages",
+        "tr": "Diller"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?category=languages"
+    },
+    {
+      "id": "built-environment",
+      "name": {
+        "ar": "البيئة المبنية (العمارة والعمران)",
+        "en": "Built Environment (Architecture & Urbanism)",
+        "tr": "Yapılı Çevre (Mimarlık ve Şehircilik)"
+      },
+      "officialUrl": "https://www.edraak.org/explore/?query=%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D9%85%D8%A8%D9%86%D9%8A%D8%A9"
+    }
+  ],
+  "plat-32": [
+    {
+      "id": "programming",
+      "name": {
+        "ar": "برمجة",
+        "en": "Programming",
+        "tr": "Programlama"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/12/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9"
+    },
+    {
+      "id": "english",
+      "name": {
+        "ar": "إنجليزي",
+        "en": "English",
+        "tr": "İngilizce"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/25/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A"
+    },
+    {
+      "id": "information-technology",
+      "name": {
+        "ar": "تكنولوجيا المعلومات",
+        "en": "Information Technology",
+        "tr": "Bilgi Teknolojileri"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/15/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-it-%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7-%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA"
+    },
+    {
+      "id": "graphic-design",
+      "name": {
+        "ar": "جرافيك ديزاين",
+        "en": "Graphic Design",
+        "tr": "Grafik Tasarım"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/13/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D8%AC%D8%B1%D8%A7%D9%81%D9%8A%D9%83-%D8%AF%D9%8A%D8%B2%D8%A7%D9%8A%D9%86"
+    },
+    {
+      "id": "engineering",
+      "name": {
+        "ar": "الهندسة",
+        "en": "Engineering",
+        "tr": "Mühendislik"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/14/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D8%A9"
+    },
+    {
+      "id": "management-commerce",
+      "name": {
+        "ar": "الإدارة والتجارة",
+        "en": "Management & Commerce",
+        "tr": "Yönetim ve Ticaret"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/18/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D9%81%D9%8A-%D8%A7%D9%84%D8%A7%D8%AF%D8%A7%D8%B1%D8%A9-%D9%88-%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D8%A9"
+    },
+    {
+      "id": "medicine",
+      "name": {
+        "ar": "الطب",
+        "en": "Medicine",
+        "tr": "Tıp"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/40/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B7%D8%A8"
+    },
+    {
+      "id": "arts",
+      "name": {
+        "ar": "الفنون",
+        "en": "Arts",
+        "tr": "Sanat"
+      },
+      "officialUrl": "https://www.m3aarf.com/certified/cat/22/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D9%81%D9%86%D9%88%D9%86"
+    }
+  ],
+  "plat-33": [],
+  "plat-34": [
+    {
+      "id": "artificial-intelligence",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "Artificial Intelligence",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://www.datacamp.com/category/artificial-intelligence"
+    },
+    {
+      "id": "data-engineering",
+      "name": {
+        "ar": "هندسة البيانات",
+        "en": "Data Engineering",
+        "tr": "Veri Mühendisliği"
+      },
+      "officialUrl": "https://www.datacamp.com/category/data-engineering"
+    },
+    {
+      "id": "programming",
+      "name": {
+        "ar": "البرمجة",
+        "en": "Programming",
+        "tr": "Programlama"
+      },
+      "officialUrl": "https://www.datacamp.com/category/programming"
+    },
+    {
+      "id": "data-analysis",
+      "name": {
+        "ar": "تحليل البيانات",
+        "en": "Data Analysis",
+        "tr": "Veri Analizi"
+      },
+      "officialUrl": "https://www.datacamp.com/category/data-analysis"
+    },
+    {
+      "id": "machine-learning",
+      "name": {
+        "ar": "تعلم الآلة",
+        "en": "Machine Learning",
+        "tr": "Makine Öğrenmesi"
+      },
+      "officialUrl": "https://www.datacamp.com/category/machine-learning"
+    },
+    {
+      "id": "data-visualization",
+      "name": {
+        "ar": "تصور البيانات",
+        "en": "Data Visualization",
+        "tr": "Veri Görselleştirme"
+      },
+      "officialUrl": "https://www.datacamp.com/category/data-visualization"
+    },
+    {
+      "id": "cloud",
+      "name": {
+        "ar": "الحوسبة السحابية",
+        "en": "Cloud",
+        "tr": "Bulut"
+      },
+      "officialUrl": "https://www.datacamp.com/category/cloud"
+    }
+  ],
+  "plat-35": [
+    {
+      "id": "seo",
+      "name": {
+        "ar": "تحسين محركات البحث",
+        "en": "SEO",
+        "tr": "SEO"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=seo"
+    },
+    {
+      "id": "semrush-tools",
+      "name": {
+        "ar": "أدوات Semrush",
+        "en": "Semrush Tools",
+        "tr": "Semrush Araçları"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=semrush-tools"
+    },
+    {
+      "id": "content-marketing",
+      "name": {
+        "ar": "تسويق المحتوى",
+        "en": "Content Marketing",
+        "tr": "İçerik Pazarlaması"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=content-marketing"
+    },
+    {
+      "id": "analytics",
+      "name": {
+        "ar": "التحليلات",
+        "en": "Analytics",
+        "tr": "Analitik"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=analytics"
+    },
+    {
+      "id": "ecommerce",
+      "name": {
+        "ar": "التجارة الإلكترونية",
+        "en": "E-commerce",
+        "tr": "E-ticaret"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=e-commerce"
+    },
+    {
+      "id": "sales",
+      "name": {
+        "ar": "المبيعات",
+        "en": "Sales",
+        "tr": "Satış"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=sales"
+    },
+    {
+      "id": "marketing",
+      "name": {
+        "ar": "التسويق",
+        "en": "Marketing",
+        "tr": "Pazarlama"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=marketing"
+    },
+    {
+      "id": "pr",
+      "name": {
+        "ar": "العلاقات العامة",
+        "en": "PR",
+        "tr": "Halkla İlişkiler"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=pr"
+    },
+    {
+      "id": "paid-advertising",
+      "name": {
+        "ar": "الإعلانات المدفوعة",
+        "en": "Paid Advertising",
+        "tr": "Ücretli Reklamcılık"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=paid-advertising"
+    },
+    {
+      "id": "social-media",
+      "name": {
+        "ar": "وسائل التواصل الاجتماعي",
+        "en": "Social Media",
+        "tr": "Sosyal Medya"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/social-media/"
+    },
+    {
+      "id": "career",
+      "name": {
+        "ar": "المسار المهني",
+        "en": "Career",
+        "tr": "Kariyer"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=career"
+    },
+    {
+      "id": "ai",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "AI",
+        "tr": "Yapay Zekâ"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=ai"
+    },
+    {
+      "id": "business",
+      "name": {
+        "ar": "الأعمال",
+        "en": "Business",
+        "tr": "İşletme"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=business"
+    },
+    {
+      "id": "local-seo",
+      "name": {
+        "ar": "تحسين محركات البحث المحلي",
+        "en": "Local SEO",
+        "tr": "Yerel SEO"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=local-seo"
+    },
+    {
+      "id": "competitive-research",
+      "name": {
+        "ar": "البحث التنافسي",
+        "en": "Competitive Research",
+        "tr": "Rekabet Araştırması"
+      },
+      "officialUrl": "https://www.semrush.com/academy/courses/?categories=competitive-research"
+    }
+  ],
+  "plat-36": [
+    {
+      "id": "software",
+      "name": {
+        "ar": "البرمجيات",
+        "en": "Software",
+        "tr": "Yazılım"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=Yaz%C4%B1l%C4%B1m"
+    },
+    {
+      "id": "systems",
+      "name": {
+        "ar": "الأنظمة",
+        "en": "Systems",
+        "tr": "Sistem"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=Sistem"
+    },
+    {
+      "id": "business",
+      "name": {
+        "ar": "الأعمال",
+        "en": "Business",
+        "tr": "İşletme"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=%C4%B0%C5%9Fletme"
+    },
+    {
+      "id": "personal-development",
+      "name": {
+        "ar": "التطوير الشخصي",
+        "en": "Personal Development",
+        "tr": "Kişisel Gelişim"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=Ki%C5%9Fisel%20Geli%C5%9Fim"
+    },
+    {
+      "id": "k12",
+      "name": {
+        "ar": "التعليم K12",
+        "en": "K12",
+        "tr": "K12"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=K12"
+    },
+    {
+      "id": "design",
+      "name": {
+        "ar": "التصميم",
+        "en": "Design",
+        "tr": "Tasarım"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=Tasar%C4%B1m"
+    },
+    {
+      "id": "safe-internet",
+      "name": {
+        "ar": "الإنترنت الآمن",
+        "en": "Safe Internet",
+        "tr": "Güvenli İnternet"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=G%C3%BCvenli%20%C4%B0nternet"
+    },
+    {
+      "id": "regulation",
+      "name": {
+        "ar": "التنظيم",
+        "en": "Regulation",
+        "tr": "Regülasyon"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?search=Reg%C3%BClasyon"
+    },
+    {
+      "id": "artificial-intelligence",
+      "name": {
+        "ar": "الذكاء الاصطناعي",
+        "en": "Artificial Intelligence",
+        "tr": "Yapay Zeka"
+      },
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?categoryId=2353"
+    }
+  ],
+  "plat-37": [],
+  "plat-38": [
+    {
+      "id": "marketing",
+      "name": {
+        "ar": "التسويق",
+        "en": "Marketing",
+        "tr": "Pazarlama"
+      },
+      "officialUrl": "https://academy.hubspot.com/courses/marketing"
+    },
+    {
+      "id": "sales",
+      "name": {
+        "ar": "المبيعات",
+        "en": "Sales",
+        "tr": "Satış"
+      },
+      "officialUrl": "https://academy.hubspot.com/courses/sales"
+    },
+    {
+      "id": "service",
+      "name": {
+        "ar": "الخدمة",
+        "en": "Service",
+        "tr": "Hizmet"
+      },
+      "officialUrl": "https://academy.hubspot.com/courses/service"
+    },
+    {
+      "id": "software",
+      "name": {
+        "ar": "البرمجيات",
+        "en": "Software",
+        "tr": "Yazılım"
+      },
+      "officialUrl": "https://academy.hubspot.com/courses/software"
+    }
+  ],
+  "plat-39": [],
+  "plat-40": []
+}
