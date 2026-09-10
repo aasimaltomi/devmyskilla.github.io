@@ -30,7 +30,7 @@ jobs:
         run: |
           npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/index.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-index.json
           npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/explore.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-explore.json
-      - name: Print Lighthouse scores and Core Web Vitals
+      - name: Print Lighthouse scores, Web Vitals and layout-shift diagnostics
         run: |
           node <<'NODE'
           const fs=require('node:fs');
@@ -38,6 +38,14 @@ jobs:
             const r=JSON.parse(fs.readFileSync(file,'utf8'));
             const pct=k=>Math.round((r.categories[k]?.score||0)*100);
             const a=r.audits;
-            console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${a['cumulative-layout-shift']?.displayValue}`);
+            console.log(`\n${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${a['cumulative-layout-shift']?.displayValue}`);
+            const shifts=a['layout-shifts']?.details?.items||[];
+            console.log(`${name} layout-shift items=${shifts.length}`);
+            for(const item of shifts.slice(0,10)){
+              const node=item.node||item.nodes?.[0]||{};
+              console.log(JSON.stringify({score:item.score||item.cumulativeLayoutShiftMainFrame,selector:node.selector,snippet:node.snippet,causes:item.subItems?.items?.map(x=>x.cause||x.extra?.cause).filter(Boolean)}));
+            }
+            const lcp=a['largest-contentful-paint-element']?.details?.items?.[0]?.items?.[0]||a['largest-contentful-paint-element']?.details?.items?.[0];
+            if(lcp) console.log(`${name} LCP element: ${JSON.stringify({selector:lcp.node?.selector,snippet:lcp.node?.snippet})}`);
           }
           NODE
