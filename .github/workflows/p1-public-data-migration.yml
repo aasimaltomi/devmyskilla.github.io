@@ -36,20 +36,34 @@ jobs:
             'load research data'
           );
 
-          must(
+          const researchStart=s.indexOf('function platformResearchFields(indent){');
+          const platformStart=s.indexOf('function platformFields(indent){',researchStart);
+          if(researchStart<0||platformStart<0) throw new Error('could not locate platform research/platform field function boundaries');
+          let block=s.slice(researchStart,platformStart);
+          const blockMust=(before,after,label)=>{
+            if(!block.includes(before)) throw new Error(`missing research block anchor: ${label}`);
+            block=block.replace(before,after);
+          };
+          blockMust(
             "function platformResearchFields(indent){\n  const out=[];",
             "function platformResearchFields(indent,mode='all'){\n  const out=[];\n  if(mode!=='researchOnly'){",
             'research function start'
           );
-          must(
+          blockMust(
             "  out.push(scalar('رابط المجال الرسمي','officialUrl','string',indent+4,['required: false']));\n  out.push(`${pad(indent)}- label: ${q('المسارات الرسمية / Official Paths')}",
             "  out.push(scalar('رابط المجال الرسمي','officialUrl','string',indent+4,['required: false']));\n  }\n  if(mode!=='fieldsOnly'){\n  out.push(`${pad(indent)}- label: ${q('المسارات الرسمية / Official Paths')}",
             'split fields from paths'
           );
+          const returnAnchor="  return out.join('\\n');";
+          const returnIndex=block.lastIndexOf(returnAnchor);
+          if(returnIndex<0) throw new Error('missing research block return');
+          block=block.slice(0,returnIndex)+"  }\n"+block.slice(returnIndex);
+          s=s.slice(0,researchStart)+block+s.slice(platformStart);
+
           must(
-            "  out.push(scalar('رابط جميع المسارات','allPathsUrl','string',indent+4,['required: false']));\n  return out.join('\\n');\n}\nfunction platformFields(indent){",
-            "  out.push(scalar('رابط جميع المسارات','allPathsUrl','string',indent+4,['required: false']));\n  }\n  return out.join('\\n');\n}\nfunction platformFields(indent,researchMode='fieldsOnly') {",
-            'research function end and platform signature'
+            'function platformFields(indent){',
+            "function platformFields(indent,researchMode='fieldsOnly') {",
+            'platform function signature'
           );
           must(
             "  out.push(platformResearchFields(indent));",
