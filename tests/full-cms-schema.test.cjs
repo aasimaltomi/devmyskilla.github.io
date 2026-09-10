@@ -1,8 +1,11 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const { reconstructPlatforms } = require('../scripts/validate-research-data.cjs');
 
 const data = JSON.parse(fs.readFileSync('data.json','utf8'));
+const research = JSON.parse(fs.readFileSync('research-data.json','utf8'));
+const reconstructed = reconstructPlatforms(data, research);
 const required = ['settings','assets','seo','siteText','categories','languages','quiz','comparison','platforms'];
 const localeKeys = ['ar','en','tr'];
 
@@ -12,24 +15,24 @@ function assertLocalized(value, label) {
   for (const locale of localeKeys) assert.ok(String(value[locale] || '').trim(), `${label}: empty ${locale}`);
 }
 
-test('full CMS schema exposes every top-level editable domain', () => {
+test('full CMS schema exposes every top-level public editable domain', () => {
   for (const key of required) assert.ok(Object.hasOwn(data,key), `missing ${key}`);
-  assert.equal(data.platforms.length, 110);
+  assert.equal(data.platforms.length, 40);
 });
 
-test('stable IDs are unique and platform references resolve', () => {
+test('stable public IDs are unique and platform references resolve', () => {
   const categoryIds = new Set(data.categories.map(row => row.id));
   const languageIds = new Set(data.languages.map(row => row.id));
   assert.equal(categoryIds.size, data.categories.length);
   assert.equal(languageIds.size, data.languages.length);
-  assert.equal(new Set(data.platforms.map(row => row.id)).size, 110);
+  assert.equal(new Set(data.platforms.map(row => row.id)).size, 40);
   for (const platform of data.platforms) {
     assert.ok(categoryIds.has(platform.categoryId), `${platform.id}: bad categoryId`);
     for (const id of platform.languageIds || []) assert.ok(languageIds.has(id), `${platform.id}: bad languageId ${id}`);
   }
 });
 
-test('editable concepts are stored as ar/en/tr triplets', () => {
+test('editable public concepts are stored as ar/en/tr triplets', () => {
   for (const value of [data.settings.siteName, data.settings.developerName, data.settings.copyright]) {
     assert.deepEqual(Object.keys(value).sort(), localeKeys);
   }
@@ -42,9 +45,9 @@ test('editable concepts are stored as ar/en/tr triplets', () => {
   }
 });
 
-test('all 110 platforms have complete localized field and path research', () => {
-  assert.equal(data.platforms.length, 110);
-  for (const platform of data.platforms) {
+test('reconstructed 110-platform research corpus keeps complete localized field and path research', () => {
+  assert.equal(reconstructed.length, 110);
+  for (const platform of reconstructed) {
     assert.ok(Array.isArray(platform.fields), `${platform.id}: fields must be an array`);
     assert.ok(Array.isArray(platform.officialPaths), `${platform.id}: officialPaths must be an array`);
     assert.ok(platform.pathResearch && typeof platform.pathResearch === 'object' && !Array.isArray(platform.pathResearch), `${platform.id}: pathResearch required`);
