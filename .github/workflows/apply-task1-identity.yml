@@ -1,0 +1,67 @@
+name: Apply task1 production identity
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-task1-identity.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/full-site-hardening
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Replace legacy production identity at sources
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          const replacements={
+            'scripts/generate-decap-config.cjs':[
+              ['repo: devmyskilla/devmyskilla.github.io','repo: aasimaltomi/devmyskilla.github.io'],
+              ['site_url: https://devmyskilla.github.io','site_url: https://aasimaltomi.github.io/devmyskilla.github.io'],
+              ['logo_url: https://devmyskilla.github.io/assets/dunya-logo-192.png','logo_url: https://aasimaltomi.github.io/devmyskilla.github.io/assets/dunya-logo-192.png']
+            ],
+            'js/inline-editor-config.js':[
+              ["siteOrigin:'https://devmyskilla.github.io'","siteOrigin:'https://aasimaltomi.github.io'"]
+            ],
+            'inline-worker/wrangler.toml':[
+              ['ALLOWED_ORIGIN = "https://devmyskilla.github.io"','ALLOWED_ORIGIN = "https://aasimaltomi.github.io"'],
+              ['GITHUB_REPO = "devmyskilla/devmyskilla.github.io"','GITHUB_REPO = "aasimaltomi/devmyskilla.github.io"']
+            ],
+            'inline-worker/src/worker.mjs':[
+              ["env.ALLOWED_ORIGIN||'https://devmyskilla.github.io'","env.ALLOWED_ORIGIN||'https://aasimaltomi.github.io'"],
+              ["env.GITHUB_REPO||'devmyskilla/devmyskilla.github.io'","env.GITHUB_REPO||'aasimaltomi/devmyskilla.github.io'"]
+            ],
+            'tests/inline-editor-production.test.cjs':[
+              ['ALLOWED_ORIGIN\\s*=\\s*"https:\\/\\/devmyskilla\\.github\\.io"','ALLOWED_ORIGIN\\s*=\\s*"https:\\/\\/aasimaltomi\\.github\\.io"'],
+              ['GITHUB_REPO\\s*=\\s*"devmyskilla\\/devmyskilla\\.github\\.io"','GITHUB_REPO\\s*=\\s*"aasimaltomi\\/devmyskilla\\.github\\.io"']
+            ]
+          };
+          for(const [path,pairs] of Object.entries(replacements)){
+            let text=fs.readFileSync(path,'utf8');
+            for(const [from,to] of pairs){
+              if(!text.includes(from)) throw new Error(`Expected legacy text not found in ${path}: ${from}`);
+              text=text.replace(from,to);
+            }
+            fs.writeFileSync(path,text);
+          }
+          NODE
+          node scripts/generate-decap-config.cjs
+      - name: Verify task1 before commit
+        run: node --test tests/production-identity.test.cjs tests/inline-editor-production.test.cjs tests/inline-worker.test.cjs tests/decap-cms.test.cjs
+      - name: Commit generated identity fix
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add admin/config.yml scripts/generate-decap-config.cjs js/inline-editor-config.js inline-worker/wrangler.toml inline-worker/src/worker.mjs tests/inline-editor-production.test.cjs
+          git commit -m 'fix: align cms and worker production identity'
+          git push origin HEAD:fix/full-site-hardening
