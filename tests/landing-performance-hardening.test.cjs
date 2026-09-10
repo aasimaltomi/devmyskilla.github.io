@@ -15,24 +15,20 @@ test('below-fold landing sections can skip initial rendering safely',()=>{
   assert.match(css,/contain-intrinsic-size:/);
 });
 
-test('mobile landing reservation is large enough to keep the orbit from shifting after hydration',()=>{
-  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-copy\s*\{[^}]*min-height:\s*520px/);
-  assert.match(css,/@media\(max-width:620px\)[\s\S]*#landingCategoryGrid\s*\{[^}]*min-height:/);
-});
-
-test('mobile landing CTAs occupy stable rows before translated labels hydrate',()=>{
+test('mobile landing hero anchors dynamic CTAs inside a reserved column',()=>{
+  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-copy\s*\{[^}]*min-height:\s*520px[^}]*display:\s*flex[^}]*flex-direction:\s*column/);
+  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-actions\s*\{[^}]*margin-top:\s*auto/);
   assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-actions\s+\.btn\s*\{[^}]*flex:\s*1\s+1\s+100%/);
+  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.trust-line\s*\{[^}]*min-height:/);
 });
 
-test('mobile explore hero reserves enough hydrated copy height to avoid the measured document shift',()=>{
+test('mobile explore hero reserves enough hydrated copy height',()=>{
   assert.match(stability,/@media\(max-width:680px\)[\s\S]*\.hero-copy\s*\{[^}]*min-height:\s*620px/);
 });
 
-test('Google font loading is non-render-blocking and optional on public pages',()=>{
+test('public pages avoid external web-font swaps that caused measured CLS',()=>{
   for(const page of ['index.html','explore.html','platform.html']){
     const html=fs.readFileSync(page,'utf8');
-    assert.match(html,/rel="preload"[^>]*as="style"[^>]*fonts\.googleapis\.com|fonts\.googleapis\.com[^>]*rel="preload"[^>]*as="style"/);
-    assert.match(html,/display=optional/);
-    assert.doesNotMatch(html,/<link(?=[^>]*rel="stylesheet")(?=[^>]*fonts\.googleapis\.com)[^>]*>/);
+    assert.doesNotMatch(html,/fonts\.googleapis\.com|fonts\.gstatic\.com/);
   }
 });
