@@ -2,7 +2,7 @@ const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const css=fs.readFileSync('css/landing.css','utf8');
-const shared=fs.readFileSync('css/style.css','utf8');
+const stability=fs.readFileSync('css/branding.css','utf8');
 
 test('landing reserves critical dynamic geometry before data hydration',()=>{
   assert.match(css,/\.landing-copy\s*\{[^}]*min-height:/);
@@ -16,12 +16,12 @@ test('below-fold landing sections can skip initial rendering safely',()=>{
 });
 
 test('mobile landing reservation is large enough to keep the orbit from shifting after hydration',()=>{
-  assert.match(css,/@media\(max-width:620px\)[\s\S]*\.landing-copy\s*\{[^}]*min-height:\s*5(?:0|1|2)0px/);
+  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-copy\s*\{[^}]*min-height:\s*5(?:0|1|2)0px/);
   assert.match(css,/@media\(max-width:620px\)[\s\S]*#landingCategoryGrid\s*\{[^}]*min-height:/);
 });
 
 test('mobile explore hero reserves hydrated copy height instead of collapsing before data loads',()=>{
-  assert.match(shared,/@media\(max-width:680px\)[\s\S]*\.hero-copy\s*\{[^}]*min-height:\s*4\d\dpx/);
+  assert.match(stability,/@media\(max-width:680px\)[\s\S]*\.hero-copy\s*\{[^}]*min-height:\s*4\d\dpx/);
 });
 
 test('Google font loading is non-render-blocking and optional on public pages',()=>{
