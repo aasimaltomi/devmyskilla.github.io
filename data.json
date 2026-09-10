@@ -1977,7 +1977,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://proxy.edx.org/certificates/professional-certificate/harvardx-data-science",
           "fieldIds": [
-            "data-science"
+            "data-analysis"
           ],
           "featured": false
         },
@@ -1992,8 +1992,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://proxy.edx.org/certificates/professional-certificate/harvardx-computer-science-for-cybersecurity",
           "fieldIds": [
-            "computer-science",
-            "cybersecurity"
+            "computer-science"
           ],
           "featured": false
         },
@@ -2008,8 +2007,8 @@
           "type": "professional-program",
           "officialUrl": "https://proxy.edx.org/masters/micromasters/mitx-statistics-and-data-science-general-track",
           "fieldIds": [
-            "data-science",
-            "artificial-intelligence"
+            "data-analysis",
+            "math"
           ],
           "featured": false
         },
@@ -2024,7 +2023,7 @@
           "type": "professional-program",
           "officialUrl": "https://www.edx.org/masters/micromasters/universityofcambridge-healthcare-data-science/",
           "fieldIds": [
-            "data-science",
+            "data-analysis",
             "healthcare"
           ],
           "featured": false
@@ -2437,7 +2436,7 @@
           "officialUrl": "https://www.codecademy.com/learn/paths/back-end-engineer-career-path",
           "fieldIds": [
             "web-development",
-            "programming"
+            "code-foundations"
           ],
           "featured": false
         },
@@ -2453,7 +2452,7 @@
           "officialUrl": "https://www.codecademy.com/learn/paths/computer-science",
           "fieldIds": [
             "computer-science",
-            "programming"
+            "code-foundations"
           ],
           "featured": false
         },
@@ -2484,7 +2483,7 @@
           "officialUrl": "https://www.codecademy.com/learn/paths/full-stack-engineer-career-path",
           "fieldIds": [
             "web-development",
-            "programming"
+            "code-foundations"
           ],
           "featured": false
         },
@@ -2499,7 +2498,7 @@
           "type": "career-path",
           "officialUrl": "https://www.codecademy.com/learn/paths/machine-learning-engineer",
           "fieldIds": [
-            "artificial-intelligence",
+            "ai",
             "data-science"
           ],
           "featured": false
@@ -3270,7 +3269,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.nvidia.com/en-us/learn/learning-path/generative-ai-llm/",
           "fieldIds": [
-            "generative-ai"
+            "generative-ai-llms"
           ],
           "featured": false
         },
@@ -3285,7 +3284,6 @@
           "type": "learning-path",
           "officialUrl": "https://www.nvidia.com/en-us/learn/learning-paths/ai-networking/",
           "fieldIds": [
-            "ai-networking",
             "ai-infrastructure"
           ],
           "featured": false
@@ -3875,7 +3873,7 @@
           "officialUrl": "https://www.sololearn.com/en/learn/courses/python-developer",
           "fieldIds": [
             "programming-foundations",
-            "advanced-programming"
+            "advanced-programming-frameworks"
           ],
           "featured": false
         },
@@ -4028,7 +4026,7 @@
           "type": "learning-path",
           "officialUrl": "https://researcheracademy.elsevier.com/writing-research",
           "fieldIds": [
-            "research-writing"
+            "writing-research"
           ],
           "featured": false
         },
@@ -4058,7 +4056,7 @@
           "type": "learning-path",
           "officialUrl": "https://researcheracademy.elsevier.com/navigating-peer-review",
           "fieldIds": [
-            "peer-review"
+            "navigating-peer-review"
           ],
           "featured": false
         },
@@ -4073,7 +4071,7 @@
           "type": "learning-path",
           "officialUrl": "https://researcheracademy.elsevier.com/communicating-research",
           "fieldIds": [
-            "research-communication"
+            "communicating-research"
           ],
           "featured": false
         },
@@ -4087,9 +4085,7 @@
           },
           "type": "career-path",
           "officialUrl": "https://origin.researcheracademy.elsevier.com/career-path",
-          "fieldIds": [
-            "research-career"
-          ],
+          "fieldIds": [],
           "featured": false
         }
       ],
@@ -4355,7 +4351,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.w3schools.com/html/html_study_plan.asp",
           "fieldIds": [
-            "html-css"
+            "html"
           ],
           "featured": false
         },
@@ -4370,7 +4366,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.w3schools.com/CSS/css_study_plan.asp",
           "fieldIds": [
-            "html-css"
+            "css"
           ],
           "featured": false
         },
@@ -4400,8 +4396,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.w3schools.com/sql/sql_study_plan.asp",
           "fieldIds": [
-            "data-analytics",
-            "backend-programming"
+            "sql"
           ],
           "featured": false
         },
@@ -4416,7 +4411,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.w3schools.com/CS/cs_study_plan.php",
           "fieldIds": [
-            "backend-programming"
+            "csharp"
           ],
           "featured": false
         },
@@ -4430,9 +4425,7 @@
           },
           "type": "learning-path",
           "officialUrl": "https://www.w3schools.com/go/go_study_plan.php",
-          "fieldIds": [
-            "backend-programming"
-          ],
+          "fieldIds": [],
           "featured": false
         },
         {
@@ -4446,7 +4439,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.w3schools.com/R/r_study_plan.asp",
           "fieldIds": [
-            "data-analytics"
+            "r"
           ],
           "featured": false
         },
@@ -4461,7 +4454,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.w3schools.com/php/php_study_plan.asp",
           "fieldIds": [
-            "backend-programming"
+            "php"
           ],
           "featured": false
         }
@@ -5003,7 +4996,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.skills.google/paths/118",
           "fieldIds": [
-            "ai-ml"
+            "machine-learning-ai"
           ],
           "featured": false
         }
@@ -5145,7 +5138,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://www.freecodecamp.org/learn/responsive-web-design-v9/",
           "fieldIds": [
-            "web-design"
+            "responsive-web-design"
           ],
           "featured": false
         },
@@ -5160,10 +5153,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://www.freecodecamp.org/learn/full-stack-developer-v9/",
           "fieldIds": [
-            "web-design",
-            "javascript",
-            "backend-apis",
-            "databases"
+            "certified-full-stack-developer"
           ],
           "featured": false
         },
@@ -5178,7 +5168,7 @@
           "type": "learning-path",
           "officialUrl": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/",
           "fieldIds": [
-            "javascript"
+            "javascript-algorithms-data-structures"
           ],
           "featured": false
         }
@@ -5356,7 +5346,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://www.coursera.org/professional-certificates/google-data-analytics",
           "fieldIds": [
-            "data-science-ai"
+            "data-science"
           ],
           "featured": false
         },
@@ -5371,7 +5361,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://www.coursera.org/professional-certificates/google-cybersecurity",
           "fieldIds": [
-            "computer-science-it"
+            "information-technology"
           ],
           "featured": false
         },
@@ -5386,7 +5376,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://www.coursera.org/professional-certificates/ibm-data-science",
           "fieldIds": [
-            "data-science-ai"
+            "data-science"
           ],
           "featured": false
         },
@@ -5401,7 +5391,7 @@
           "type": "professional-certificate",
           "officialUrl": "https://www.coursera.org/professional-certificates/meta-front-end-developer",
           "fieldIds": [
-            "computer-science-it"
+            "computer-science"
           ],
           "featured": false
         },
@@ -5416,7 +5406,7 @@
           "type": "specialization",
           "officialUrl": "https://www.coursera.org/specializations/machine-learning-introduction",
           "fieldIds": [
-            "data-science-ai"
+            "data-science"
           ],
           "featured": false
         }
@@ -6431,7 +6421,7 @@
           "type": "career-path",
           "officialUrl": "https://www.datacamp.com/tracks/data-analyst-with-python",
           "fieldIds": [
-            "python",
+            "programming",
             "data-analysis"
           ],
           "featured": false
@@ -6447,7 +6437,7 @@
           "type": "career-path",
           "officialUrl": "https://www.datacamp.com/tracks/data-engineer-in-python",
           "fieldIds": [
-            "python",
+            "programming",
             "data-engineering"
           ],
           "featured": false
@@ -6464,7 +6454,7 @@
           "officialUrl": "https://www.datacamp.com/tracks/machine-learning-engineer",
           "fieldIds": [
             "machine-learning",
-            "python"
+            "programming"
           ],
           "featured": false
         },
@@ -6480,8 +6470,7 @@
           "officialUrl": "https://www.datacamp.com/tracks/machine-learning-scientist-with-python",
           "fieldIds": [
             "machine-learning",
-            "python",
-            "data-science"
+            "programming"
           ],
           "featured": false
         },
@@ -6496,7 +6485,7 @@
           "type": "skill-path",
           "officialUrl": "https://www.datacamp.com/tracks/sql-fundamentals",
           "fieldIds": [
-            "sql"
+            "programming"
           ],
           "featured": false
         },
@@ -6928,9 +6917,7 @@
           },
           "type": "learning-path",
           "officialUrl": "https://matlabacademy.mathworks.com/details/core-matlab-skills/lpmlcms",
-          "fieldIds": [
-            "matlab-programming"
-          ],
+          "fieldIds": [],
           "featured": false
         },
         {
@@ -6943,9 +6930,7 @@
           },
           "type": "learning-path",
           "officialUrl": "https://matlabacademy.mathworks.com/details/build-matlab-proficiency/lpmlbmp",
-          "fieldIds": [
-            "matlab-programming"
-          ],
+          "fieldIds": [],
           "featured": false
         },
         {
@@ -6958,9 +6943,7 @@
           },
           "type": "learning-path",
           "officialUrl": "https://matlabacademy.mathworks.com/details/data-analysis-in-matlab/lpmldam",
-          "fieldIds": [
-            "data-analysis"
-          ],
+          "fieldIds": [],
           "featured": false
         },
         {
@@ -6973,9 +6956,7 @@
           },
           "type": "learning-path",
           "officialUrl": "https://matlabacademy.mathworks.com/details/build-simulink-proficiency/lpslbsp",
-          "fieldIds": [
-            "simulink-modeling"
-          ],
+          "fieldIds": [],
           "featured": false
         },
         {
@@ -6988,9 +6969,7 @@
           },
           "type": "learning-path",
           "officialUrl": "https://matlabacademy.mathworks.com/details/visualization-in-matlab/lpmlvzm",
-          "fieldIds": [
-            "visualization"
-          ],
+          "fieldIds": [],
           "featured": false
         },
         {
@@ -7003,10 +6982,7 @@
           },
           "type": "learning-path",
           "officialUrl": "https://matlabacademy.mathworks.com/details/software-development-in-matlab/lpmlsdm",
-          "fieldIds": [
-            "software-development",
-            "matlab-programming"
-          ],
+          "fieldIds": [],
           "featured": false
         }
       ],
@@ -7121,7 +7097,7 @@
           "officialUrl": "https://academy.hubspot.com/learning-paths/value-based-selling",
           "fieldIds": [
             "sales",
-            "customer-service"
+            "service"
           ],
           "featured": false
         }
@@ -7197,9 +7173,7 @@
           },
           "type": "structured-series",
           "officialUrl": "https://www.hackerrank.com/interview/interview-preparation-kit",
-          "fieldIds": [
-            "problem-solving"
-          ],
+          "fieldIds": [],
           "featured": false
         },
         {
@@ -7212,9 +7186,7 @@
           },
           "type": "structured-series",
           "officialUrl": "https://www.hackerrank.com/interview/preparation-kits",
-          "fieldIds": [
-            "problem-solving"
-          ],
+          "fieldIds": [],
           "featured": false
         }
       ],
