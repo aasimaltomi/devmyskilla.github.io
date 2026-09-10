@@ -43,6 +43,9 @@ jobs:
             'tests/inline-editor-production.test.cjs':[
               ['ALLOWED_ORIGIN\\s*=\\s*"https:\\/\\/devmyskilla\\.github\\.io"','ALLOWED_ORIGIN\\s*=\\s*"https:\\/\\/aasimaltomi\\.github\\.io"'],
               ['GITHUB_REPO\\s*=\\s*"devmyskilla\\/devmyskilla\\.github\\.io"','GITHUB_REPO\\s*=\\s*"aasimaltomi\\/devmyskilla\\.github\\.io"']
+            ],
+            'tests/decap-cms.test.cjs':[
+              ['repo: devmyskilla\\/devmyskilla\\.github\\.io','repo: aasimaltomi\\/devmyskilla\\.github\\.io']
             ]
           };
           for(const [path,pairs] of Object.entries(replacements)){
@@ -62,6 +65,6 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add admin/config.yml scripts/generate-decap-config.cjs js/inline-editor-config.js inline-worker/wrangler.toml inline-worker/src/worker.mjs tests/inline-editor-production.test.cjs
+          git add admin/config.yml scripts/generate-decap-config.cjs js/inline-editor-config.js inline-worker/wrangler.toml inline-worker/src/worker.mjs tests/inline-editor-production.test.cjs tests/decap-cms.test.cjs
           git commit -m 'fix: align cms and worker production identity'
           git push origin HEAD:fix/full-site-hardening
