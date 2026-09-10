@@ -70,12 +70,15 @@ test('Decap authoritative public platform field editor exposes stable id transla
   const publicStart=config.indexOf('file: data.json');
   const researchStart=config.indexOf('file: research-data.json');
   const publicSection=config.slice(publicStart,researchStart);
-  assert.match(publicSection,/label: "المجالات \/ Fields"[\s\S]*?name: fields[\s\S]*?widget: list/);
-  assert.match(publicSection,/label: "معرّف المجال الثابت"\s*\n\s*name: id\s*\n\s*widget: string/);
-  assert.match(publicSection,/label: "اسم المجال"\s*\n\s*name: name\s*\n\s*widget: object[\s\S]*?label: "العربية"[\s\S]*?name: ar[\s\S]*?label: "English"[\s\S]*?name: en[\s\S]*?label: "Türkçe"[\s\S]*?name: tr/);
-  assert.match(publicSection,/label: "رابط المجال الرسمي"\s*\n\s*name: officialUrl\s*\n\s*widget: string/);
-  assert.doesNotMatch(publicSection,/name: officialPaths/);
-  assert.doesNotMatch(publicSection,/name: pathResearch/);
+  const platformsStart=publicSection.lastIndexOf('label: "المنصات"');
+  assert.ok(platformsStart>=0,'public platforms editor missing');
+  const platformEditorSection=publicSection.slice(platformsStart);
+  assert.match(platformEditorSection,/label: "المجالات \/ Fields"[\s\S]*?name: fields[\s\S]*?widget: list/);
+  assert.match(platformEditorSection,/label: "معرّف المجال الثابت"\s*\n\s*name: id\s*\n\s*widget: string/);
+  assert.match(platformEditorSection,/label: "اسم المجال"\s*\n\s*name: name\s*\n\s*widget: object[\s\S]*?label: "العربية"[\s\S]*?name: ar[\s\S]*?label: "English"[\s\S]*?name: en[\s\S]*?label: "Türkçe"[\s\S]*?name: tr/);
+  assert.match(platformEditorSection,/label: "رابط المجال الرسمي"\s*\n\s*name: officialUrl\s*\n\s*widget: string/);
+  assert.doesNotMatch(platformEditorSection,/name: officialPaths/);
+  assert.doesNotMatch(platformEditorSection,/name: pathResearch/);
 });
 
 test('image fields use media library and OAuth proxy remains configured',()=>{
