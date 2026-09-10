@@ -1,5 +1,4 @@
-const fs=require('node:fs');
-const path=require('node:path');
+const { loadSplitData, reconstructPlatforms } = require('./validate-research-data.cjs');
 
 function isObject(value){return value&&typeof value==='object'&&!Array.isArray(value)}
 function displayName(row={}){
@@ -56,8 +55,8 @@ function parseArgs(argv){
 function formatCount(value){return value===null?'?':String(value)}
 function runCli(argv=process.argv.slice(2)){
   const {rangeRaw,requireComplete}=parseArgs(argv);
-  const data=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../data.json'),'utf8'));
-  const platforms=Array.isArray(data.platforms)?data.platforms:[];
+  const {publicData,researchData}=loadSplitData();
+  const platforms=reconstructPlatforms(publicData,researchData);
   const range=parseRange(rangeRaw,platforms.length);
   const result=summarize(platforms,range);
   for(const row of result.rows){
