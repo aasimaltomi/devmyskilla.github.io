@@ -3,7 +3,7 @@ const CORE = [
   './','./index.html','./explore.html','./platform.html','./course.html','./offline.html','./data.json',
   './css/style.css','./css/branding.css','./css/landing.css','./css/profile.css','./css/categories-only.css','./css/inline-editor.css',
   './js/content-api.js','./js/i18n.js','./js/site-runtime.js','./js/data-loader.js','./js/platform-core.js','./js/platform-directory.js','./js/app.js','./js/accessibility.js','./js/explore-nav.js',
-  './js/landing.js','./js/platform-categories.js','./js/platform-categories-10-20.js','./js/platform-categories-21-30.js','./js/platform-categories-31-40.js','./js/category-direct-links.js','./js/platform-detail.js','./js/platform-back-nav.js','./js/edit-descriptors.js','./js/inline-editor-config.js','./js/inline-editor-api.js','./js/inline-editor.js',
+  './js/landing.js','./js/platform-detail.js','./js/platform-back-nav.js','./js/edit-descriptors.js','./js/inline-editor-config.js','./js/inline-editor-api.js','./js/inline-editor.js',
   './manifest.webmanifest','./assets/dunya-logo-192.png','./assets/dunya-logo.svg','./assets/dunya-logo-hero-v3.webp','./icon-512.png'
 ];
 
