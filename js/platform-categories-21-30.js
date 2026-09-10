@@ -97,13 +97,13 @@
         field('cyber-security','الأمن السيبراني','Cyber Security','Siber Güvenlik','https://www.simplilearn.com/skillup-free-online-courses/cyber-security'),
         field('agile-scrum','أجايل وسكرم','Agile and Scrum','Agile ve Scrum','https://www.simplilearn.com/skillup-free-online-courses/agile-and-scrum'),
         field('cloud-computing-devops','الحوسبة السحابية وDevOps','Cloud Computing & DevOps','Bulut Bilişim ve DevOps','https://www.simplilearn.com/skillup-free-online-courses/cloud-computing'),
-        field('business-leadership','الأعمال والقيادة','Business and Leadership','İşletme ve Liderlik','https://www.simplilearn.com/skillup-free-online-courses/business-and-leadership'),
+        field('business-leadership','الأعمال والقيادة','Business and Leadership','İşletme ve Liderlik','https://www.simplilearn.com/skillup-free-online-courses/leadership'),
         field('software-development','تطوير البرمجيات','Software Development','Yazılım Geliştirme','https://www.simplilearn.com/skillup-free-online-courses/software-development'),
-        field('it-service-architecture','خدمات تقنية المعلومات وهندستها','IT Service and Architecture','BT Hizmetleri ve Mimarisi','https://www.simplilearn.com/skillup-free-online-courses/it-service-and-architecture'),
-        field('quality-management','إدارة الجودة','Quality Management','Kalite Yönetimi','https://www.simplilearn.com/skillup-free-online-courses/quality-management'),
+        field('it-service-architecture','خدمات تقنية المعلومات وهندستها','IT Service and Architecture','BT Hizmetleri ve Mimarisi','https://www.simplilearn.com/skillup-free-online-courses/management'),
+        field('quality-management','إدارة الجودة','Quality Management','Kalite Yönetimi','https://www.simplilearn.com/skillup-free-online-courses/quality-assurance'),
         field('digital-marketing','التسويق الرقمي','Digital Marketing','Dijital Pazarlama','https://www.simplilearn.com/skillup-free-online-courses/digital-marketing'),
-        field('product-design','المنتجات والتصميم','Product and Design','Ürün ve Tasarım','https://www.simplilearn.com/skillup-free-online-courses/product-and-design'),
-        field('personal-development','التطوير الشخصي','Personal Development','Kişisel Gelişim','https://www.simplilearn.com/skillup-free-online-courses/personal-development')
+        field('product-design','المنتجات والتصميم','Product and Design','Ürün ve Tasarım','https://www.simplilearn.com/skillup-free-online-courses/ui-ux'),
+        field('personal-development','التطوير الشخصي','Personal Development','Kişisel Gelişim','https://www.simplilearn.com/skillup-free-online-courses/self-development')
       ]
     },
     'plat-28':{
@@ -115,9 +115,9 @@
         field('business','الأعمال','Business','İşletme','https://alison.com/courses/business'),
         field('management','الإدارة','Management','Yönetim','https://alison.com/courses/management'),
         field('personal-development','التطوير الشخصي','Personal Development','Kişisel Gelişim','https://alison.com/courses/personal-development'),
-        field('sales-marketing','المبيعات والتسويق','Sales & Marketing','Satış ve Pazarlama','https://alison.com/courses/sales-and-marketing'),
-        field('engineering-construction','الهندسة والإنشاءات','Engineering & Construction','Mühendislik ve İnşaat','https://alison.com/courses/engineering-and-construction'),
-        field('teaching-academics','التدريس والأكاديميا','Teaching & Academics','Öğretim ve Akademi','https://alison.com/courses/teaching-and-academics')
+        field('sales-marketing','المبيعات والتسويق','Sales & Marketing','Satış ve Pazarlama','https://alison.com/courses/marketing'),
+        field('engineering-construction','الهندسة والإنشاءات','Engineering & Construction','Mühendislik ve İnşaat','https://alison.com/courses/engineering'),
+        field('teaching-academics','التدريس والأكاديميا','Teaching & Academics','Öğretim ve Akademi','https://alison.com/courses/education')
       ]
     },
     'plat-29':{
