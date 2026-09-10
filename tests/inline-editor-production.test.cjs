@@ -28,8 +28,8 @@ test('inline Worker has a deployable Wrangler config with KV binding and no secr
   assert.match(toml,/name\s*=\s*"dunya-inline-editor"/);
   assert.match(toml,/main\s*=\s*"src\/worker\.mjs"/);
   assert.match(toml,/binding\s*=\s*"INLINE_SESSIONS"/);
-  assert.match(toml,/ALLOWED_ORIGIN\s*=\s*"https:\/\/devmyskilla\.github\.io"/);
-  assert.match(toml,/GITHUB_REPO\s*=\s*"devmyskilla\/devmyskilla\.github\.io"/);
+  assert.match(toml,/ALLOWED_ORIGIN\s*=\s*"https:\/\/aasimaltomi\.github\.io"/);
+  assert.match(toml,/GITHUB_REPO\s*=\s*"aasimaltomi\/devmyskilla\.github\.io"/);
   assert.match(toml,/GITHUB_BRANCH\s*=\s*"main"/);
   assert.doesNotMatch(toml,/GITHUB_OAUTH_SECRET\s*=/);
 });

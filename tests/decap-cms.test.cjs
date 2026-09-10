@@ -12,7 +12,7 @@ test('Decap admin shell and configuration exist',()=>{
 test('Decap uses GitHub main and edits central data.json',()=>{
   const config=read('admin/config.yml');
   assert.match(config,/name: github/);
-  assert.match(config,/repo: devmyskilla\/devmyskilla\.github\.io/);
+  assert.match(config,/repo: aasimaltomi\/devmyskilla\.github\.io/);
   assert.match(config,/branch: main/);
   assert.match(config,/file: data\.json/);
 });

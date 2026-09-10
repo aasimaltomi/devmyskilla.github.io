@@ -185,13 +185,13 @@ fields.push(`${pad(10)}- label: ${q('المنصات')}\n${pad(10)}  name: platfo
 
 const config=`backend:
   name: github
-  repo: devmyskilla/devmyskilla.github.io
+  repo: aasimaltomi/devmyskilla.github.io
   branch: main
   base_url: https://dunya-decap-oauth.atomy8774.workers.dev
   auth_endpoint: auth
 
-site_url: https://devmyskilla.github.io
-logo_url: https://devmyskilla.github.io/assets/dunya-logo-192.png
+site_url: https://aasimaltomi.github.io/devmyskilla.github.io
+logo_url: https://aasimaltomi.github.io/devmyskilla.github.io/assets/dunya-logo-192.png
 publish_mode: simple
 media_folder: assets/uploads
 public_folder: /assets/uploads
