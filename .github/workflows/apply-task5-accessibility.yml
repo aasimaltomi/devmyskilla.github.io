@@ -91,7 +91,7 @@ jobs:
               return true;
             }
             function trapModalTab(event){
-              if(event.key !== 'Tab')return false;
+              if(!(event.key === 'Tab'))return false;
               const modal=document.querySelector('.modal.open');
               if(!modal)return false;
               const focusable=[...modal.querySelectorAll(FOCUSABLE)].filter(node=>node.getAttribute('aria-hidden')!=='true');
