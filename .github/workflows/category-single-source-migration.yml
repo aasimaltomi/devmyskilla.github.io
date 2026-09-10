@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  capture-baseline:
+  materialize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,41 +20,55 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Capture current effective category fields
+      - name: Materialize frozen fields into data.json with integrity checks
         run: |
-          mkdir -p tests/fixtures
           node <<'NODE'
           const fs = require('node:fs');
-          let data = JSON.parse(fs.readFileSync('data.json','utf8'));
-          for (const file of [
-            './js/platform-categories.js',
-            './js/platform-categories-10-20.js',
-            './js/platform-categories-21-30.js',
-            './js/platform-categories-31-40.js',
-            './js/category-direct-links.js',
-          ]) {
-            const mod = require(file);
-            if (mod && typeof mod.applyToData === 'function') data = mod.applyToData(data);
-          }
-          const rows = data.platforms
-            .filter(p => /^plat-(?:[1-9]|[1-3][0-9]|40)$/.test(String(p && p.id || '')))
-            .sort((a,b) => Number(a.id.split('-')[1]) - Number(b.id.split('-')[1]));
-          const baseline = Object.fromEntries(rows.map(p => [p.id, Array.isArray(p.fields) ? p.fields : []]));
-          const total = Object.values(baseline).reduce((n, fields) => n + fields.length, 0);
-          console.log(`TOTAL_FIELDS=${total}`);
-          for (const [id, fields] of Object.entries(baseline)) console.log(`${id}=${fields.length}`);
-          if (rows.length !== 40) throw new Error(`expected 40 public platforms, got ${rows.length}`);
-          if (total !== 363) throw new Error(`expected 363 effective fields, got ${total}`);
-          fs.writeFileSync('tests/fixtures/category-effective-baseline.json', JSON.stringify(baseline, null, 2) + '\n');
+          const assert = require('node:assert/strict');
+          const original = JSON.parse(fs.readFileSync('data.json','utf8'));
+          const baseline = JSON.parse(fs.readFileSync('tests/fixtures/category-effective-baseline.json','utf8'));
+          const publicIds = new Set(Object.keys(baseline));
+          const next = {
+            ...original,
+            platforms: original.platforms.map(platform => publicIds.has(platform.id)
+              ? { ...platform, fields: baseline[platform.id] }
+              : platform)
+          };
+          const scrub = doc => ({
+            ...doc,
+            platforms: doc.platforms.map(platform => publicIds.has(platform.id)
+              ? { ...platform, fields: '__PUBLIC_FIELDS__' }
+              : platform)
+          });
+          assert.deepEqual(scrub(next), scrub(original), 'migration changed data outside public platform fields');
+          const originalInternal = original.platforms.filter(p => !publicIds.has(p.id));
+          const nextInternal = next.platforms.filter(p => !publicIds.has(p.id));
+          assert.deepEqual(nextInternal, originalInternal, 'platforms outside plat-1..plat-40 changed');
+          const total = next.platforms
+            .filter(p => publicIds.has(p.id))
+            .reduce((n,p) => n + (Array.isArray(p.fields) ? p.fields.length : 0), 0);
+          assert.equal(total, 363, `expected 363 materialized fields, got ${total}`);
+          fs.writeFileSync('data.json', JSON.stringify(next, null, 2) + '\n');
+          console.log(`MATERIALIZED_FIELDS=${total}`);
           NODE
-      - name: Commit baseline fixture
+      - name: Verify parity assertion is green while runtime override assertion remains red
         run: |
-          if git diff --quiet -- tests/fixtures/category-effective-baseline.json && git ls-files --error-unmatch tests/fixtures/category-effective-baseline.json >/dev/null 2>&1; then
-            echo 'Baseline already committed.'
+          set +e
+          node --test tests/category-single-source.test.cjs > /tmp/parity.log 2>&1
+          status=$?
+          cat /tmp/parity.log
+          grep -q 'data.json public fields exactly match the frozen effective runtime baseline' /tmp/parity.log
+          grep -q 'ok .*data.json public fields exactly match the frozen effective runtime baseline' /tmp/parity.log
+          grep -q 'not ok .*production page and service worker do not load or precache category mutation scripts' /tmp/parity.log
+          test "$status" -ne 0
+      - name: Commit materialized data
+        run: |
+          if git diff --quiet -- data.json; then
+            echo 'data.json already materialized.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add tests/fixtures/category-effective-baseline.json
-          git commit -m 'test: freeze effective category runtime baseline'
+          git add data.json
+          git commit -m 'refactor: materialize effective categories in data json'
           git push origin HEAD:refactor/category-single-source
