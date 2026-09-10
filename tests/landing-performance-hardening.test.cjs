@@ -16,12 +16,12 @@ test('below-fold landing sections can skip initial rendering safely',()=>{
 });
 
 test('mobile landing reservation is large enough to keep the orbit from shifting after hydration',()=>{
-  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-copy\s*\{[^}]*min-height:\s*5(?:0|1|2)0px/);
+  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-copy\s*\{[^}]*min-height:\s*520px/);
   assert.match(css,/@media\(max-width:620px\)[\s\S]*#landingCategoryGrid\s*\{[^}]*min-height:/);
 });
 
-test('mobile explore hero reserves hydrated copy height instead of collapsing before data loads',()=>{
-  assert.match(stability,/@media\(max-width:680px\)[\s\S]*\.hero-copy\s*\{[^}]*min-height:\s*4\d\dpx/);
+test('mobile explore hero reserves enough hydrated copy height to avoid the measured document shift',()=>{
+  assert.match(stability,/@media\(max-width:680px\)[\s\S]*\.hero-copy\s*\{[^}]*min-height:\s*620px/);
 });
 
 test('Google font loading is non-render-blocking and optional on public pages',()=>{
