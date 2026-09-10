@@ -7,39 +7,16 @@ on:
       - '.github/workflows/audit-lighthouse.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: fix/full-site-hardening
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Remove measured web-font CLS source
-        shell: bash
-        run: |
-          node <<'NODE'
-          const fs=require('node:fs');
-          for(const path of ['index.html','explore.html','platform.html']){
-            let html=fs.readFileSync(path,'utf8');
-            html=html.replace(/\s*<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com"><link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin><link rel="preload" as="style" href="https:\/\/fonts\.googleapis\.com\/css2\?family=Cairo:wght@400;500;600;700;800&display=optional" onload="this\.onload=null;this\.rel='stylesheet'">/g,'');
-            if(/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(html))throw new Error(`External Google font reference remains in ${path}`);
-            fs.writeFileSync(path,html);
-          }
-          NODE
-          node --test tests/landing-performance-hardening.test.cjs tests/site-runtime.test.cjs
-      - name: Commit swap-free font loading
-        shell: bash
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html explore.html platform.html
-          git commit -m 'perf: remove external font swaps from public pages'
-          git push origin HEAD:fix/full-site-hardening
       - name: Start local static server
         run: |
           python3 -m http.server 8080 --bind 127.0.0.1 >/tmp/devmyskill-http.log 2>&1 &
@@ -49,20 +26,44 @@ jobs:
           done
           cat /tmp/devmyskill-http.log
           exit 1
-      - name: Run Lighthouse after final CLS fixes
+      - name: Verify mobile document width after hydration
+        run: |
+          npm install --no-save --package-lock=false puppeteer-core@24.16.0 >/dev/null 2>&1
+          CHROME="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
+          test -n "$CHROME"
+          CHROME="$CHROME" node <<'NODE'
+          const puppeteer=require('puppeteer-core');
+          (async()=>{
+            const browser=await puppeteer.launch({executablePath:process.env.CHROME,headless:true,args:['--no-sandbox','--disable-gpu']});
+            for(const path of ['index.html','explore.html']){
+              const page=await browser.newPage();
+              await page.setViewport({width:412,height:823,deviceScaleFactor:1,isMobile:true});
+              await page.goto(`http://127.0.0.1:8080/${path}`,{waitUntil:'networkidle0'});
+              if(path==='explore.html') await page.waitForFunction(()=>document.querySelectorAll('#platformGrid .platform-card').length>0,{timeout:10000});
+              const metrics=await page.evaluate(()=>({innerWidth,clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth,heroCopyWidth:Math.round(document.querySelector('.hero-copy,.landing-copy')?.getBoundingClientRect().width||0)}));
+              console.log(`${path}: ${JSON.stringify(metrics)}`);
+              if(metrics.scrollWidth>metrics.clientWidth) throw new Error(`${path} has horizontal overflow: ${metrics.scrollWidth} > ${metrics.clientWidth}`);
+              await page.close();
+            }
+            await browser.close();
+          })().catch(err=>{console.error(err);process.exit(1)});
+          NODE
+      - name: Run Lighthouse on home and explore
         run: |
           npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/index.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-index.json
           npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/explore.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-explore.json
-      - name: Print final Lighthouse scores and diagnostics
+      - name: Enforce layout stability and print scores
         run: |
           node <<'NODE'
           const fs=require('node:fs');
+          let failed=false;
           for(const [name,file] of [['home','lighthouse-index.json'],['explore','lighthouse-explore.json']]){
             const r=JSON.parse(fs.readFileSync(file,'utf8')),a=r.audits;
             const pct=k=>Math.round((r.categories[k]?.score||0)*100);
-            console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${a['cumulative-layout-shift']?.displayValue}`);
+            const cls=a['cumulative-layout-shift']?.numericValue||0;
+            console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${cls.toFixed(3)}`);
             for(const item of (a['layout-shifts']?.details?.items||[]).slice(0,5)) console.log(`${name} shift: ${JSON.stringify(item)}`);
-            const failing=(r.categories['best-practices']?.auditRefs||[]).filter(x=>a[x.id]&&a[x.id].score!==1&&a[x.id].score!==null).map(x=>({id:x.id,score:a[x.id].score,title:a[x.id].title}));
-            if(failing.length)console.log(`${name} best-practice findings: ${JSON.stringify(failing)}`);
+            if(cls>0.1){console.error(`${name} CLS exceeds 0.1`);failed=true;}
           }
+          if(failed)process.exit(1);
           NODE
