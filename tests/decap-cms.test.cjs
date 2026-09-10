@@ -48,6 +48,14 @@ test('Decap exposes platform fields, official paths and research metadata',()=>{
   for(const type of ['learning-path','career-path','skill-path','professional-certificate','professional-program','specialization','role-path','structured-series','other-official-path'])assert.ok(config.includes(type),`missing path type ${type}`);
 });
 
+test('Decap authoritative platform field editor exposes stable id translated name and official URL',()=>{
+  const config=read('admin/config.yml');
+  assert.match(config,/label: "المجالات \/ Fields"[\s\S]*?name: fields[\s\S]*?widget: list/);
+  assert.match(config,/label: "معرّف المجال الثابت"\s*\n\s*name: id\s*\n\s*widget: string/);
+  assert.match(config,/label: "اسم المجال"\s*\n\s*name: name\s*\n\s*widget: object[\s\S]*?label: "العربية"[\s\S]*?name: ar[\s\S]*?label: "English"[\s\S]*?name: en[\s\S]*?label: "Türkçe"[\s\S]*?name: tr/);
+  assert.match(config,/label: "رابط المجال الرسمي"\s*\n\s*name: officialUrl\s*\n\s*widget: string/);
+});
+
 test('image fields use media library and OAuth proxy remains configured',()=>{
   const config=read('admin/config.yml');
   assert.match(config,/widget: image/);
