@@ -1,4 +1,4 @@
-name: Temporary P1 CMS split generator
+name: Temporary P1 CMS config regeneration
 
 on:
   push:
@@ -19,88 +19,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Patch Decap generator for split public and research files
-        run: |
-          node <<'NODE'
-          const fs=require('node:fs');
-          const file='scripts/generate-decap-config.cjs';
-          let s=fs.readFileSync(file,'utf8');
-          const must=(before,after,label)=>{
-            if(!s.includes(before)) throw new Error(`missing generator anchor: ${label}`);
-            s=s.replace(before,after);
-          };
-
-          must(
-            "const data=validateStableReferences(validateContentData(JSON.parse(fs.readFileSync('data.json','utf8'))));\n",
-            "const data=validateStableReferences(validateContentData(JSON.parse(fs.readFileSync('data.json','utf8'))));\nconst research=JSON.parse(fs.readFileSync('research-data.json','utf8'));\nconst {reconstructPlatforms}=require('./validate-research-data.cjs');\nreconstructPlatforms(data,research);\n",
-            'load research data'
-          );
-
-          const researchStart=s.indexOf('function platformResearchFields(indent){');
-          const platformStart=s.indexOf('function platformFields(indent){',researchStart);
-          if(researchStart<0||platformStart<0) throw new Error('could not locate platform research/platform field function boundaries');
-          let block=s.slice(researchStart,platformStart);
-          const blockMust=(before,after,label)=>{
-            if(!block.includes(before)) throw new Error(`missing research block anchor: ${label}`);
-            block=block.replace(before,after);
-          };
-          blockMust(
-            "function platformResearchFields(indent){\n  const out=[];",
-            "function platformResearchFields(indent,mode='all'){\n  const out=[];\n  if(mode!=='researchOnly'){",
-            'research function start'
-          );
-          blockMust(
-            "  out.push(scalar('رابط المجال الرسمي','officialUrl','string',indent+4,['required: false']));\n  out.push(`${pad(indent)}- label: ${q('المسارات الرسمية / Official Paths')}",
-            "  out.push(scalar('رابط المجال الرسمي','officialUrl','string',indent+4,['required: false']));\n  }\n  if(mode!=='fieldsOnly'){\n  out.push(`${pad(indent)}- label: ${q('المسارات الرسمية / Official Paths')}",
-            'split fields from paths'
-          );
-          const returnAnchor="  return out.join('\\n');";
-          const returnIndex=block.lastIndexOf(returnAnchor);
-          if(returnIndex<0) throw new Error('missing research block return');
-          block=block.slice(0,returnIndex)+"  }\n"+block.slice(returnIndex);
-          s=s.slice(0,researchStart)+block+s.slice(platformStart);
-
-          must(
-            'function platformFields(indent){',
-            "function platformFields(indent,researchMode='fieldsOnly') {",
-            'platform function signature'
-          );
-          must(
-            "  out.push(platformResearchFields(indent));",
-            "  out.push(platformResearchFields(indent,researchMode));",
-            'platform research mode'
-          );
-
-          const fieldsAnchor="fields.push(`${pad(10)}- label: ${q('المنصات')}\\n${pad(10)}  name: platforms\\n${pad(10)}  widget: list\\n${pad(10)}  summary: ${q('{{fields.id}} — {{fields.name.en}}')}\\n${pad(10)}  fields:`);fields.push(platformFields(14));\n";
-          const researchBuild=`${fieldsAnchor}\nconst researchFields=[];\nresearchFields.push(\`${'${pad(10)}'}- label: ${'${q(\'بحث المنصات العامة / Public Platform Research\')}'}\\n${'${pad(10)}'}  name: publicPlatformResearch\\n${'${pad(10)}'}  widget: list\\n${'${pad(10)}'}  summary: ${'${q(\'{{fields.id}}\')}'}\\n${'${pad(10)}'}  fields:\`);\nresearchFields.push(scalar('معرّف المنصة العامة — لا تغيّره','id','string',14,['hint: \"Must match a public platform ID\"']));\nresearchFields.push(platformResearchFields(14,'researchOnly'));\nresearchFields.push(\`${'${pad(10)}'}- label: ${'${q(\'المنصات غير العامة / Non-public Platforms\')}'}\\n${'${pad(10)}'}  name: nonPublicPlatforms\\n${'${pad(10)}'}  widget: list\\n${'${pad(10)}'}  summary: ${'${q(\'{{fields.id}} — {{fields.name.en}}\')}'}\\n${'${pad(10)}'}  fields:\`);\nresearchFields.push(platformFields(14,'all'));\n`;
-          must(fieldsAnchor,researchBuild,'research schema builder');
-
-          must(
-            "        fields:\n${fields.join('\\n')}\n`;",
-            "        fields:\n${fields.join('\\n')}\n      - label: ${q('بيانات البحث الداخلية')}\n        name: research_data\n        file: research-data.json\n        fields:\n${researchFields.join('\\n')}\n`;",
-            'research Decap file entry'
-          );
-          must(
-            "console.error(`${path} is not generated from the current data.json schema`)",
-            "console.error(`${path} is not generated from the current split data schemas`)",
-            'check message'
-          );
-          must(
-            "console.log(`Generated ${path} for full CMS control of ${data.platforms.length} platforms`)",
-            "console.log(`Generated ${path} for ${data.platforms.length} public platforms plus research data`)",
-            'generation message'
-          );
-          fs.writeFileSync(file,s);
-          NODE
-      - name: Regenerate Decap config and verify focused tests
+      - name: Regenerate Decap config from split schemas
         run: |
           node scripts/generate-decap-config.cjs
           node scripts/generate-decap-config.cjs --check
           node --test tests/decap-cms.test.cjs tests/p1-public-data-split.test.cjs
-      - name: Commit generator and generated config
+      - name: Commit generated config
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/generate-decap-config.cjs admin/config.yml
-          git commit -m "feat: split public and research CMS editing"
+          git add admin/config.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: regenerate split Decap config"
           git push origin HEAD:perf/p1-public-data-split
