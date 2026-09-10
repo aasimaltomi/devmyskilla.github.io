@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  materialize:
+  materialize-platform-patch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,55 +20,57 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Materialize frozen fields into data.json with integrity checks
+      - name: Materialize CouponAmI runtime patch into data.json
         run: |
           node <<'NODE'
           const fs = require('node:fs');
           const assert = require('node:assert/strict');
           const original = JSON.parse(fs.readFileSync('data.json','utf8'));
-          const baseline = JSON.parse(fs.readFileSync('tests/fixtures/category-effective-baseline.json','utf8'));
-          const publicIds = new Set(Object.keys(baseline));
-          const next = {
-            ...original,
-            platforms: original.platforms.map(platform => publicIds.has(platform.id)
-              ? { ...platform, fields: baseline[platform.id] }
-              : platform)
+          const patch = {
+            name:{
+              ar:'CouponAmI (سابقًا DiscUdemy)',
+              en:'CouponAmI (formerly DiscUdemy)',
+              tr:'CouponAmI (eski adıyla DiscUdemy)'
+            },
+            officialUrl:'https://www.couponami.com/',
+            catalogUrl:'https://www.couponami.com/category',
+            logo:{
+              src:'https://www.google.com/s2/favicons?domain=couponami.com&sz=128',
+              alt:{ar:'CouponAmI',en:'CouponAmI',tr:'CouponAmI'}
+            },
+            description:{
+              ar:'منصة مستقلة لاكتشاف كوبونات Udemy المجانية النشطة والمتحقق منها. كانت تُعرف سابقًا باسم DiscUdemy، وهي ليست تابعة لـUdemy.',
+              en:'An independent platform for discovering active, verified free Udemy coupons. Formerly DiscUdemy; it is not affiliated with Udemy.',
+              tr:'Aktif ve doğrulanmış ücretsiz Udemy kuponlarını keşfetmek için bağımsız bir platformdur. Eski adı DiscUdemy olup Udemy ile bağlantılı değildir.'
+            }
           };
-          const scrub = doc => ({
-            ...doc,
-            platforms: doc.platforms.map(platform => publicIds.has(platform.id)
-              ? { ...platform, fields: '__PUBLIC_FIELDS__' }
-              : platform)
-          });
-          assert.deepEqual(scrub(next), scrub(original), 'migration changed data outside public platform fields');
-          const originalInternal = original.platforms.filter(p => !publicIds.has(p.id));
-          const nextInternal = next.platforms.filter(p => !publicIds.has(p.id));
-          assert.deepEqual(nextInternal, originalInternal, 'platforms outside plat-1..plat-40 changed');
-          const total = next.platforms
-            .filter(p => publicIds.has(p.id))
-            .reduce((n,p) => n + (Array.isArray(p.fields) ? p.fields.length : 0), 0);
-          assert.equal(total, 363, `expected 363 materialized fields, got ${total}`);
-          fs.writeFileSync('data.json', JSON.stringify(next, null, 2) + '\n');
-          console.log(`MATERIALIZED_FIELDS=${total}`);
+          const next={...original,platforms:original.platforms.map(platform=>platform.id==='plat-21'?{...platform,...patch}:platform)};
+          const scrub = doc => ({...doc,platforms:doc.platforms.map(platform=>platform.id==='plat-21'?{
+            ...platform,
+            name:'__PATCH__',officialUrl:'__PATCH__',catalogUrl:'__PATCH__',logo:'__PATCH__',description:'__PATCH__'
+          }:platform)});
+          assert.deepEqual(scrub(next),scrub(original),'migration changed data outside the approved plat-21 metadata patch');
+          assert.deepEqual(next.platforms.filter(p=>p.id!=='plat-21'),original.platforms.filter(p=>p.id!=='plat-21'),'another platform changed');
+          fs.writeFileSync('data.json',JSON.stringify(next,null,2)+'\n');
           NODE
-      - name: Verify parity assertion is green while runtime override assertion remains red
+      - name: Verify CouponAmI and field parity are green while only runtime removal remains red
         run: |
           set +e
           node --test tests/category-single-source.test.cjs > /tmp/parity.log 2>&1
           status=$?
           cat /tmp/parity.log
-          grep -q 'data.json public fields exactly match the frozen effective runtime baseline' /tmp/parity.log
           grep -q 'ok .*data.json public fields exactly match the frozen effective runtime baseline' /tmp/parity.log
+          grep -q 'ok .*CouponAmI platform metadata is authoritative in data.json before removing its runtime patch' /tmp/parity.log
           grep -q 'not ok .*production page and service worker do not load or precache category mutation scripts' /tmp/parity.log
           test "$status" -ne 0
-      - name: Commit materialized data
+      - name: Commit authoritative platform metadata
         run: |
           if git diff --quiet -- data.json; then
-            echo 'data.json already materialized.'
+            echo 'CouponAmI metadata already materialized.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m 'refactor: materialize effective categories in data json'
+          git commit -m 'refactor: materialize CouponAmI platform metadata'
           git push origin HEAD:refactor/category-single-source
