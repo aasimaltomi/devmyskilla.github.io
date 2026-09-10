@@ -34,6 +34,20 @@ test('data.json public fields exactly match the frozen effective runtime baselin
   }
 });
 
+test('CouponAmI platform metadata is authoritative in data.json before removing its runtime patch', () => {
+  const platform = byId['plat-21'];
+  assert.equal(platform.name?.ar, 'CouponAmI (سابقًا DiscUdemy)');
+  assert.equal(platform.name?.en, 'CouponAmI (formerly DiscUdemy)');
+  assert.equal(platform.name?.tr, 'CouponAmI (eski adıyla DiscUdemy)');
+  assert.equal(platform.officialUrl, 'https://www.couponami.com/');
+  assert.equal(platform.catalogUrl, 'https://www.couponami.com/category');
+  assert.equal(platform.logo?.src, 'https://www.google.com/s2/favicons?domain=couponami.com&sz=128');
+  assert.deepEqual(platform.logo?.alt, {ar:'CouponAmI',en:'CouponAmI',tr:'CouponAmI'});
+  assert.equal(platform.description?.ar, 'منصة مستقلة لاكتشاف كوبونات Udemy المجانية النشطة والمتحقق منها. كانت تُعرف سابقًا باسم DiscUdemy، وهي ليست تابعة لـUdemy.');
+  assert.equal(platform.description?.en, 'An independent platform for discovering active, verified free Udemy coupons. Formerly DiscUdemy; it is not affiliated with Udemy.');
+  assert.equal(platform.description?.tr, 'Aktif ve doğrulanmış ücretsiz Udemy kuponlarını keşfetmek için bağımsız bir platformdur. Eski adı DiscUdemy olup Udemy ile bağlantılı değildir.');
+});
+
 test('authoritative public fields have stable ids, multilingual labels, and valid HTTPS destinations', () => {
   for (const [platformId, fields] of Object.entries(baseline)) {
     const ids = new Set();
