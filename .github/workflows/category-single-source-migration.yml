@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  materialize-platform-patch:
+  remove-overrides:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,57 +20,293 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Materialize CouponAmI runtime patch into data.json
+      - name: Remove runtime category mutation layers
         run: |
           node <<'NODE'
-          const fs = require('node:fs');
-          const assert = require('node:assert/strict');
-          const original = JSON.parse(fs.readFileSync('data.json','utf8'));
-          const patch = {
-            name:{
-              ar:'CouponAmI (سابقًا DiscUdemy)',
-              en:'CouponAmI (formerly DiscUdemy)',
-              tr:'CouponAmI (eski adıyla DiscUdemy)'
-            },
-            officialUrl:'https://www.couponami.com/',
-            catalogUrl:'https://www.couponami.com/category',
-            logo:{
-              src:'https://www.google.com/s2/favicons?domain=couponami.com&sz=128',
-              alt:{ar:'CouponAmI',en:'CouponAmI',tr:'CouponAmI'}
-            },
-            description:{
-              ar:'منصة مستقلة لاكتشاف كوبونات Udemy المجانية النشطة والمتحقق منها. كانت تُعرف سابقًا باسم DiscUdemy، وهي ليست تابعة لـUdemy.',
-              en:'An independent platform for discovering active, verified free Udemy coupons. Formerly DiscUdemy; it is not affiliated with Udemy.',
-              tr:'Aktif ve doğrulanmış ücretsiz Udemy kuponlarını keşfetmek için bağımsız bir platformdur. Eski adı DiscUdemy olup Udemy ile bağlantılı değildir.'
-            }
-          };
-          const next={...original,platforms:original.platforms.map(platform=>platform.id==='plat-21'?{...platform,...patch}:platform)};
-          const scrub = doc => ({...doc,platforms:doc.platforms.map(platform=>platform.id==='plat-21'?{
-            ...platform,
-            name:'__PATCH__',officialUrl:'__PATCH__',catalogUrl:'__PATCH__',logo:'__PATCH__',description:'__PATCH__'
-          }:platform)});
-          assert.deepEqual(scrub(next),scrub(original),'migration changed data outside the approved plat-21 metadata patch');
-          assert.deepEqual(next.platforms.filter(p=>p.id!=='plat-21'),original.platforms.filter(p=>p.id!=='plat-21'),'another platform changed');
-          fs.writeFileSync('data.json',JSON.stringify(next,null,2)+'\n');
+          const fs=require('node:fs');
+          const legacy=[
+            'platform-categories.js','platform-categories-10-20.js','platform-categories-21-30.js','platform-categories-31-40.js','category-direct-links.js'
+          ];
+          let html=fs.readFileSync('platform.html','utf8');
+          for(const name of legacy)html=html.replace(new RegExp(`<script src="js/${name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}"></script>`,'g'),'');
+          fs.writeFileSync('platform.html',html);
+          let sw=fs.readFileSync('sw.js','utf8');
+          for(const name of legacy){
+            sw=sw.replace(new RegExp(`,'\\./js/${name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}'`,'g'),'');
+            sw=sw.replace(new RegExp(`'\\./js/${name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}',`,'g'),'');
+          }
+          fs.writeFileSync('sw.js',sw);
           NODE
-      - name: Verify CouponAmI and field parity are green while only runtime removal remains red
+      - name: Rewrite category tests for authoritative data.json
         run: |
-          set +e
-          node --test tests/category-single-source.test.cjs > /tmp/parity.log 2>&1
-          status=$?
-          cat /tmp/parity.log
-          grep -q 'ok .*data.json public fields exactly match the frozen effective runtime baseline' /tmp/parity.log
-          grep -q 'ok .*CouponAmI platform metadata is authoritative in data.json before removing its runtime patch' /tmp/parity.log
-          grep -q 'not ok .*production page and service worker do not load or precache category mutation scripts' /tmp/parity.log
-          test "$status" -ne 0
-      - name: Commit authoritative platform metadata
+          cat > tests/category-direct-links-1-10.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const fs=require('node:fs');
+          const data=require('../data.json');
+          const byId=id=>data.platforms.find(p=>p.id===id);
+          const field=(id,fieldId)=>byId(id).fields.find(f=>f.id===fieldId);
+
+          test('platforms 2-10 store category-specific authoritative URLs in data.json',()=>{
+            for(let n=2;n<=10;n++){
+              const platform=byId(`plat-${n}`);
+              assert.ok(platform.fields.length>0,`${platform.id} should have approved categories`);
+              for(const item of platform.fields)assert.match(item.officialUrl||'',/^https:\/\//,`${platform.id}/${item.id}`);
+              assert.ok(new Set(platform.fields.map(item=>item.officialUrl)).size>1,`${platform.id} should not reuse one URL for every category`);
+            }
+          });
+
+          test('known direct category destinations are materialized exactly',()=>{
+            assert.equal(field('plat-4','artificial-intelligence').officialUrl,'https://www.theforage.com/simulations?careers=ai');
+            assert.equal(field('plat-5','artificial-intelligence').officialUrl,'https://learn.microsoft.com/en-us/training/browse/?terms=Artificial%20Intelligence');
+            assert.equal(field('plat-7','computer-science').officialUrl,'https://www.edx.org/learn/computer-science');
+            assert.equal(field('plat-8','python').officialUrl,'https://www.codecademy.com/catalog/language/python');
+            assert.equal(field('plat-8','ai').officialUrl,'https://www.codecademy.com/catalog/subject/artificial-intelligence');
+            assert.equal(field('plat-10','ai').officialUrl,'https://e.huawei.com/en/talent/search/?q=AI');
+          });
+
+          test('FutureLearn authoritative fields keep direct subject URLs',()=>{
+            for(const item of byId('plat-1').fields)assert.match(item.officialUrl,/futurelearn\.com\/subjects\//);
+          });
+
+          test('production no longer ships a direct-link mutation layer',()=>{
+            assert.equal(fs.existsSync('js/category-direct-links.js'),false);
+            assert.equal(fs.readFileSync('platform.html','utf8').includes('category-direct-links.js'),false);
+          });
+          EOF
+
+          cat > tests/category-link-audit.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const data=require('../data.json');
+          const publicPlatforms=data.platforms.filter(p=>/^plat-(?:[1-9]|[1-3][0-9]|40)$/.test(p.id));
+          const byId=id=>publicPlatforms.find(p=>p.id===id);
+          const field=(platform,id)=>platform.fields.find(f=>f.id===id);
+
+          test('all public approved categories have absolute HTTPS URLs',()=>{
+            const fields=publicPlatforms.flatMap(p=>p.fields||[]);
+            assert.equal(fields.length,363,'approved public category total');
+            for(const item of fields)assert.match(item.officialUrl||'',/^https:\/\//);
+          });
+
+          test('NVIDIA categories point to self-paced course filters rather than learning paths or workshops',()=>{
+            for(const item of byId('plat-13').fields){
+              assert.match(item.officialUrl,/nvidia\.com\/en-us\/training\/self-paced-courses\//);
+              assert.doesNotMatch(item.officialUrl,/learning-path|instructor-led/i);
+            }
+          });
+
+          test('Sololearn categories do not masquerade as a single course or learning path',()=>{
+            for(const item of byId('plat-17').fields)assert.equal(item.officialUrl,'https://www.sololearn.com/en/learn/');
+          });
+
+          test('Edraak uses exact official category filters where verified',()=>{
+            const exact={'career-readiness':'career-readiness',technology:'technology','personal-development':'personal-development','business-entrepreneurship':'business-and-entrepreneurship',languages:'languages'};
+            for(const [id,slug] of Object.entries(exact))assert.equal(field(byId('plat-31'),id).officialUrl,`https://www.edraak.org/explore/?category=${slug}`);
+          });
+          EOF
+
+          cat > tests/platform-categories-2-10.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const fs=require('node:fs');
+          const data=require('../data.json');
+          const byId=id=>data.platforms.find(p=>p.id===id);
+          const expected={'plat-2':6,'plat-3':11,'plat-4':15,'plat-5':6,'plat-6':25,'plat-7':27,'plat-8':37,'plat-9':6,'plat-10':23};
+
+          test('authoritative data covers platforms 2 through 10 with approved counts',()=>{
+            for(const [id,count] of Object.entries(expected)){
+              const fields=byId(id).fields||[];
+              assert.equal(fields.length,count,`${id} category count`);
+              assert.ok(fields.every(f=>f.id&&f.name?.en&&f.name?.ar&&f.name?.tr&&/^https:\/\//.test(f.officialUrl||'')),`${id} authoritative fields`);
+            }
+          });
+
+          test('key approved category names are preserved exactly',()=>{
+            assert.ok(byId('plat-2').fields.some(f=>f.name.en==='Focus areas'));
+            assert.ok(byId('plat-3').fields.some(f=>f.name.en==='Artificial Intelligence'));
+            assert.ok(byId('plat-5').fields.some(f=>f.name.en==='Technical Infrastructure'));
+            assert.ok(byId('plat-6').fields.some(f=>f.name.en==='Spectrum Management'));
+            assert.ok(byId('plat-7').fields.some(f=>f.name.en==='Computer Science'));
+            assert.ok(byId('plat-8').fields.some(f=>f.name.en==='Web Development'));
+            assert.ok(byId('plat-9').fields.some(f=>f.name.en==='Multilateral Diplomacy'));
+            assert.ok(byId('plat-10').fields.some(f=>f.name.en==='Digital Power'));
+          });
+
+          test('platform detail now follows DataLoader directly without category override scripts',()=>{
+            const html=fs.readFileSync('platform.html','utf8');
+            assert.ok(html.includes('js/data-loader.js'));
+            assert.ok(html.includes('js/platform-detail.js'));
+            assert.doesNotMatch(html,/platform-categories|category-direct-links/);
+          });
+          EOF
+
+          cat > tests/platform-categories-10-20.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const data=require('../data.json');
+          const byId=id=>data.platforms.find(p=>p.id===id);
+          const expected={'plat-10':23,'plat-11':0,'plat-12':6,'plat-13':6,'plat-14':9,'plat-15':9,'plat-16':6,'plat-17':5,'plat-18':5,'plat-19':21,'plat-20':9};
+
+          test('authoritative category counts match the reviewed 10-20 batch',()=>{
+            for(const [id,count] of Object.entries(expected))assert.equal((byId(id).fields||[]).length,count,`${id} category count`);
+          });
+
+          test('every visible 10-20 category is trilingual with an HTTPS destination',()=>{
+            for(const [id,count] of Object.entries(expected)){
+              if(!count)continue;
+              for(const field of byId(id).fields){
+                assert.ok(field.name?.ar&&field.name?.en&&field.name?.tr,`${id}/${field.id} trilingual`);
+                assert.match(field.officialUrl||'',/^https:\/\//,`${id}/${field.id} HTTPS`);
+              }
+            }
+          });
+
+          test('AUC OpenLearn remains intentionally empty',()=>assert.deepEqual(byId('plat-11').fields||[],[]));
+          EOF
+
+          cat > tests/platform-categories-21-30.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const data=require('../data.json');
+          const byId=id=>data.platforms.find(p=>p.id===id);
+          const expected={'plat-21':6,'plat-22':0,'plat-23':0,'plat-24':9,'plat-25':7,'plat-26':11,'plat-27':14,'plat-28':9,'plat-29':7,'plat-30':0};
+
+          test('authoritative category batch 21-30 has expected counts translations and URLs',()=>{
+            for(const [id,count] of Object.entries(expected)){
+              const fields=byId(id).fields||[];
+              assert.equal(fields.length,count,`${id} category count`);
+              for(const field of fields){assert.ok(field.id&&field.name?.ar&&field.name?.en&&field.name?.tr);assert.match(field.officialUrl,/^https:\/\//);}
+            }
+          });
+
+          test('unverified platforms 22 23 and 30 intentionally expose no categories',()=>{
+            for(const id of ['plat-22','plat-23','plat-30'])assert.deepEqual(byId(id).fields||[],[]);
+          });
+
+          test('CouponAmI rebrand is stored authoritatively in data.json',()=>{
+            const p=byId('plat-21');
+            assert.equal(p.name.en,'CouponAmI (formerly DiscUdemy)');
+            assert.equal(p.officialUrl,'https://www.couponami.com/');
+            assert.equal(p.catalogUrl,'https://www.couponami.com/category');
+            assert.match(p.logo.src,/couponami\.com/);
+            assert.equal(p.fields.length,6);
+          });
+          EOF
+
+          cat > tests/platform-categories-31-40.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const data=require('../data.json');
+          const byId=id=>data.platforms.find(p=>p.id===id);
+          const expected={'plat-31':11,'plat-32':8,'plat-33':0,'plat-34':7,'plat-35':15,'plat-36':9,'plat-37':0,'plat-38':4,'plat-39':0,'plat-40':0};
+
+          test('authoritative category batch 31-40 has exact reviewed counts',()=>{
+            for(const [id,count] of Object.entries(expected))assert.equal((byId(id).fields||[]).length,count,id);
+            assert.equal(Object.values(expected).reduce((a,b)=>a+b,0),54);
+          });
+
+          test('all approved 31-40 categories are trilingual and use official HTTPS destinations',()=>{
+            for(const id of Object.keys(expected))for(const field of byId(id).fields||[]){
+              assert.ok(field.id&&field.name?.ar&&field.name?.en&&field.name?.tr);
+              assert.match(field.officialUrl,/^https:\/\//);
+              assert.doesNotMatch(field.officialUrl,/google\.com\/search/);
+            }
+          });
+
+          test('platforms without verified taxonomy expose no categories',()=>{
+            for(const id of ['plat-33','plat-37','plat-39','plat-40'])assert.deepEqual(byId(id).fields||[],[]);
+          });
+          EOF
+
+          cat > tests/stale-category-links.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const data=require('../data.json');
+          const serialized=JSON.stringify(data);
+
+          test('OpenLearn and Alison use current official category destinations',()=>{
+            assert.ok(serialized.includes('https://www.open.edu/openlearn/money-management/free-courses'));
+            assert.ok(!serialized.includes('https://www.open.edu/openlearn/money-business/free-courses'));
+            for(const url of ['https://alison.com/courses/marketing','https://alison.com/courses/engineering','https://alison.com/courses/education'])assert.ok(serialized.includes(url),`missing ${url}`);
+            for(const dead of ['https://alison.com/courses/sales-and-marketing','https://alison.com/courses/engineering-and-construction','https://alison.com/courses/teaching-and-academics'])assert.ok(!serialized.includes(dead),`legacy URL remains: ${dead}`);
+          });
+
+          test('Simplilearn audited categories use verified live SkillUp landing pages',()=>{
+            for(const url of ['https://www.simplilearn.com/skillup-free-online-courses/leadership','https://www.simplilearn.com/skillup-free-online-courses/management','https://www.simplilearn.com/skillup-free-online-courses/quality-assurance','https://www.simplilearn.com/skillup-free-online-courses/ui-ux','https://www.simplilearn.com/skillup-free-online-courses/self-development'])assert.ok(serialized.includes(url),`missing ${url}`);
+            for(const deadSlug of ['business-and-leadership','it-service-and-architecture','quality-management','product-and-design','personal-development'])assert.ok(!serialized.includes(`/skillup-free-online-courses/${deadSlug}`),`dead Simplilearn slug remains: ${deadSlug}`);
+          });
+          EOF
+
+          cat > tests/pwa-hardening.test.cjs <<'EOF'
+          const test=require('node:test');
+          const assert=require('node:assert/strict');
+          const fs=require('node:fs');
+          const sw=fs.readFileSync('sw.js','utf8');
+          const manifest=JSON.parse(fs.readFileSync('manifest.webmanifest','utf8'));
+          const legacy=['platform-categories.js','platform-categories-10-20.js','platform-categories-21-30.js','platform-categories-31-40.js','category-direct-links.js'];
+
+          test('service worker precaches authoritative category data without legacy mutation scripts',()=>{
+            assert.ok(sw.includes("'./data.json'"));
+            assert.ok(sw.includes("'./css/categories-only.css'"));
+            for(const name of legacy)assert.equal(sw.includes(name),false,`${name} must not be precached`);
+            assert.match(sw,/dunya-al-dawrat-v14/);
+          });
+
+          test('offline HTML fallback is limited to navigation requests',()=>{
+            assert.match(sw,/event\.request\.mode\s*===\s*['"]navigate['"]/);
+            assert.match(sw,/networkFirst\(event\.request,\s*null\)/);
+          });
+
+          test('manifest exposes install-quality 192 and 512 PNG icons',()=>{
+            const icons=manifest.icons||[];
+            assert.ok(icons.some(icon=>icon.sizes==='192x192'&&icon.type==='image/png'));
+            assert.ok(icons.some(icon=>icon.sizes==='512x512'&&icon.type==='image/png'));
+          });
+          EOF
+      - name: Delete legacy category mutation modules
         run: |
-          if git diff --quiet -- data.json; then
-            echo 'CouponAmI metadata already materialized.'
-            exit 0
+          git rm -f \
+            js/platform-categories.js \
+            js/platform-categories-10-20.js \
+            js/platform-categories-21-30.js \
+            js/platform-categories-31-40.js \
+            js/category-direct-links.js
+      - name: Verify no unintended dependency remains
+        run: |
+          set -e
+          echo 'Remaining legacy-name references:'
+          grep -R -n -E 'PlatformCategories|CategoryDirectLinks|platform-categories(-10-20|-21-30|-31-40)?\.js|category-direct-links\.js' . \
+            --exclude-dir=.git \
+            --exclude='category-single-source.test.cjs' \
+            --exclude='2026-09-10-category-single-source-design.md' \
+            --exclude='2026-09-11-category-single-source.md' \
+            --exclude='category-single-source-migration.yml' || true
+          if grep -R -n -E 'PlatformCategories|CategoryDirectLinks|platform-categories(-10-20|-21-30|-31-40)?\.js|category-direct-links\.js' tests \
+            --exclude='category-single-source.test.cjs'; then
+            echo 'Unexpected test dependency remains.'
+            exit 1
           fi
+          if grep -n -E 'platform-categories|category-direct-links' platform.html sw.js; then
+            echo 'Unexpected production dependency remains.'
+            exit 1
+          fi
+      - name: Run authoritative category tests
+        run: |
+          node --test \
+            tests/category-single-source.test.cjs \
+            tests/category-direct-links-1-10.test.cjs \
+            tests/category-link-audit.test.cjs \
+            tests/platform-categories-2-10.test.cjs \
+            tests/platform-categories-10-20.test.cjs \
+            tests/platform-categories-21-30.test.cjs \
+            tests/platform-categories-31-40.test.cjs \
+            tests/stale-category-links.test.cjs \
+            tests/pwa-hardening.test.cjs
+      - name: Commit single-source runtime migration
+        run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data.json
-          git commit -m 'refactor: materialize CouponAmI platform metadata'
+          git add platform.html sw.js tests
+          git commit -m 'refactor: remove runtime category overrides'
           git push origin HEAD:refactor/category-single-source
