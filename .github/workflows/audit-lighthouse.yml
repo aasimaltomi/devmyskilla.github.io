@@ -7,16 +7,39 @@ on:
       - '.github/workflows/audit-lighthouse.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: fix/full-site-hardening
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Remove measured web-font CLS source
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          for(const path of ['index.html','explore.html','platform.html']){
+            let html=fs.readFileSync(path,'utf8');
+            html=html.replace(/\s*<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com"><link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin><link rel="preload" as="style" href="https:\/\/fonts\.googleapis\.com\/css2\?family=Cairo:wght@400;500;600;700;800&display=optional" onload="this\.onload=null;this\.rel='stylesheet'">/g,'');
+            if(/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(html))throw new Error(`External Google font reference remains in ${path}`);
+            fs.writeFileSync(path,html);
+          }
+          NODE
+          node --test tests/landing-performance-hardening.test.cjs tests/site-runtime.test.cjs
+      - name: Commit swap-free font loading
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html explore.html platform.html
+          git commit -m 'perf: remove external font swaps from public pages'
+          git push origin HEAD:fix/full-site-hardening
       - name: Start local static server
         run: |
           python3 -m http.server 8080 --bind 127.0.0.1 >/tmp/devmyskill-http.log 2>&1 &
@@ -26,58 +49,11 @@ jobs:
           done
           cat /tmp/devmyskill-http.log
           exit 1
-      - name: Measure Explore geometry before and after data hydration
-        run: |
-          npm install --no-save --package-lock=false puppeteer-core@24.16.0 >/dev/null 2>&1
-          CHROME="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
-          test -n "$CHROME"
-          CHROME="$CHROME" node <<'NODE'
-          const puppeteer=require('puppeteer-core');
-          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-          (async()=>{
-            const browser=await puppeteer.launch({executablePath:process.env.CHROME,headless:true,args:['--no-sandbox','--disable-gpu']});
-            const page=await browser.newPage();
-            await page.setViewport({width:412,height:823,deviceScaleFactor:1,isMobile:true});
-            await page.setRequestInterception(true);
-            let held=null;
-            page.on('request',req=>{
-              if(!held && /\/data\.json(?:\?|$)/.test(req.url())){held=req;return;}
-              req.continue().catch(()=>{});
-            });
-            await page.goto('http://127.0.0.1:8080/explore.html',{waitUntil:'domcontentloaded'});
-            for(let i=0;i<50&&!held;i++)await sleep(20);
-            const snapshot=()=>page.evaluate(()=>{
-              const rect=sel=>{const el=document.querySelector(sel);if(!el)return null;const r=el.getBoundingClientRect();return{top:Math.round(r.top),bottom:Math.round(r.bottom),height:Math.round(r.height),width:Math.round(r.width)}};
-              return{
-                scrollHeight:document.documentElement.scrollHeight,
-                innerWidth:innerWidth,clientWidth:document.documentElement.clientWidth,
-                header:rect('.site-header'),navInner:rect('.nav-inner'),mobileToggle:rect('.mobile-nav-toggle'),
-                hero:rect('.hero-platform'),heroCopy:rect('.hero-copy'),stats:rect('.stats-strip'),
-                categories:rect('#categories'),featured:rect('#featured'),explore:rect('#explore'),footer:rect('.site-footer')
-              };
-            });
-            const before=await snapshot();
-            console.log('EXPLORE_BEFORE='+JSON.stringify(before));
-            if(!held)throw new Error('data.json request was not intercepted');
-            await held.continue();
-            await page.waitForFunction(()=>document.querySelectorAll('#platformGrid .platform-card').length>0,{timeout:10000});
-            await sleep(500);
-            const after=await snapshot();
-            console.log('EXPLORE_AFTER='+JSON.stringify(after));
-            for(const key of Object.keys(after)){
-              if(before[key]&&after[key]&&typeof before[key]==='object'){
-                console.log(`DELTA ${key}: top=${after[key].top-before[key].top} height=${after[key].height-before[key].height}`);
-              }
-            }
-            console.log(`DELTA scrollHeight=${after.scrollHeight-before.scrollHeight} clientWidth=${after.clientWidth-before.clientWidth}`);
-            await browser.close();
-          })().catch(err=>{console.error(err);process.exit(1)});
-          NODE
-      - name: Run Lighthouse after CTA and Explore reservations
+      - name: Run Lighthouse after final CLS fixes
         run: |
           npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/index.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-index.json
           npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/explore.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-explore.json
-      - name: Print Lighthouse scores and layout shifts
+      - name: Print final Lighthouse scores and diagnostics
         run: |
           node <<'NODE'
           const fs=require('node:fs');
@@ -86,5 +62,7 @@ jobs:
             const pct=k=>Math.round((r.categories[k]?.score||0)*100);
             console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${a['cumulative-layout-shift']?.displayValue}`);
             for(const item of (a['layout-shifts']?.details?.items||[]).slice(0,5)) console.log(`${name} shift: ${JSON.stringify(item)}`);
+            const failing=(r.categories['best-practices']?.auditRefs||[]).filter(x=>a[x.id]&&a[x.id].score!==1&&a[x.id].score!==null).map(x=>({id:x.id,score:a[x.id].score,title:a[x.id].title}));
+            if(failing.length)console.log(`${name} best-practice findings: ${JSON.stringify(failing)}`);
           }
           NODE
