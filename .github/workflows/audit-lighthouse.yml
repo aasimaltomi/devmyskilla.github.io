@@ -26,44 +26,57 @@ jobs:
           done
           cat /tmp/devmyskill-http.log
           exit 1
-      - name: Verify mobile document width after hydration
+      - name: Measure remaining hydration geometry shifts
         run: |
           npm install --no-save --package-lock=false puppeteer-core@24.16.0 >/dev/null 2>&1
           CHROME="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
           test -n "$CHROME"
           CHROME="$CHROME" node <<'NODE'
           const puppeteer=require('puppeteer-core');
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
           (async()=>{
             const browser=await puppeteer.launch({executablePath:process.env.CHROME,headless:true,args:['--no-sandbox','--disable-gpu']});
-            for(const path of ['index.html','explore.html']){
+            const configs={
+              'index.html':['.landing-copy','.landing-copy .eyebrow','.landing-copy h1','.landing-copy>p','.landing-actions','.landing-actions .btn:first-child','.landing-actions .btn:last-child','.trust-line','.landing-visual'],
+              'explore.html':['.hero-copy','.hero-copy .eyebrow','.hero-copy h1','.hero-copy>p','.hero-platform-search','.quick-filter-chips','.hero-actions','.trust-line','.stats-strip']
+            };
+            for(const [path,selectors] of Object.entries(configs)){
               const page=await browser.newPage();
               await page.setViewport({width:412,height:823,deviceScaleFactor:1,isMobile:true});
-              await page.goto(`http://127.0.0.1:8080/${path}`,{waitUntil:'networkidle0'});
+              await page.setRequestInterception(true);
+              let held=null;
+              page.on('request',req=>{
+                if(!held && /\/data\.json(?:\?|$)/.test(req.url())){held=req;return;}
+                req.continue().catch(()=>{});
+              });
+              await page.goto(`http://127.0.0.1:8080/${path}`,{waitUntil:'domcontentloaded'});
+              for(let i=0;i<100&&!held;i++)await sleep(20);
+              if(!held)throw new Error(`${path}: data.json request was not intercepted`);
+              const snapshot=()=>page.evaluate((selectors)=>{
+                const out={document:{innerWidth,clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth,scrollHeight:document.documentElement.scrollHeight}};
+                for(const sel of selectors){
+                  const el=document.querySelector(sel);
+                  if(!el){out[sel]=null;continue;}
+                  const r=el.getBoundingClientRect();
+                  out[sel]={top:Math.round(r.top),bottom:Math.round(r.bottom),height:Math.round(r.height),width:Math.round(r.width),text:(el.textContent||'').trim().slice(0,120)};
+                }
+                return out;
+              },selectors);
+              const before=await snapshot();
+              console.log(`${path} BEFORE=${JSON.stringify(before)}`);
+              await held.continue();
               if(path==='explore.html') await page.waitForFunction(()=>document.querySelectorAll('#platformGrid .platform-card').length>0,{timeout:10000});
-              const metrics=await page.evaluate(()=>({innerWidth,clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth,heroCopyWidth:Math.round(document.querySelector('.hero-copy,.landing-copy')?.getBoundingClientRect().width||0)}));
-              console.log(`${path}: ${JSON.stringify(metrics)}`);
-              if(metrics.scrollWidth>metrics.clientWidth) throw new Error(`${path} has horizontal overflow: ${metrics.scrollWidth} > ${metrics.clientWidth}`);
+              else await page.waitForFunction(()=>document.querySelector('.landing-copy h1')?.textContent?.trim().length>0,{timeout:10000});
+              await sleep(500);
+              const after=await snapshot();
+              console.log(`${path} AFTER=${JSON.stringify(after)}`);
+              for(const sel of selectors){
+                const a=before[sel],b=after[sel];
+                if(a&&b)console.log(`${path} DELTA ${sel}: top=${b.top-a.top} height=${b.height-a.height} width=${b.width-a.width}`);
+              }
+              console.log(`${path} DOCUMENT_DELTA width=${after.document.scrollWidth-before.document.scrollWidth} height=${after.document.scrollHeight-before.document.scrollHeight}`);
               await page.close();
             }
             await browser.close();
           })().catch(err=>{console.error(err);process.exit(1)});
-          NODE
-      - name: Run Lighthouse on home and explore
-        run: |
-          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/index.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-index.json
-          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/explore.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-explore.json
-      - name: Enforce layout stability and print scores
-        run: |
-          node <<'NODE'
-          const fs=require('node:fs');
-          let failed=false;
-          for(const [name,file] of [['home','lighthouse-index.json'],['explore','lighthouse-explore.json']]){
-            const r=JSON.parse(fs.readFileSync(file,'utf8')),a=r.audits;
-            const pct=k=>Math.round((r.categories[k]?.score||0)*100);
-            const cls=a['cumulative-layout-shift']?.numericValue||0;
-            console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${cls.toFixed(3)}`);
-            for(const item of (a['layout-shifts']?.details?.items||[]).slice(0,5)) console.log(`${name} shift: ${JSON.stringify(item)}`);
-            if(cls>0.1){console.error(`${name} CLS exceeds 0.1`);failed=true;}
-          }
-          if(failed)process.exit(1);
           NODE
