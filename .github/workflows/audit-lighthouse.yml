@@ -1,0 +1,43 @@
+name: Temporary Lighthouse audit
+
+on:
+  push:
+    branches: [fix/full-site-hardening]
+    paths:
+      - '.github/workflows/audit-lighthouse.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Start local static server
+        run: |
+          python3 -m http.server 8080 --bind 127.0.0.1 >/tmp/devmyskill-http.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8080/index.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/devmyskill-http.log
+          exit 1
+      - name: Run Lighthouse on home and explore
+        run: |
+          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/index.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-index.json
+          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/explore.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-explore.json
+      - name: Print Lighthouse scores and Core Web Vitals
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          for(const [name,file] of [['home','lighthouse-index.json'],['explore','lighthouse-explore.json']]){
+            const r=JSON.parse(fs.readFileSync(file,'utf8'));
+            const pct=k=>Math.round((r.categories[k]?.score||0)*100);
+            const a=r.audits;
+            console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${a['cumulative-layout-shift']?.displayValue}`);
+          }
+          NODE
