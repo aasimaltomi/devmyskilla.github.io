@@ -1,4 +1,4 @@
-name: Temporary category single-source migration
+name: Temporary category single-source browser smoke
 
 on:
   push:
@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  align-path-fields:
+  browser-smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,143 +20,57 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Align hidden official path field references with authoritative fields
+      - name: Start local static server
         run: |
-          node <<'NODE'
-          const fs=require('node:fs');
+          python3 -m http.server 8080 --bind 127.0.0.1 >/tmp/site.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8080/platform.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/site.log
+          exit 1
+      - name: Smoke representative single-source platform pages
+        run: |
+          npm install --no-save --package-lock=false puppeteer-core@24.16.0 >/dev/null 2>&1
+          CHROME="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || true)"
+          test -n "$CHROME"
+          CHROME="$CHROME" node <<'NODE'
+          const puppeteer=require('puppeteer-core');
           const assert=require('node:assert/strict');
-          const original=JSON.parse(fs.readFileSync('data.json','utf8'));
-          const baseline=JSON.parse(fs.readFileSync('tests/fixtures/category-effective-baseline.json','utf8'));
-          const mappings={
-            'plat-7':{
-              'harvard-data-science':{old:['data-science'],next:['data-analysis']},
-              'harvard-cs-cybersecurity':{old:['computer-science','cybersecurity'],next:['computer-science']},
-              'mit-statistics-data-science':{old:['data-science','artificial-intelligence'],next:['data-analysis','math']},
-              'cambridge-healthcare-data-science':{old:['data-science','healthcare'],next:['data-analysis','healthcare']},
-            },
-            'plat-8':{
-              'back-end-engineer':{old:['web-development','programming'],next:['web-development','code-foundations']},
-              'computer-science-path':{old:['computer-science','programming'],next:['computer-science','code-foundations']},
-              'full-stack-engineer':{old:['web-development','programming'],next:['web-development','code-foundations']},
-              'machine-learning-ai-engineer':{old:['artificial-intelligence','data-science'],next:['ai','data-science']},
-            },
-            'plat-13':{
-              'generative-ai-llm':{old:['generative-ai'],next:['generative-ai-llms']},
-              'ai-networking':{old:['ai-networking','ai-infrastructure'],next:['ai-infrastructure']},
-            },
-            'plat-17':{
-              'python-developer':{old:['programming-foundations','advanced-programming'],next:['programming-foundations','advanced-programming-frameworks']},
-            },
-            'plat-18':{
-              'writing-for-research':{old:['research-writing'],next:['writing-research']},
-              'navigating-peer-review':{old:['peer-review'],next:['navigating-peer-review']},
-              'communicating-your-research':{old:['research-communication'],next:['communicating-research']},
-              'career-path':{old:['research-career'],next:[]},
-            },
-            'plat-19':{
-              'html-study-plan':{old:['html-css'],next:['html']},
-              'css-study-plan':{old:['html-css'],next:['css']},
-              'sql-study-plan':{old:['data-analytics','backend-programming'],next:['sql']},
-              'csharp-study-plan':{old:['backend-programming'],next:['csharp']},
-              'go-study-plan':{old:['backend-programming'],next:[]},
-              'r-study-plan':{old:['data-analytics'],next:['r']},
-              'php-study-plan':{old:['backend-programming'],next:['php']},
-            },
-            'plat-24':{
-              'intro-generative-ai':{old:['ai-ml'],next:['machine-learning-ai']},
-            },
-            'plat-25':{
-              'responsive-web-design-v9':{old:['web-design'],next:['responsive-web-design']},
-              'full-stack-developer-v9':{old:['web-design','javascript','backend-apis','databases'],next:['certified-full-stack-developer']},
-              'javascript-algorithms-v8':{old:['javascript'],next:['javascript-algorithms-data-structures']},
-            },
-            'plat-26':{
-              'google-data-analytics':{old:['data-science-ai'],next:['data-science']},
-              'google-cybersecurity':{old:['computer-science-it'],next:['information-technology']},
-              'ibm-data-science':{old:['data-science-ai'],next:['data-science']},
-              'meta-front-end':{old:['computer-science-it'],next:['computer-science']},
-              'machine-learning-specialization':{old:['data-science-ai'],next:['data-science']},
-            },
-            'plat-34':{
-              'data-analyst-python':{old:['python','data-analysis'],next:['programming','data-analysis']},
-              'data-engineer-python':{old:['python','data-engineering'],next:['programming','data-engineering']},
-              'machine-learning-engineer':{old:['machine-learning','python'],next:['machine-learning','programming']},
-              'machine-learning-scientist-python':{old:['machine-learning','python','data-science'],next:['machine-learning','programming']},
-              'sql-fundamentals':{old:['sql'],next:['programming']},
-            },
-            'plat-37':{
-              'core-matlab-skills':{old:['matlab-programming'],next:[]},
-              'build-matlab-proficiency':{old:['matlab-programming'],next:[]},
-              'data-analysis-matlab':{old:['data-analysis'],next:[]},
-              'build-simulink-proficiency':{old:['simulink-modeling'],next:[]},
-              'visualization-matlab':{old:['visualization'],next:[]},
-              'software-development-matlab':{old:['software-development','matlab-programming'],next:[]},
-            },
-            'plat-38':{
-              'value-based-selling':{old:['sales','customer-service'],next:['sales','service']},
-            },
-            'plat-39':{
-              'interview-preparation-kit':{old:['problem-solving'],next:[]},
-              'preparation-kits':{old:['problem-solving'],next:[]},
-            },
-          };
-
-          const touched=new Set();
-          const next={...original,platforms:original.platforms.map(platform=>{
-            const platformMap=mappings[platform.id];
-            if(!platformMap)return platform;
-            const fields=new Set((platform.fields||[]).map(f=>f.id));
-            const officialPaths=(platform.officialPaths||[]).map(path=>{
-              const map=platformMap[path.id];
-              if(!map)return path;
-              assert.deepEqual(path.fieldIds||[],map.old,`${platform.id}/${path.id} unexpected pre-migration fieldIds`);
-              for(const id of map.next)assert.ok(fields.has(id),`${platform.id}/${path.id} target ${id} is not authoritative`);
-              assert.equal(new Set(map.next).size,map.next.length,`${platform.id}/${path.id} duplicate target fieldIds`);
-              touched.add(`${platform.id}/${path.id}`);
-              return {...path,fieldIds:map.next};
-            });
-            return {...platform,officialPaths};
-          })};
-
-          const expectedTouches=Object.values(mappings).reduce((n,paths)=>n+Object.keys(paths).length,0);
-          assert.equal(touched.size,expectedTouches,`expected ${expectedTouches} mapped paths, touched ${touched.size}`);
-
-          // Only the approved officialPaths.fieldIds entries may differ.
-          const scrub=doc=>({...doc,platforms:doc.platforms.map(platform=>{
-            const platformMap=mappings[platform.id];
-            if(!platformMap)return platform;
-            return {...platform,officialPaths:(platform.officialPaths||[]).map(path=>platformMap[path.id]?{...path,fieldIds:'__MAPPED__'}:path)};
-          })});
-          assert.deepEqual(scrub(next),scrub(original),'migration changed data outside approved officialPaths.fieldIds');
-
-          // Category parity remains exact.
-          for(const [id,fields] of Object.entries(baseline)){
-            const p=next.platforms.find(x=>x.id===id);
-            assert.deepEqual(p.fields||[],fields,`${id} authoritative fields changed during path reference repair`);
-          }
-          assert.equal(Object.values(baseline).reduce((n,fields)=>n+fields.length,0),363);
-
-          const broken=[];
-          for(const platform of next.platforms.filter(p=>/^plat-(?:[1-9]|[1-3][0-9]|40)$/.test(String(p.id||'')))){
-            const fieldIds=new Set((platform.fields||[]).map(f=>f.id));
-            for(const path of platform.officialPaths||[])for(const fieldId of path.fieldIds||[])if(!fieldIds.has(fieldId))broken.push({platformId:platform.id,pathId:path.id,fieldId});
-          }
-          assert.deepEqual(broken,[],'stale path references remain');
-          fs.writeFileSync('data.json',JSON.stringify(next,null,2)+'\n');
-          console.log(`MAPPED_PATHS=${touched.size}`);
+          const legacy=['platform-categories.js','platform-categories-10-20.js','platform-categories-21-30.js','platform-categories-31-40.js','category-direct-links.js'];
+          const cases=[['plat-3',11],['plat-19',21],['plat-31',11],['plat-37',0]];
+          (async()=>{
+            const browser=await puppeteer.launch({executablePath:process.env.CHROME,headless:true,args:['--no-sandbox','--disable-gpu']});
+            for(const [id,expectedFields] of cases){
+              const page=await browser.newPage();
+              const pageErrors=[];
+              const sameOriginFailures=[];
+              const requests=[];
+              page.on('pageerror',err=>pageErrors.push(String(err)));
+              page.on('request',request=>requests.push(request.url()));
+              page.on('requestfailed',request=>{if(request.url().startsWith('http://127.0.0.1:8080/'))sameOriginFailures.push(`${request.url()} :: ${request.failure()?.errorText||''}`)});
+              const response=await page.goto(`http://127.0.0.1:8080/platform.html?id=${id}&lang=en`,{waitUntil:'networkidle0'});
+              assert.equal(response.status(),200,`${id} document status`);
+              await page.waitForFunction(()=>document.querySelector('#platformProfile h1'),{timeout:10000});
+              const result=await page.evaluate(async()=>{
+                const paths=[...document.querySelectorAll('.profile-paths-section')];
+                return{
+                  title:document.querySelector('#platformProfile h1')?.textContent?.trim()||'',
+                  fieldCount:document.querySelectorAll('.profile-field-chip').length,
+                  publicPlatformCount:(await DataLoader.loadSiteData()).platforms.length,
+                  learningPathsVisible:paths.some(node=>getComputedStyle(node).display!=='none'&&node.getClientRects().length>0),
+                };
+              });
+              console.log(`${id}: ${JSON.stringify(result)}`);
+              assert.ok(result.title,`${id} title rendered`);
+              assert.equal(result.fieldCount,expectedFields,`${id} authoritative category count`);
+              assert.equal(result.publicPlatformCount,40,`${id} public scope`);
+              assert.equal(result.learningPathsVisible,false,`${id} learning paths stay hidden`);
+              assert.deepEqual(pageErrors,[],`${id} page errors: ${pageErrors.join('\n')}`);
+              assert.deepEqual(sameOriginFailures,[],`${id} same-origin failures: ${sameOriginFailures.join('\n')}`);
+              for(const name of legacy)assert.equal(requests.some(url=>url.includes(name)),false,`${id} requested legacy ${name}`);
+              await page.close();
+            }
+            await browser.close();
+          })().catch(err=>{console.error(err);process.exit(1)});
           NODE
-      - name: Verify data integrity and content validator
-        run: |
-          node --test tests/category-field-reference-integrity.test.cjs tests/category-single-source.test.cjs
-          node scripts/validate-content.cjs
-      - name: Commit path reference alignment
-        run: |
-          if git diff --quiet -- data.json; then
-            echo 'No data changes required.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data.json
-          git commit -m 'fix: align hidden path field references'
-          git push origin HEAD:refactor/category-single-source
