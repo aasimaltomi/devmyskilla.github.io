@@ -3,9 +3,9 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const read=p=>fs.readFileSync(p,'utf8');
 
-test('service worker v13 precaches every inline editor browser asset',()=>{
+test('service worker v14 precaches every inline editor browser asset',()=>{
   const sw=read('sw.js');
-  assert.match(sw,/dunya-al-dawrat-v13/);
+  assert.match(sw,/dunya-al-dawrat-v14/);
   for(const asset of [
     './css/inline-editor.css',
     './js/edit-descriptors.js',
