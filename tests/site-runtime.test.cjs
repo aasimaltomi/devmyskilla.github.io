@@ -14,15 +14,17 @@ const fixture={
 function element(dataset={}){
   return{dataset:{...dataset},textContent:'',src:'',href:'',alt:'',placeholder:'',attributes:{},setAttribute(name,value){this.attributes[name]=String(value);if(name==='content')this.content=String(value);if(name==='href')this.href=String(value);if(name==='src')this.src=String(value);if(name==='alt')this.alt=String(value);if(name==='aria-label')this.ariaLabel=String(value);if(name==='title')this.title=String(value)}};
 }
-function seoDocument(){
+function seoDocument(href='https://example.com/platform.html?id=plat-old&lang=en'){
   const metas={
     'meta[name="description"]':element(),
     'meta[property="og:title"]':element(),
     'meta[property="og:description"]':element(),
     'meta[property="og:image"]':element(),
+    'meta[property="og:url"]':element(),
     'meta[name="theme-color"]':element()
   };
-  return{title:'',documentElement:{lang:'',dir:''},querySelector(sel){return metas[sel]||null},querySelectorAll(){return[]},metas};
+  const links={'link[rel="canonical"]':element()};
+  return{title:'',location:{href},documentElement:{lang:'',dir:''},querySelector(sel){return metas[sel]||links[sel]||null},querySelectorAll(){return[]},metas,links};
 }
 
 test('SEO follows the selected CMS language',()=>{
@@ -60,20 +62,25 @@ test('settings links icons and translated text are bound from CMS data',()=>{
   assert.equal(text.textContent,'Headline');
 });
 
-test('createManifest is driven by CMS identity and validated assets',()=>{
+test('createManifest is driven by CMS identity and includes install-quality 192 and 512 icons',()=>{
   const api=ContentAPI.create(fixture,'en');
   const manifest=SiteRuntime.createManifest(api,'https://example.com/');
   assert.equal(manifest.name,'Name');
   assert.equal(manifest.start_url,'index.html');
   assert.equal(manifest.theme_color,'#123456');
   assert.equal(manifest.icons[0].src,'https://example.com/assets/icon.png');
+  assert.equal(manifest.icons[0].sizes,'192x192');
+  assert.equal(manifest.icons[1].src,'https://example.com/icon-512.png');
+  assert.equal(manifest.icons[1].sizes,'512x512');
 });
 
-test('platform SEO substitutes only the platform token',()=>{
+test('platform SEO substitutes the platform token and self-canonicalizes the resolved platform URL',()=>{
   const data=structuredClone(fixture);
   data.seo.platform={en:{title:'{platform} — Name',description:'Profile for {platform}',ogTitle:'{platform}',ogDescription:'Profile for {platform}',ogImage:'assets/og.png'}};
-  const api=ContentAPI.create(data,'en'),doc=seoDocument();
-  SiteRuntime.applyPlatformSeo(doc,api,{name:'Example <b>'});
+  const api=ContentAPI.create(data,'en'),doc=seoDocument('https://aasimaltomi.github.io/devmyskilla.github.io/platform.html?id=plat-old&lang=en&edit=1#section');
+  SiteRuntime.applyPlatformSeo(doc,api,{id:'plat-7',name:'Example <b>'});
   assert.equal(doc.title,'Example <b> — Name');
   assert.equal(doc.metas['meta[name="description"]'].content,'Profile for Example <b>');
+  assert.equal(doc.links['link[rel="canonical"]'].href,'https://aasimaltomi.github.io/devmyskilla.github.io/platform.html?id=plat-7&lang=en');
+  assert.equal(doc.metas['meta[property="og:url"]'].content,'https://aasimaltomi.github.io/devmyskilla.github.io/platform.html?id=plat-7&lang=en');
 });
