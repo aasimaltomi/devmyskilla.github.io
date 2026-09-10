@@ -20,6 +20,10 @@ test('mobile landing reservation is large enough to keep the orbit from shifting
   assert.match(css,/@media\(max-width:620px\)[\s\S]*#landingCategoryGrid\s*\{[^}]*min-height:/);
 });
 
+test('mobile landing CTAs occupy stable rows before translated labels hydrate',()=>{
+  assert.match(stability,/@media\(max-width:620px\)[\s\S]*\.landing-actions\s+\.btn\s*\{[^}]*flex:\s*1\s+1\s+100%/);
+});
+
 test('mobile explore hero reserves enough hydrated copy height to avoid the measured document shift',()=>{
   assert.match(stability,/@media\(max-width:680px\)[\s\S]*\.hero-copy\s*\{[^}]*min-height:\s*620px/);
 });
