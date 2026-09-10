@@ -7,48 +7,16 @@ on:
       - '.github/workflows/audit-lighthouse.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: fix/full-site-hardening
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Apply measured CLS and font-loading fixes
-        shell: bash
-        run: |
-          node <<'NODE'
-          const fs=require('node:fs');
-          const marker='/* Measured mobile hydration stability */';
-          const cssPath='css/branding.css';
-          let css=fs.readFileSync(cssPath,'utf8');
-          if(!css.includes(marker)){
-            css += `\n${marker}\n@media(max-width:680px){body .hero-copy{min-height:480px}}\n@media(max-width:620px){body .landing-copy{min-height:520px}}\n`;
-            fs.writeFileSync(cssPath,css);
-          }
-          const old='<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">';
-          const replacement='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=optional" onload="this.onload=null;this.rel=\'stylesheet\'">';
-          for(const path of ['index.html','explore.html','platform.html']){
-            let html=fs.readFileSync(path,'utf8');
-            if(!html.includes(old))throw new Error(`Google Fonts link not found in ${path}`);
-            html=html.replace(old,replacement);
-            fs.writeFileSync(path,html);
-          }
-          NODE
-          node --test tests/landing-performance-hardening.test.cjs tests/site-runtime.test.cjs
-      - name: Commit measured performance fixes
-        shell: bash
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add css/branding.css index.html explore.html platform.html
-          git commit -m 'perf: eliminate measured hydration layout shifts'
-          git push origin HEAD:fix/full-site-hardening
       - name: Start local static server
         run: |
           python3 -m http.server 8080 --bind 127.0.0.1 >/tmp/devmyskill-http.log 2>&1 &
@@ -58,20 +26,44 @@ jobs:
           done
           cat /tmp/devmyskill-http.log
           exit 1
-      - name: Run Lighthouse on home and explore
+      - name: Run repeated Lighthouse measurements
         run: |
-          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/index.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-index.json
-          npx --yes lighthouse@12.8.2 http://127.0.0.1:8080/explore.html --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path=lighthouse-explore.json
-      - name: Print Lighthouse scores and Web Vitals
+          for page in index explore; do
+            for run in 1 2; do
+              npx --yes lighthouse@12.8.2 "http://127.0.0.1:8080/${page}.html" --quiet --chrome-flags="--headless --no-sandbox --disable-gpu" --output=json --output-path="lighthouse-${page}-${run}.json"
+            done
+          done
+      - name: Print repeated scores, Web Vitals and long-task diagnostics
         run: |
           node <<'NODE'
           const fs=require('node:fs');
-          for(const [name,file] of [['home','lighthouse-index.json'],['explore','lighthouse-explore.json']]){
-            const r=JSON.parse(fs.readFileSync(file,'utf8'));
-            const pct=k=>Math.round((r.categories[k]?.score||0)*100);
-            const a=r.audits;
-            console.log(`${name}: performance=${pct('performance')} accessibility=${pct('accessibility')} best-practices=${pct('best-practices')} seo=${pct('seo')} FCP=${a['first-contentful-paint']?.displayValue} LCP=${a['largest-contentful-paint']?.displayValue} TBT=${a['total-blocking-time']?.displayValue} CLS=${a['cumulative-layout-shift']?.displayValue}`);
-            const shifts=a['layout-shifts']?.details?.items||[];
-            for(const item of shifts.slice(0,5)) console.log(`${name} shift: ${JSON.stringify({score:item.score,selector:item.node?.selector,causes:item.subItems?.items?.map(x=>x.cause||x.extra?.cause).filter(Boolean)})}`);
+          const rows=[];
+          for(const page of ['index','explore']){
+            for(const run of [1,2]){
+              const r=JSON.parse(fs.readFileSync(`lighthouse-${page}-${run}.json`,'utf8'));
+              const pct=k=>Math.round((r.categories[k]?.score||0)*100);
+              const a=r.audits;
+              const row={
+                page:page==='index'?'home':'explore',run,
+                performance:pct('performance'),accessibility:pct('accessibility'),bestPractices:pct('best-practices'),seo:pct('seo'),
+                fcp:a['first-contentful-paint']?.numericValue||0,lcp:a['largest-contentful-paint']?.numericValue||0,
+                tbt:a['total-blocking-time']?.numericValue||0,cls:a['cumulative-layout-shift']?.numericValue||0
+              };
+              rows.push(row);
+              console.log(`${row.page}#${run}: performance=${row.performance} accessibility=${row.accessibility} best-practices=${row.bestPractices} seo=${row.seo} FCP=${Math.round(row.fcp)}ms LCP=${Math.round(row.lcp)}ms TBT=${Math.round(row.tbt)}ms CLS=${row.cls.toFixed(3)}`);
+              const shifts=a['layout-shifts']?.details?.items||[];
+              for(const item of shifts.slice(0,3)) console.log(`${row.page}#${run} shift: ${JSON.stringify(item)}`);
+              if(page==='index'){
+                const tasks=a['long-tasks']?.details?.items||[];
+                console.log(`${row.page}#${run} long tasks: ${JSON.stringify(tasks.slice(0,5))}`);
+                const boot=a['bootup-time']?.details?.items||[];
+                console.log(`${row.page}#${run} bootup top: ${JSON.stringify(boot.sort((x,y)=>(y.total||0)-(x.total||0)).slice(0,5))}`);
+              }
+            }
+          }
+          for(const page of ['home','explore']){
+            const values=rows.filter(r=>r.page===page);
+            const avg=k=>values.reduce((s,r)=>s+r[k],0)/values.length;
+            console.log(`${page} avg: performance=${avg('performance').toFixed(1)} TBT=${Math.round(avg('tbt'))}ms CLS=${avg('cls').toFixed(3)} LCP=${Math.round(avg('lcp'))}ms`);
           }
           NODE
