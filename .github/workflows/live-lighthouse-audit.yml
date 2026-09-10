@@ -1,0 +1,44 @@
+name: Live Lighthouse and worker audit
+
+on:
+  push:
+    branches:
+      - audit/live-category-links-2026-09-10
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Lighthouse
+        run: npm install --no-save lighthouse
+      - name: Show Chrome
+        run: google-chrome --version
+      - name: Lighthouse home mobile
+        run: npx lighthouse 'https://aasimaltomi.github.io/devmyskilla.github.io/' --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=lh-home-mobile.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --quiet
+      - name: Lighthouse explore mobile
+        run: npx lighthouse 'https://aasimaltomi.github.io/devmyskilla.github.io/explore.html' --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=lh-explore-mobile.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --quiet
+      - name: Lighthouse platform mobile
+        run: npx lighthouse 'https://aasimaltomi.github.io/devmyskilla.github.io/platform.html?id=plat-1&lang=ar' --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=lh-platform-mobile.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --quiet
+      - name: Lighthouse home desktop
+        run: npx lighthouse 'https://aasimaltomi.github.io/devmyskilla.github.io/' --preset=desktop --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=lh-home-desktop.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --quiet
+      - name: Summarize Lighthouse and worker CORS
+        run: node scripts/summarize-lighthouse.mjs
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-lighthouse-audit
+          path: |
+            lh-*.json
+            lighthouse-summary.json
