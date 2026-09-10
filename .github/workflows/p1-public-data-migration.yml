@@ -1,0 +1,91 @@
+name: Temporary P1 public data migration
+
+on:
+  push:
+    branches: [perf/p1-public-data-split]
+    paths:
+      - '.github/workflows/p1-public-data-migration.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Split public and research data with semantic round-trip proof
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          const crypto = require('node:crypto');
+          const originalText = fs.readFileSync('data.json','utf8');
+          const original = JSON.parse(originalText);
+          const isPublic = p => /^plat-(?:[1-9]|[1-3][0-9]|40)$/.test(String(p && p.id || ''));
+          const publicPlatforms = [];
+          const publicPlatformResearch = [];
+          const nonPublicPlatforms = [];
+          for (const platform of original.platforms) {
+            if (!isPublic(platform)) {
+              nonPublicPlatforms.push(platform);
+              continue;
+            }
+            const clone = structuredClone(platform);
+            publicPlatformResearch.push({
+              id: clone.id,
+              officialPaths: structuredClone(clone.officialPaths || []),
+              pathResearch: structuredClone(clone.pathResearch || {})
+            });
+            delete clone.officialPaths;
+            delete clone.pathResearch;
+            publicPlatforms.push(clone);
+          }
+          assert.equal(publicPlatforms.length, 40);
+          assert.equal(nonPublicPlatforms.length, original.platforms.length - 40);
+          assert.equal(publicPlatformResearch.length, 40);
+
+          const reconstructed = structuredClone(original);
+          const researchById = new Map(publicPlatformResearch.map(row => [row.id, row]));
+          reconstructed.platforms = [
+            ...publicPlatforms.map(platform => ({
+              ...structuredClone(platform),
+              officialPaths: structuredClone(researchById.get(platform.id).officialPaths),
+              pathResearch: structuredClone(researchById.get(platform.id).pathResearch)
+            })),
+            ...structuredClone(nonPublicPlatforms)
+          ];
+          assert.deepStrictEqual(reconstructed, original, 'P1 split must reconstruct the original data.json exactly');
+
+          const publicData = {...structuredClone(original), platforms: publicPlatforms};
+          const researchData = {publicPlatformResearch, nonPublicPlatforms};
+          const publicText = JSON.stringify(publicData, null, 2) + '\n';
+          const researchText = JSON.stringify(researchData, null, 2) + '\n';
+          const metrics = {
+            preSplitDataJsonBytes: Buffer.byteLength(originalText),
+            postSplitDataJsonBytes: Buffer.byteLength(publicText),
+            researchDataJsonBytes: Buffer.byteLength(researchText),
+            originalPlatformCount: original.platforms.length,
+            publicPlatformCount: publicPlatforms.length,
+            nonPublicPlatformCount: nonPublicPlatforms.length,
+            originalSha256: crypto.createHash('sha256').update(originalText).digest('hex')
+          };
+          assert.ok(metrics.postSplitDataJsonBytes < metrics.preSplitDataJsonBytes, 'public payload must become smaller');
+          fs.writeFileSync('data.json', publicText);
+          fs.writeFileSync('research-data.json', researchText);
+          fs.mkdirSync('tests/fixtures', {recursive:true});
+          fs.writeFileSync('tests/fixtures/p1-public-data-size-baseline.json', JSON.stringify(metrics, null, 2) + '\n');
+          console.log(JSON.stringify(metrics, null, 2));
+          NODE
+      - name: Commit migrated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json research-data.json tests/fixtures/p1-public-data-size-baseline.json
+          git commit -m "perf: split public and research platform data"
+          git push origin HEAD:perf/p1-public-data-split
