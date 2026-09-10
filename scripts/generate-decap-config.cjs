@@ -1,6 +1,9 @@
 const fs=require('node:fs');
 const {isLocalized,validateContentData,validateStableReferences}=require('./content-schema.cjs');
+const {reconstructPlatforms}=require('./validate-research-data.cjs');
 const data=validateStableReferences(validateContentData(JSON.parse(fs.readFileSync('data.json','utf8'))));
+const research=JSON.parse(fs.readFileSync('research-data.json','utf8'));
+reconstructPlatforms(data,research);
 const langs=[['ar','العربية'],['en','English'],['tr','Türkçe']];
 
 function q(value){return `"${String(value).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n')}"`}
@@ -124,12 +127,16 @@ function editorialFields(indent){
   out.push(localizedList('القيود','limitations',indent+4));
   return out.join('\n');
 }
-function platformResearchFields(indent){
+function platformFieldTaxonomyFields(indent){
   const out=[];
   out.push(`${pad(indent)}- label: ${q('المجالات / Fields')}\n${pad(indent)}  name: fields\n${pad(indent)}  widget: list\n${pad(indent)}  required: false\n${pad(indent)}  summary: ${q('{{fields.id}} — {{fields.name.en}}')}\n${pad(indent)}  fields:`);
   out.push(scalar('معرّف المجال الثابت','id','string',indent+4,['hint: "Stable field ID"']));
   out.push(localizedField('اسم المجال','name',indent+4));
   out.push(scalar('رابط المجال الرسمي','officialUrl','string',indent+4,['required: false']));
+  return out.join('\n');
+}
+function platformPathResearchFields(indent){
+  const out=[];
   out.push(`${pad(indent)}- label: ${q('المسارات الرسمية / Official Paths')}\n${pad(indent)}  name: officialPaths\n${pad(indent)}  widget: list\n${pad(indent)}  required: false\n${pad(indent)}  summary: ${q('{{fields.officialName}}')}\n${pad(indent)}  fields:`);
   out.push(scalar('معرّف المسار الثابت','id','string',indent+4,['hint: "Stable path ID"']));
   out.push(scalar('الاسم الرسمي الأصلي','officialName','string',indent+4));
@@ -145,7 +152,7 @@ function platformResearchFields(indent){
   out.push(scalar('رابط جميع المسارات','allPathsUrl','string',indent+4,['required: false']));
   return out.join('\n');
 }
-function platformFields(indent){
+function platformCoreFields(indent){
   const out=[];
   out.push(scalar('معرّف تقني — لا تغيّره بعد النشر','id','string',indent,['hint: "Stable platform ID"']));
   out.push(localizedField('اسم المنصة','name',indent));
@@ -165,11 +172,22 @@ function platformFields(indent){
   out.push(scalar('عدد المحتوى الرسمي','officialCount','number',indent,['value_type: int','required: false']));
   out.push(`${pad(indent)}- label: ${q('نوع العدد الرسمي')}\n${pad(indent)}  name: officialCountType\n${pad(indent)}  widget: select\n${pad(indent)}  required: false\n${pad(indent)}  options: [courses, modules, learning_paths, job_simulations, certifications, materials, items]`);
   out.push(scalar('آخر تحقق','lastVerified','datetime',indent,['format: "YYYY-MM-DD"','date_format: "YYYY-MM-DD"','time_format: false','required: false']));
-  out.push(platformResearchFields(indent));
+  return out;
+}
+function platformFields(indent,{includePathResearch=false}={}){
+  const out=platformCoreFields(indent);
+  out.push(platformFieldTaxonomyFields(indent));
+  if(includePathResearch)out.push(platformPathResearchFields(indent));
   out.push(editorialFields(indent));
   out.push(scalar('منصة مميزة','featured','boolean',indent,['default: false']));
   out.push(scalar('ترتيب العرض','displayOrder','number',indent,['value_type: int','required: false']));
   return out.join('\n');
+}
+function publicPlatformResearchFields(indent){
+  return [
+    scalar('معرّف المنصة العامة — لا تغيّره','id','string',indent,['hint: "Must match plat-1 through plat-40"']),
+    platformPathResearchFields(indent)
+  ].join('\n');
 }
 
 const fields=[];
@@ -182,6 +200,10 @@ fields.push(objectStart('الاختبار والترشيحات','quiz',10,true))
 fields.push(objectStart('المقارنة','comparison',10,true));fields.push(comparisonFields(14));
 fields.push(objectStart('SEO','seo',10,true));for(const page of ['home','explore','platform'])fields.push(seoPage(page,14));
 fields.push(`${pad(10)}- label: ${q('المنصات')}\n${pad(10)}  name: platforms\n${pad(10)}  widget: list\n${pad(10)}  summary: ${q('{{fields.id}} — {{fields.name.en}}')}\n${pad(10)}  fields:`);fields.push(platformFields(14));
+
+const researchFields=[];
+researchFields.push(`${pad(10)}- label: ${q('بحث المنصات العامة / Public Platform Research')}\n${pad(10)}  name: publicPlatformResearch\n${pad(10)}  widget: list\n${pad(10)}  summary: ${q('{{fields.id}}')}\n${pad(10)}  fields:`);researchFields.push(publicPlatformResearchFields(14));
+researchFields.push(`${pad(10)}- label: ${q('المنصات غير العامة / Non-public Platforms')}\n${pad(10)}  name: nonPublicPlatforms\n${pad(10)}  widget: list\n${pad(10)}  summary: ${q('{{fields.id}} — {{fields.name.en}}')}\n${pad(10)}  fields:`);researchFields.push(platformFields(14,{includePathResearch:true}));
 
 const config=`backend:
   name: github
@@ -205,13 +227,18 @@ collections:
         file: data.json
         fields:
 ${fields.join('\n')}
+      - label: ${q('بيانات البحث الداخلية')}
+        name: research_data
+        file: research-data.json
+        fields:
+${researchFields.join('\n')}
 `;
 
 const path='admin/config.yml';
 if(process.argv.includes('--check')){
   const existing=fs.existsSync(path)?fs.readFileSync(path,'utf8'):'';
-  if(existing!==config){console.error(`${path} is not generated from the current data.json schema`);process.exit(1)}
+  if(existing!==config){console.error(`${path} is not generated from the current split data schemas`);process.exit(1)}
   console.log(`${path} is current`);
 }else{
-  fs.mkdirSync('admin',{recursive:true});fs.writeFileSync(path,config);console.log(`Generated ${path} for full CMS control of ${data.platforms.length} platforms`);
+  fs.mkdirSync('admin',{recursive:true});fs.writeFileSync(path,config);console.log(`Generated ${path} for ${data.platforms.length} public platforms plus research data`);
 }
