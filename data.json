@@ -4623,7 +4623,7 @@
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.discudemy.com/",
+      "officialUrl": "https://www.couponami.com/",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -4642,17 +4642,17 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=discudemy.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=couponami.com&sz=128",
         "alt": {
-          "ar": "Free Udemy",
-          "en": "Free Udemy",
-          "tr": "Free Udemy"
+          "ar": "CouponAmI",
+          "en": "CouponAmI",
+          "tr": "CouponAmI"
         }
       },
       "name": {
-        "ar": "Free Udemy",
-        "en": "Free Udemy",
-        "tr": "Free Udemy"
+        "ar": "CouponAmI (سابقًا DiscUdemy)",
+        "en": "CouponAmI (formerly DiscUdemy)",
+        "tr": "CouponAmI (eski adıyla DiscUdemy)"
       },
       "freeCertificate": false,
       "displayOrder": 21,
@@ -4660,13 +4660,13 @@
       "featured": false,
       "certificateAvailable": true,
       "hasFreeContent": true,
-      "catalogUrl": "https://www.discudemy.com/",
+      "catalogUrl": "https://www.couponami.com/category",
       "categoryId": "education",
       "id": "plat-21",
       "description": {
-        "ar": "أكبر منصة للدورات التعليمية عالمياً. تضم آلاف الدورات في جميع المجالات. بعض الدورات مجانية وأخرى مدفوعة بأسعار متفاوتة. يمكنك الحصول على دورات Udemy مجاناً عبر موقع DiscUdemy.",
-        "en": "The world's largest marketplace for learning courses. Hosts thousands of courses in all fields. Some are free, others paid. Get Udemy courses free via DiscUdemy.",
-        "tr": "Dünyanın en büyük öğrenme kurs pazarı. Tüm alanlarda binlerce kurs barındırır. Bazıları ücretsiz, diğerleri ücretlidir. DiscUdemy üzerinden Udemy kurslarını ücretsiz alın."
+        "ar": "منصة مستقلة لاكتشاف كوبونات Udemy المجانية النشطة والمتحقق منها. كانت تُعرف سابقًا باسم DiscUdemy، وهي ليست تابعة لـUdemy.",
+        "en": "An independent platform for discovering active, verified free Udemy coupons. Formerly DiscUdemy; it is not affiliated with Udemy.",
+        "tr": "Aktif ve doğrulanmış ücretsiz Udemy kuponlarını keşfetmek için bağımsız bir platformdur. Eski adı DiscUdemy olup Udemy ile bağlantılı değildir."
       },
       "officialCountType": "courses",
       "lastVerified": null,
