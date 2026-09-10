@@ -79,7 +79,7 @@
     'plat-15':{
       sourceUrl:'https://www.open.edu/openlearn/subject-information',
       fields:[
-        field('money-business','المال والأعمال','Money & Business','Para ve İşletme','https://www.open.edu/openlearn/money-business/free-courses'),
+        field('money-business','المال والأعمال','Money & Business','Para ve İşletme','https://www.open.edu/openlearn/money-management/free-courses'),
         field('education-development','التعليم والتنمية','Education & Development','Eğitim ve Gelişim','https://www.open.edu/openlearn/education/free-courses'),
         field('health-sports-psychology','الصحة والرياضة وعلم النفس','Health, Sports & Psychology','Sağlık, Spor ve Psikoloji','https://www.open.edu/openlearn/body-mind/free-courses'),
         field('history-arts','التاريخ والفنون','History & The Arts','Tarih ve Sanat','https://www.open.edu/openlearn/history-the-arts/free-courses'),

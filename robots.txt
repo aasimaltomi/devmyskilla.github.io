@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /devmyskilla.github.io/admin/
+
+Sitemap: https://aasimaltomi.github.io/devmyskilla.github.io/sitemap.xml

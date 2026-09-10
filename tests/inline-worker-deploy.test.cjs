@@ -10,10 +10,11 @@ test('inline Worker declares OAuth secrets as required without storing values',(
   assert.doesNotMatch(toml,/GITHUB_OAUTH_(?:ID|SECRET)\s*=\s*"[^"\n]+"/);
 });
 
-test('manual Worker deployment workflow uses GitHub-safe repository secret names and never embeds credentials',()=>{
+test('Worker deployment workflow supports manual and main-branch automatic deployment without embedding credentials',()=>{
   const yml=read('.github/workflows/deploy-inline-worker.yml');
   assert.match(yml,/workflow_dispatch:/);
-  assert.doesNotMatch(yml,/branches:\s*\[?\s*main/i);
+  assert.match(yml,/push:\s*\n\s*branches:\s*\[?\s*main\s*\]?/m);
+  assert.match(yml,/paths:\s*\n\s*-\s*['"]?inline-worker\/\*\*['"]?/m);
   for(const secret of ['CLOUDFLARE_API_TOKEN','CLOUDFLARE_ACCOUNT_ID','INLINE_GITHUB_OAUTH_ID','INLINE_GITHUB_OAUTH_SECRET']){
     assert.ok(yml.includes(`secrets.${secret}`),`workflow must reference ${secret}`);
   }

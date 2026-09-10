@@ -2,6 +2,10 @@ name: Deploy inline editor Worker
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'inline-worker/**'
 
 permissions:
   contents: read

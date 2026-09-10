@@ -26,6 +26,16 @@
     doc.head.appendChild(node);
     return node;
   }
+  function link(doc,selector,attrs={}){
+    if(!doc||typeof doc.querySelector!=='function')return null;
+    let node=doc.querySelector(selector);
+    if(node)return node;
+    if(!doc.createElement||!doc.head||!doc.head.appendChild)return null;
+    node=doc.createElement('link');
+    for(const [name,value] of Object.entries(attrs))setAttr(node,name,value);
+    doc.head.appendChild(node);
+    return node;
+  }
   function safeHex(value,fallback='#4f46e5'){
     const raw=String(value||'');
     return /^#[0-9a-fA-F]{6}$/.test(raw)?raw:fallback;
@@ -86,6 +96,18 @@
     const image=content.safeUrl(seo.ogImage,{allowRelative:true});
     setContentMeta(meta(doc,'meta[property="og:image"]',{property:'og:image'}),image);
   }
+  function platformCanonicalUrl(doc,content,model){
+    try{
+      if(!doc||!doc.location||!doc.location.href||!model||!model.id)return'';
+      const url=new URL(doc.location.href);
+      url.hash='';
+      url.search='';
+      url.searchParams.set('id',String(model.id));
+      const lang=content&&typeof content.getLang==='function'?String(content.getLang()||''):'';
+      if(lang)url.searchParams.set('lang',lang);
+      return url.href;
+    }catch(_){return'';}
+  }
   function applyPlatformSeo(doc,content,model){
     const seo=content.seo('platform')||{};
     const name=String(model&&model.name||'');
@@ -95,6 +117,11 @@
     setContentMeta(meta(doc,'meta[property="og:title"]',{property:'og:title'}),subst(seo.ogTitle||seo.title));
     setContentMeta(meta(doc,'meta[property="og:description"]',{property:'og:description'}),subst(seo.ogDescription||seo.description));
     setContentMeta(meta(doc,'meta[property="og:image"]',{property:'og:image'}),content.safeUrl(seo.ogImage,{allowRelative:true}));
+    const canonical=platformCanonicalUrl(doc,content,model);
+    if(canonical){
+      setAttr(link(doc,'link[rel="canonical"]',{rel:'canonical'}),'href',canonical);
+      setContentMeta(meta(doc,'meta[property="og:url"]',{property:'og:url'}),canonical);
+    }
   }
   function applyThemeColor(doc,content){
     const value=safeHex(content.rawSetting('themeColor'));
@@ -102,8 +129,9 @@
   }
   function createManifest(content,origin){
     const icon=content.asset('favicon');
-    let iconUrl='';
-    try{if(icon.src)iconUrl=new URL(icon.src,origin).href}catch(_){}
+    const icons=[];
+    try{if(icon.src)icons.push({src:new URL(icon.src,origin).href,sizes:'192x192',type:'image/png'});}catch(_){}
+    try{icons.push({src:new URL('icon-512.png',origin).href,sizes:'512x512',type:'image/png'});}catch(_){}
     return{
       name:content.setting('siteName'),
       short_name:content.setting('siteName'),
@@ -111,15 +139,15 @@
       display:'standalone',
       background_color:'#ffffff',
       theme_color:safeHex(content.rawSetting('themeColor')),
-      icons:iconUrl?[{src:iconUrl,sizes:'192x192',type:'image/png'}]:[]
+      icons
     };
   }
   function applyManifest(doc,content){
     if(!doc||typeof doc.querySelector!=='function'||typeof Blob==='undefined'||typeof URL==='undefined'||typeof URL.createObjectURL!=='function')return;
-    const link=doc.querySelector('#appManifest');if(!link)return;
+    const manifestLink=doc.querySelector('#appManifest');if(!manifestLink)return;
     const origin=doc.location&&doc.location.href?doc.location.href:(typeof location!=='undefined'?location.href:'https://example.invalid/');
     const manifest=createManifest(content,origin),blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
-    const url=URL.createObjectURL(blob);setAttr(link,'href',url);
+    const url=URL.createObjectURL(blob);setAttr(manifestLink,'href',url);
   }
   function applyContentBindings(doc,content){
     applySettings(doc,content);applyText(doc,content);applyIcons(doc,content);applyLinks(doc,content);applyAssets(doc,content);applyLocaleOptions(doc,content);
@@ -129,5 +157,5 @@
     if(doc.documentElement){doc.documentElement.lang=content.getLang();doc.documentElement.dir=content.getLang()==='ar'?'rtl':'ltr'}
     applyContentBindings(doc,content);applySeo(doc,content,pageKey);applyThemeColor(doc,content);applyManifest(doc,content);
   }
-  return{applyContentBindings,applySettings,applyText,applyIcons,applyLinks,applyAssets,applySeo,applyPlatformSeo,applyThemeColor,applyDocument,createManifest};
+  return{applyContentBindings,applySettings,applyText,applyIcons,applyLinks,applyAssets,applySeo,applyPlatformSeo,applyThemeColor,applyDocument,createManifest,platformCanonicalUrl};
 });

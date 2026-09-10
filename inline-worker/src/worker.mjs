@@ -2,13 +2,13 @@ import {applyPatch} from './edit-schema.mjs';
 
 const JSON_HEADERS={'content-type':'application/json; charset=utf-8','cache-control':'no-store'};
 function apiFetch(env){return typeof env.FETCH==='function'?env.FETCH:fetch}
-function allowedOrigin(env){return String(env.ALLOWED_ORIGIN||'https://devmyskilla.github.io').replace(/\/$/,'')}
+function allowedOrigin(env){return String(env.ALLOWED_ORIGIN||'https://aasimaltomi.github.io').replace(/\/$/,'')}
 function corsHeaders(env,origin){return origin===allowedOrigin(env)?{'access-control-allow-origin':origin,'access-control-allow-methods':'GET,POST,OPTIONS','access-control-allow-headers':'Authorization,Content-Type','access-control-max-age':'600','vary':'Origin'}:{}}
 function json(body,status=200,extra={}){return new Response(JSON.stringify(body),{status,headers:{...JSON_HEADERS,...extra}})}
 function error(message,status,extra={}){return json({error:message},status,extra)}
 function randomId(bytes=24){const buf=new Uint8Array(bytes);crypto.getRandomValues(buf);return Array.from(buf,b=>b.toString(16).padStart(2,'0')).join('')}
 function ttl(env){const value=Number(env.SESSION_TTL_SECONDS||3600);return Number.isFinite(value)&&value>=300?Math.floor(value):3600}
-function repoParts(env){const [owner,repo]=String(env.GITHUB_REPO||'devmyskilla/devmyskilla.github.io').split('/');if(!owner||!repo)throw new Error('Invalid GITHUB_REPO');return{owner,repo}}
+function repoParts(env){const [owner,repo]=String(env.GITHUB_REPO||'aasimaltomi/devmyskilla.github.io').split('/');if(!owner||!repo)throw new Error('Invalid GITHUB_REPO');return{owner,repo}}
 function ghHeaders(token){return{'accept':'application/vnd.github+json','authorization':`Bearer ${token}`,'x-github-api-version':'2022-11-28','user-agent':'dunya-inline-editor'}}
 function encodeBase64(value){const bytes=new TextEncoder().encode(value);let binary='';for(const byte of bytes)binary+=String.fromCharCode(byte);return btoa(binary)}
 function decodeBase64(value){const binary=atob(String(value||'').replace(/\s+/g,''));const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)}
