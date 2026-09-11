@@ -5,6 +5,7 @@ on:
     branches: [perf/p1-public-data-split]
     paths:
       - '.github/workflows/p1-public-data-migration.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
