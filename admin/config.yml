@@ -3926,6 +3926,311 @@ collections:
                     name: officialUrl
                     widget: string
                     required: false
+              - label: "المحتوى التحريري"
+                name: editorial
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "مناسب لـ"
+                    name: bestFor
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - label: "العربية"
+                        name: ar
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                      - label: "English"
+                        name: en
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                      - label: "Türkçe"
+                        name: tr
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                  - label: "نقاط القوة"
+                    name: strengths
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - label: "العربية"
+                        name: ar
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                      - label: "English"
+                        name: en
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                      - label: "Türkçe"
+                        name: tr
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                  - label: "القيود"
+                    name: limitations
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - label: "العربية"
+                        name: ar
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                      - label: "English"
+                        name: en
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+                      - label: "Türkçe"
+                        name: tr
+                        widget: list
+                        required: false
+                        field: { label: "Value", name: value, widget: string }
+              - label: "منصة مميزة"
+                name: featured
+                widget: boolean
+                default: false
+              - label: "ترتيب العرض"
+                name: displayOrder
+                widget: number
+                value_type: int
+                required: false
+      - label: "بيانات البحث الداخلية"
+        name: research_data
+        file: research-data.json
+        fields:
+          - label: "بحث المنصات العامة / Public Platform Research"
+            name: publicPlatformResearch
+            widget: list
+            summary: "{{fields.id}}"
+            fields:
+              - label: "معرّف المنصة العامة — لا تغيّره"
+                name: id
+                widget: string
+                hint: "Must match plat-1 through plat-40"
+              - label: "المسارات الرسمية / Official Paths"
+                name: officialPaths
+                widget: list
+                required: false
+                summary: "{{fields.officialName}}"
+                fields:
+                  - label: "معرّف المسار الثابت"
+                    name: id
+                    widget: string
+                    hint: "Stable path ID"
+                  - label: "الاسم الرسمي الأصلي"
+                    name: officialName
+                    widget: string
+                  - label: "اسم العرض المترجم"
+                    name: name
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - label: "العربية"
+                        name: ar
+                        widget: string
+                      - label: "English"
+                        name: en
+                        widget: string
+                      - label: "Türkçe"
+                        name: tr
+                        widget: string
+                  - label: "نوع المسار"
+                    name: type
+                    widget: select
+                    options: [learning-path, career-path, skill-path, professional-certificate, professional-program, specialization, role-path, structured-series, other-official-path]
+                  - label: "الرابط الرسمي المباشر"
+                    name: officialUrl
+                    widget: string
+                  - label: "معرّفات المجالات المرتبطة"
+                    name: fieldIds
+                    widget: list
+                    required: false
+                    hint: "IDs from this platform fields list"
+                    field: { label: "Value", name: value, widget: string }
+                  - label: "مسار مميز"
+                    name: featured
+                    widget: boolean
+                    default: false
+              - label: "بيانات التحقق من المسارات"
+                name: pathResearch
+                widget: object
+                collapsed: true
+                required: false
+                fields:
+                  - label: "آخر تحقق"
+                    name: lastVerified
+                    widget: datetime
+                    format: "YYYY-MM-DD"
+                    date_format: "YYYY-MM-DD"
+                    time_format: false
+                    required: false
+                  - label: "مصدر المجالات"
+                    name: fieldsSourceUrl
+                    widget: string
+                    required: false
+                  - label: "مصدر المسارات"
+                    name: pathsSourceUrl
+                    widget: string
+                    required: false
+                  - label: "رابط جميع المسارات"
+                    name: allPathsUrl
+                    widget: string
+                    required: false
+          - label: "المنصات غير العامة / Non-public Platforms"
+            name: nonPublicPlatforms
+            widget: list
+            summary: "{{fields.id}} — {{fields.name.en}}"
+            fields:
+              - label: "معرّف تقني — لا تغيّره بعد النشر"
+                name: id
+                widget: string
+                hint: "Stable platform ID"
+              - label: "اسم المنصة"
+                name: name
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "العربية"
+                    name: ar
+                    widget: string
+                  - label: "English"
+                    name: en
+                    widget: string
+                  - label: "Türkçe"
+                    name: tr
+                    widget: string
+              - label: "الوصف"
+                name: description
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "العربية"
+                    name: ar
+                    widget: text
+                    required: false
+                  - label: "English"
+                    name: en
+                    widget: text
+                    required: false
+                  - label: "Türkçe"
+                    name: tr
+                    widget: text
+                    required: false
+              - label: "معرّف التصنيف"
+                name: categoryId
+                widget: string
+                hint: "Use an ID from التصنيفات"
+              - label: "معرفات اللغات"
+                name: languageIds
+                widget: list
+                required: false
+                hint: "Use IDs from اللغات"
+                field: { label: "Value", name: value, widget: string }
+              - label: "حالة السعر"
+                name: pricingModel
+                widget: select
+                options: [free, freemium, paid, mixed, unknown]
+              - label: "يوفر محتوى مجاني"
+                name: hasFreeContent
+                widget: boolean
+                default: false
+              - label: "يوفر شهادات"
+                name: certificateAvailable
+                widget: boolean
+                default: false
+              - label: "الشهادات مجانية"
+                name: freeCertificate
+                widget: boolean
+                default: false
+              - label: "نوع المنصة"
+                name: platformType
+                widget: string
+                required: false
+              - label: "الموقع الرسمي"
+                name: officialUrl
+                widget: string
+                required: false
+              - label: "رابط الكتالوج"
+                name: catalogUrl
+                widget: string
+                required: false
+              - label: "شعار المنصة"
+                name: logo
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "الصورة"
+                    name: src
+                    widget: image
+                    required: false
+                  - label: "النص البديل"
+                    name: alt
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - label: "العربية"
+                        name: ar
+                        widget: string
+                        required: false
+                      - label: "English"
+                        name: en
+                        widget: string
+                        required: false
+                      - label: "Türkçe"
+                        name: tr
+                        widget: string
+                        required: false
+              - label: "عدد المحتوى الرسمي"
+                name: officialCount
+                widget: number
+                value_type: int
+                required: false
+              - label: "نوع العدد الرسمي"
+                name: officialCountType
+                widget: select
+                required: false
+                options: [courses, modules, learning_paths, job_simulations, certifications, materials, items]
+              - label: "آخر تحقق"
+                name: lastVerified
+                widget: datetime
+                format: "YYYY-MM-DD"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                required: false
+              - label: "المجالات / Fields"
+                name: fields
+                widget: list
+                required: false
+                summary: "{{fields.id}} — {{fields.name.en}}"
+                fields:
+                  - label: "معرّف المجال الثابت"
+                    name: id
+                    widget: string
+                    hint: "Stable field ID"
+                  - label: "اسم المجال"
+                    name: name
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - label: "العربية"
+                        name: ar
+                        widget: string
+                      - label: "English"
+                        name: en
+                        widget: string
+                      - label: "Türkçe"
+                        name: tr
+                        widget: string
+                  - label: "رابط المجال الرسمي"
+                    name: officialUrl
+                    widget: string
+                    required: false
               - label: "المسارات الرسمية / Official Paths"
                 name: officialPaths
                 widget: list
