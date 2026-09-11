@@ -12,23 +12,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Diagnose unit test files
-        run: |
-          mkdir -p /tmp/p1-diagnostics/logs
-          : > /tmp/p1-diagnostics/results.txt
-          for f in tests/*.test.cjs tests/unit/*.test.cjs; do
-            safe=$(printf '%s' "$f" | tr '/ ' '__')
-            if node --test "$f" > "/tmp/p1-diagnostics/logs/${safe}.log" 2>&1; then
-              echo "PASS $f" | tee -a /tmp/p1-diagnostics/results.txt
-            else
-              echo "FAIL $f" | tee -a /tmp/p1-diagnostics/results.txt
-            fi
-          done
-      - name: Upload diagnostic results
-        uses: actions/upload-artifact@v4
-        with:
-          name: p1-unit-diagnostics
-          path: /tmp/p1-diagnostics
+      - name: Print Decap test failure
+        run: node --test tests/decap-cms.test.cjs || true
       - name: Install browser tooling
         run: |
           npm install --no-save playwright@1.55.0
