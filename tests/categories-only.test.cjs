@@ -31,10 +31,14 @@ test('platform page keeps categories visible and hides official learning paths',
   assert.match(fields,/Artificial Intelligence/);
 });
 
-test('stored path research remains preserved in data.json even though it is hidden publicly',()=>{
+test('stored path research remains preserved outside the public payload even though it is hidden publicly',()=>{
   const data=JSON.parse(fs.readFileSync(path.join(root,'data.json'),'utf8'));
+  const research=JSON.parse(fs.readFileSync(path.join(root,'research-data.json'),'utf8'));
   const futureLearn=data.platforms.find(platform=>platform.id==='plat-1');
+  const futureLearnResearch=research.publicPlatformResearch.find(platform=>platform.id==='plat-1');
   assert.ok(futureLearn);
-  assert.ok(Array.isArray(futureLearn.officialPaths));
-  assert.ok(futureLearn.officialPaths.length>0);
+  assert.equal(Object.hasOwn(futureLearn,'officialPaths'),false);
+  assert.ok(futureLearnResearch);
+  assert.ok(Array.isArray(futureLearnResearch.officialPaths));
+  assert.ok(futureLearnResearch.officialPaths.length>0);
 });

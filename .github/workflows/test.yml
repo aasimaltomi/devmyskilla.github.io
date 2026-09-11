@@ -20,8 +20,10 @@ jobs:
         run: |
           for f in js/*.js scripts/*.cjs; do node --check "$f"; done
           for f in inline-worker/src/*.mjs; do node --check "$f"; done
-      - name: Validate full CMS content
+      - name: Validate public CMS content
         run: node scripts/validate-content.cjs
+      - name: Validate research content
+        run: node scripts/validate-research-data.cjs
       - name: Require complete platform research
         run: node scripts/platform-paths-audit.cjs --require-complete
       - name: Verify Decap configuration matches data.json

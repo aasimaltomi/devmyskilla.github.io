@@ -1,4 +1,5 @@
 const LANGS=['ar','en','tr'];
+const PUBLIC_PLATFORM_IDS=Array.from({length:40},(_,i)=>`plat-${i+1}`);
 const PLATFORM_FIELDS={
   name:'localizedText',description:'localizedText',
   'editorial.bestFor':'localizedList','editorial.strengths':'localizedList','editorial.limitations':'localizedList',
@@ -114,13 +115,14 @@ export function validateValue(data,descriptor,value){return validateWidget(data,
 
 export function validateDocument(data){
   for(const key of ['settings','assets','seo','siteText','categories','languages','quiz','comparison','platforms'])if(!(key in(data||{})))throw new Error(`missing ${key}`);
-  if(!Array.isArray(data.platforms)||data.platforms.length!==110)throw new Error(`expected 110 platforms`);
+  if(!Array.isArray(data.platforms)||JSON.stringify(data.platforms.map(row=>row&&row.id))!==JSON.stringify(PUBLIC_PLATFORM_IDS))throw new Error('expected exactly plat-1 through plat-40');
   if(!Array.isArray(data.categories)||!Array.isArray(data.languages))throw new Error('invalid taxonomy');
   const categoryIds=new Set(),languageIds=new Set(),platformIds=new Set();
   for(const row of data.categories){if(!row||typeof row.id!=='string'||categoryIds.has(row.id))throw new Error('invalid category id');categoryIds.add(row.id);localized(row.label)}
   for(const row of data.languages){if(!row||typeof row.id!=='string'||languageIds.has(row.id))throw new Error('invalid language id');languageIds.add(row.id);localized(row.label)}
   for(const row of data.platforms){
     if(!row||typeof row.id!=='string'||platformIds.has(row.id))throw new Error('invalid platform id');platformIds.add(row.id);
+    if(Object.hasOwn(row,'officialPaths')||Object.hasOwn(row,'pathResearch'))throw new Error(`${row.id}: research-only keys are not editable in public data`);
     if(!categoryIds.has(row.categoryId))throw new Error(`${row.id}: unknown category reference`);
     for(const id of row.languageIds||[])if(!languageIds.has(id))throw new Error(`${row.id}: unknown language reference ${id}`);
     localized(row.name);localized(row.description);asset(row.logo);

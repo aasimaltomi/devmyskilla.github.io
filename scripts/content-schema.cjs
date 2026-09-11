@@ -2,6 +2,7 @@ const SUPPORTED_LOCALES = Object.freeze(['ar','en','tr']);
 const REQUIRED_SECTIONS = Object.freeze([
   'settings','assets','seo','siteText','categories','languages','quiz','comparison','platforms'
 ]);
+const PUBLIC_PLATFORM_IDS = Object.freeze(Array.from({length:40},(_,i)=>`plat-${i+1}`));
 const PATH_TYPES = Object.freeze(new Set([
   'learning-path','career-path','skill-path','professional-certificate','professional-program',
   'specialization','role-path','structured-series','other-official-path'
@@ -97,11 +98,12 @@ function validateStableReferences(data){
   const categoryIds = new Set(data.categories.map(row => row.id));
   const languageIds = new Set(data.languages.map(row => row.id));
   const platformIds = data.platforms.map(row => row.id);
-  if (data.platforms.length !== 110) throw new Error(`Expected 110 platforms, received ${data.platforms.length}`);
+  if (JSON.stringify(platformIds) !== JSON.stringify(PUBLIC_PLATFORM_IDS)) throw new Error('Expected exactly plat-1 through plat-40 in public data');
   if (new Set(platformIds).size !== platformIds.length) throw new Error('Duplicate platform IDs');
   if (new Set(data.categories.map(row => row.id)).size !== data.categories.length) throw new Error('Duplicate category IDs');
   if (new Set(data.languages.map(row => row.id)).size !== data.languages.length) throw new Error('Duplicate language IDs');
   for (const row of data.platforms) {
+    if (Object.hasOwn(row,'officialPaths') || Object.hasOwn(row,'pathResearch')) throw new Error(`${row.id}: research-only keys must not ship in public data`);
     if (!categoryIds.has(row.categoryId)) throw new Error(`${row.id}: unknown categoryId ${row.categoryId}`);
     for (const id of row.languageIds || []) if (!languageIds.has(id)) throw new Error(`${row.id}: unknown languageId ${id}`);
     validatePlatformPathData(row);
@@ -109,4 +111,4 @@ function validateStableReferences(data){
   return data;
 }
 
-module.exports = { SUPPORTED_LOCALES, REQUIRED_SECTIONS, PATH_TYPES, isLocalized, validatePlatformPathData, validateContentData, validateStableReferences };
+module.exports = { SUPPORTED_LOCALES, REQUIRED_SECTIONS, PUBLIC_PLATFORM_IDS, PATH_TYPES, isLocalized, validatePlatformPathData, validateContentData, validateStableReferences };

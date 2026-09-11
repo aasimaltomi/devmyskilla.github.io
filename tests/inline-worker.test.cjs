@@ -47,7 +47,7 @@ test('patches one localized platform field by stable id without mutating source'
   assert.deepEqual(result.value,value);
   assert.deepEqual(data.platforms.find(p=>p.id===id).description,before);
   assert.deepEqual(result.data.platforms.find(p=>p.id===id).description,value);
-  assert.equal(result.data.platforms.length,110);
+  assert.equal(result.data.platforms.length,40);
 });
 
 test('validates references and localized triplets before accepting a patch',async()=>{
@@ -68,7 +68,7 @@ test('allows editable category and language labels but never their IDs',async()=
   assert.throws(()=>applyPatch(data,{kind:'language',id:language.id,field:'id'},'x'),/unsupported target/i);
 });
 
-test('full-document validation keeps the 110-platform and stable-reference contract',async()=>{
+test('full-document validation keeps the 40-platform public and stable-reference contract',async()=>{
   const {validateDocument}=await schema();
   assert.equal(validateDocument(data),true);
   const bad=structuredClone(data);
