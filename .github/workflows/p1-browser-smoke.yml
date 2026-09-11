@@ -1,0 +1,30 @@
+name: Temporary P1 browser smoke
+
+on:
+  push:
+    branches: [perf/p1-public-data-split]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser tooling
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/p1-http.log 2>&1 &
+          echo $! > /tmp/p1-http.pid
+          for i in {1..30}; do
+            curl -fsS http://127.0.0.1:4173/data.json >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/p1-http.log
+          exit 1
+      - name: Run browser smoke
+        run: node scripts/p1-browser-smoke.mjs
