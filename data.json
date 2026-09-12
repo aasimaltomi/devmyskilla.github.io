@@ -3435,7 +3435,7 @@
       "displayOrder": 21,
       "platformType": "",
       "featured": false,
-      "certificateAvailable": true,
+      "certificateAvailable": false,
       "hasFreeContent": true,
       "catalogUrl": "https://www.couponami.com/category",
       "categoryId": "education",
