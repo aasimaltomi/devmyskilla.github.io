@@ -3798,7 +3798,7 @@
           "tr": "Free Code Camp"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 25,
       "platformType": "",
       "featured": false,
