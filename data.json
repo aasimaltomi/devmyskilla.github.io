@@ -2103,7 +2103,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 13,
       "officialUrl": "https://openlearn.aucegypt.edu/course/index.php?categoryid=2",
       "editorial": {
         "bestFor": {
@@ -2130,7 +2130,7 @@
           "tr": "openlearn.aucegypt.edu"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 11,
       "platformType": "",
       "featured": false,
