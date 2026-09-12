@@ -2487,7 +2487,7 @@
           "tr": "Cisco"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 14,
       "platformType": "",
       "featured": false,
