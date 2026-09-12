@@ -3486,7 +3486,7 @@
           "tr": "Kaggle"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 22,
       "platformType": "",
       "featured": false,
