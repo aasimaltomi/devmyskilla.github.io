@@ -2213,7 +2213,7 @@
         "Multilingual"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 28,
       "officialUrl": "https://www.life-global.org/allcourses",
       "editorial": {
         "bestFor": {
@@ -2240,7 +2240,7 @@
           "tr": "HP Life"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 12,
       "platformType": "",
       "featured": false,
