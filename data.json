@@ -2735,7 +2735,7 @@
           "tr": "Google (Skillshop)"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 16,
       "platformType": "",
       "featured": false,
