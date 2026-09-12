@@ -3651,7 +3651,7 @@
         "Multilingual"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 1471,
       "officialUrl": "https://www.skills.google/",
       "editorial": {
         "bestFor": {
@@ -3678,7 +3678,7 @@
           "tr": "Google Cloud"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 24,
       "platformType": "",
       "featured": false,
