@@ -987,7 +987,7 @@
         "Multilingual"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 131,
       "officialUrl": "https://academy.itu.int/training-courses/full-catalogue",
       "editorial": {
         "bestFor": {
@@ -1014,7 +1014,7 @@
           "tr": "ITU Academy"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 6,
       "platformType": "",
       "featured": false,
