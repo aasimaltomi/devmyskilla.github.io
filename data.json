@@ -5069,7 +5069,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 100,
       "officialUrl": "https://www.semrush.com/academy/",
       "editorial": {
         "bestFor": {
@@ -5096,7 +5096,7 @@
           "tr": "Semrush"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 35,
       "platformType": "",
       "featured": false,
