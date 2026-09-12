@@ -595,7 +595,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 282,
       "officialUrl": "https://www.theforage.com/virtual-internships",
       "editorial": {
         "bestFor": {
@@ -622,7 +622,7 @@
           "tr": "Forage"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 4,
       "platformType": "",
       "featured": false,
@@ -635,7 +635,7 @@
         "en": "A unique platform offering virtual work experience from global companies like JPMorgan and BCG. Gain real practical experience and build your resume.",
         "tr": "JPMorgan ve BCG gibi küresel şirketlerden sanal iş deneyimleri sunan benzersiz bir platform. Gerçek pratik deneyim kazanın ve özgeçmişinizi oluşturun."
       },
-      "officialCountType": "courses",
+      "officialCountType": "Training",
       "lastVerified": null
     },
     {
