@@ -1675,7 +1675,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 679,
       "officialUrl": "https://www.codecademy.com/catalog",
       "editorial": {
         "bestFor": {
@@ -1702,7 +1702,7 @@
           "tr": "Code Academy"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 8,
       "platformType": "",
       "featured": false,
