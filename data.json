@@ -2594,10 +2594,10 @@
         }
       ],
       "languageIds": [
-        "English"
+        "English،Ukrainian،Welsh"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 947,
       "officialUrl": "https://www.open.edu/openlearn/free-courses/full-catalogue",
       "editorial": {
         "bestFor": {
@@ -2624,7 +2624,7 @@
           "tr": "Open Learn"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 15,
       "platformType": "",
       "featured": false,
