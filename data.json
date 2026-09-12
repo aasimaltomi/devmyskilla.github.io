@@ -1785,7 +1785,7 @@
         "Multilingual"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 494,
       "officialUrl": "https://event.unitar.org/full-catalog?search=&type%5B3%5D=3&price%5Bmin%5D=0&price%5Bmax%5D=96591&date%5Bmin%5D=&date%5Bmax%5D=&quick_filter=all",
       "editorial": {
         "bestFor": {
@@ -1812,7 +1812,7 @@
           "tr": "Unitar"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 9,
       "platformType": "",
       "featured": false,
