@@ -2809,7 +2809,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 50,
       "officialUrl": "https://www.sololearn.com/en/learn",
       "editorial": {
         "bestFor": {
@@ -2836,11 +2836,11 @@
           "tr": "Solo Learn"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 17,
       "platformType": "",
       "featured": false,
-      "certificateAvailable": false,
+      "certificateAvailable": true,
       "hasFreeContent": true,
       "catalogUrl": "https://www.sololearn.com/en/learn",
       "categoryId": "programming_data",
