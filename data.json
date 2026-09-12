@@ -4759,7 +4759,7 @@
         "Arabic"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 86,
       "officialUrl": "https://www.rwaq.org/courses",
       "editorial": {
         "bestFor": {
@@ -4786,7 +4786,7 @@
           "tr": "رواق Rwaq"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 33,
       "platformType": "",
       "featured": false,
