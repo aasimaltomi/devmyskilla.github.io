@@ -4366,7 +4366,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 160,
       "officialUrl": "https://learn.saylor.org/course/index.php",
       "editorial": {
         "bestFor": {
@@ -4393,7 +4393,7 @@
           "tr": "Saylor"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 29,
       "platformType": "",
       "featured": false,
