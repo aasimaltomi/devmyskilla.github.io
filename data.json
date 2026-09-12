@@ -1,58 +1,12 @@
 {
   "platforms": [
     {
-      "languageIds": [
-        "English"
-      ],
-      "pricingModel": "free",
-      "officialCount": 1683,
-      "officialUrl": "https://www.futurelearn.com/courses",
-      "editorial": {
-        "bestFor": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "strengths": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "limitations": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        }
-      },
-      "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=futurelearn.com&sz=128",
-        "alt": {
-          "ar": "FutureLearn",
-          "en": "FutureLearn",
-          "tr": "FutureLearn"
-        }
-      },
+      "id": "plat-1",
       "name": {
         "ar": "FutureLearn",
         "en": "FutureLearn",
         "tr": "FutureLearn"
       },
-      "freeCertificate": true,
-      "displayOrder": 1,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.futurelearn.com/courses",
-      "categoryId": "education",
-      "id": "plat-1",
-      "description": {
-        "ar": "منصة تعليمية بريطانية تابعة لمجموعة الجامعات العالمية. تقدم آلاف الدورات المجانية والمدفوعة في مجالات متنوعة مع شهادات إتمام.",
-        "en": "A British educational platform from a global university alliance. Offers thousands of free and paid courses across diverse fields with completion certificates.",
-        "tr": "Küresel üniversite grubuna bağlı bir Britanya eğitim platformu. Çeşitli alanlarda binlerce ücretsiz ve ücretli kurs sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "business-management",
@@ -180,15 +134,13 @@
           },
           "officialUrl": "https://www.futurelearn.com/subjects/teaching-courses"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Multilingual"
+        "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
-      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?filters[]=133",
+      "officialCount": 1683,
+      "officialUrl": "https://www.futurelearn.com/courses",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -207,34 +159,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=unicef.org&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=futurelearn.com&sz=128",
         "alt": {
-          "ar": "Agora",
-          "en": "Agora",
-          "tr": "Agora"
+          "ar": "FutureLearn",
+          "en": "FutureLearn",
+          "tr": "FutureLearn"
         }
       },
+      "freeCertificate": true,
+      "displayOrder": 1,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.futurelearn.com/courses",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليمية بريطانية تابعة لمجموعة الجامعات العالمية. تقدم آلاف الدورات المجانية والمدفوعة في مجالات متنوعة مع شهادات إتمام.",
+        "en": "A British educational platform from a global university alliance. Offers thousands of free and paid courses across diverse fields with completion certificates.",
+        "tr": "Küresel üniversite grubuna bağlı bir Britanya eğitim platformu. Çeşitli alanlarda binlerce ücretsiz ve ücretli kurs sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-2",
       "name": {
         "ar": "Agora",
         "en": "Agora",
         "tr": "Agora"
       },
-      "freeCertificate": false,
-      "displayOrder": 2,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://agora.unicef.org/local/catalogue/index.php?filters[]=133",
-      "categoryId": "education",
-      "id": "plat-2",
-      "description": {
-        "ar": "منصة تعليمية تابعة لليونيسف (UNICEF) تقدم دورات مجانية في مجالات حماية الطفل، التعليم، الصحة، التنمية المستدامة، والعمل الإنساني.",
-        "en": "A UNICEF educational platform offering free courses in child protection, education, health, sustainable development, and humanitarian work.",
-        "tr": "UNICEF'e bağlı bir eğitim platformu. Çocuk koruma, eğitim, sağlık, sürdürülebilir kalkınma ve insani yardım alanlarında ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "focus-areas",
@@ -290,15 +244,13 @@
           },
           "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?query=Career%20support"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "Multilingual"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://skillsbuild.org/college-students/course-catalog",
+      "officialUrl": "https://agora.unicef.org/local/catalogue/index.php?filters[]=133",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -317,34 +269,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=skillsbuild.org&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=unicef.org&sz=128",
         "alt": {
-          "ar": "IBM Skills Build",
-          "en": "IBM Skills Build",
-          "tr": "IBM Skills Build"
+          "ar": "Agora",
+          "en": "Agora",
+          "tr": "Agora"
         }
       },
+      "freeCertificate": true,
+      "displayOrder": 2,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://agora.unicef.org/local/catalogue/index.php?filters[]=133",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليمية تابعة لليونيسف (UNICEF) تقدم دورات مجانية في مجالات حماية الطفل، التعليم، الصحة، التنمية المستدامة، والعمل الإنساني.",
+        "en": "A UNICEF educational platform offering free courses in child protection, education, health, sustainable development, and humanitarian work.",
+        "tr": "UNICEF'e bağlı bir eğitim platformu. Çocuk koruma, eğitim, sağlık, sürdürülebilir kalkınma ve insani yardım alanlarında ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-3",
       "name": {
         "ar": "IBM Skills Build",
         "en": "IBM Skills Build",
         "tr": "IBM Skills Build"
       },
-      "freeCertificate": false,
-      "displayOrder": 3,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://skillsbuild.org/college-students/course-catalog",
-      "categoryId": "technology",
-      "id": "plat-3",
-      "description": {
-        "ar": "منصة IBM المجانية لتطوير المهارات التقنية. تغطي الذكاء الاصطناعي، الحوسبة السحابية، الأمن السيبراني، علوم البيانات، وتقنية المعلومات. تقدم شهادات معتمدة.",
-        "en": "IBM's free platform for technical skill development. Covers AI, cloud computing, cybersecurity, data science, and IT. Offers accredited certificates.",
-        "tr": "IBM'nin teknik beceri geliştirme için ücretsiz platformu. Yapay zeka, bulut bilişim, siber güvenlik, veri bilimi ve BT alanlarını kapsar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "artificial-intelligence",
@@ -445,15 +399,13 @@
           },
           "officialUrl": "https://skillsbuild.org/learning-catalog?industry=Sports%20%26%20Entertainment"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "English"
+        "Multilingual"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.theforage.com/virtual-internships",
+      "officialUrl": "https://skillsbuild.org/college-students/course-catalog",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -472,34 +424,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=theforage.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=skillsbuild.org&sz=128",
         "alt": {
-          "ar": "Forage",
-          "en": "Forage",
-          "tr": "Forage"
+          "ar": "IBM Skills Build",
+          "en": "IBM Skills Build",
+          "tr": "IBM Skills Build"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 3,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://skillsbuild.org/college-students/course-catalog",
+      "categoryId": "technology",
+      "description": {
+        "ar": "منصة IBM المجانية لتطوير المهارات التقنية. تغطي الذكاء الاصطناعي، الحوسبة السحابية، الأمن السيبراني، علوم البيانات، وتقنية المعلومات. تقدم شهادات معتمدة.",
+        "en": "IBM's free platform for technical skill development. Covers AI, cloud computing, cybersecurity, data science, and IT. Offers accredited certificates.",
+        "tr": "IBM'nin teknik beceri geliştirme için ücretsiz platformu. Yapay zeka, bulut bilişim, siber güvenlik, veri bilimi ve BT alanlarını kapsar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-4",
       "name": {
         "ar": "Forage",
         "en": "Forage",
         "tr": "Forage"
       },
-      "freeCertificate": false,
-      "displayOrder": 4,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.theforage.com/virtual-internships",
-      "categoryId": "business_marketing",
-      "id": "plat-4",
-      "description": {
-        "ar": "منصة فريدة تقدم تجارب عمل افتراضية من شركات عالمية مثل JPMorgan وBCG. تمكنك من اكتساب خبرة عملية حقيقية وبناء سيرتك الذاتية.",
-        "en": "A unique platform offering virtual work experience from global companies like JPMorgan and BCG. Gain real practical experience and build your resume.",
-        "tr": "JPMorgan ve BCG gibi küresel şirketlerden sanal iş deneyimleri sunan benzersiz bir platform. Gerçek pratik deneyim kazanın ve özgeçmişinizi oluşturun."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "accounting",
@@ -636,16 +590,13 @@
           },
           "officialUrl": "https://www.theforage.com/simulations?careers=human-resources"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Arabic",
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/",
+      "officialUrl": "https://www.theforage.com/virtual-internships",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -664,34 +615,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=theforage.com&sz=128",
         "alt": {
-          "ar": "Microsoft",
-          "en": "Microsoft",
-          "tr": "Microsoft"
+          "ar": "Forage",
+          "en": "Forage",
+          "tr": "Forage"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 4,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.theforage.com/virtual-internships",
+      "categoryId": "business_marketing",
+      "description": {
+        "ar": "منصة فريدة تقدم تجارب عمل افتراضية من شركات عالمية مثل JPMorgan وBCG. تمكنك من اكتساب خبرة عملية حقيقية وبناء سيرتك الذاتية.",
+        "en": "A unique platform offering virtual work experience from global companies like JPMorgan and BCG. Gain real practical experience and build your resume.",
+        "tr": "JPMorgan ve BCG gibi küresel şirketlerden sanal iş deneyimleri sunan benzersiz bir platform. Gerçek pratik deneyim kazanın ve özgeçmişinizi oluşturun."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-5",
       "name": {
         "ar": "Microsoft",
         "en": "Microsoft",
         "tr": "Microsoft"
       },
-      "freeCertificate": false,
-      "displayOrder": 5,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://learn.microsoft.com/en-us/training/browse/",
-      "categoryId": "technology",
-      "id": "plat-5",
-      "description": {
-        "ar": "منصة مايكروسوفت للتعلم الرسمية. تقدم دورات مجانية ومدفوعة في Azure، Microsoft 365، Power Platform، الأمن السيبراني، والذكاء الاصطناعي مع شهادات معتمدة.",
-        "en": "Microsoft's official learning platform. Offers free and paid courses in Azure, Microsoft 365, Power Platform, cybersecurity, and AI with accredited certificates.",
-        "tr": "Microsoft'un resmi öğrenme platformu. Azure, Microsoft 365, Power Platform, siber güvenlik ve yapay zeka alanlarında ücretsiz ve ücretli kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "application-development",
@@ -747,15 +700,14 @@
           },
           "officialUrl": "https://learn.microsoft.com/en-us/training/browse/?terms=Technical%20Infrastructure"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Multilingual"
+        "Arabic",
+        "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue",
+      "officialUrl": "https://learn.microsoft.com/en-us/training/browse/",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -774,34 +726,36 @@
         }
       },
       "logo": {
-        "src": "https://academy.itu.int/themes/custom/itu_academy/src/assets/images/logos/ITU-logo.svg",
+        "src": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128",
         "alt": {
-          "ar": "ITU Academy",
-          "en": "ITU Academy",
-          "tr": "ITU Academy"
+          "ar": "Microsoft",
+          "en": "Microsoft",
+          "tr": "Microsoft"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 5,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://learn.microsoft.com/en-us/training/browse/",
+      "categoryId": "technology",
+      "description": {
+        "ar": "منصة مايكروسوفت للتعلم الرسمية. تقدم دورات مجانية ومدفوعة في Azure، Microsoft 365، Power Platform، الأمن السيبراني، والذكاء الاصطناعي مع شهادات معتمدة.",
+        "en": "Microsoft's official learning platform. Offers free and paid courses in Azure, Microsoft 365, Power Platform, cybersecurity, and AI with accredited certificates.",
+        "tr": "Microsoft'un resmi öğrenme platformu. Azure, Microsoft 365, Power Platform, siber güvenlik ve yapay zeka alanlarında ücretsiz ve ücretli kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-6",
       "name": {
         "ar": "ITU Academy",
         "en": "ITU Academy",
         "tr": "ITU Academy"
       },
-      "freeCertificate": false,
-      "displayOrder": 6,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://academy.itu.int/training-courses/full-catalogue",
-      "categoryId": "technology",
-      "id": "plat-6",
-      "description": {
-        "ar": "أكاديمية الاتحاد الدولي للاتصالات (ITU) التابعة للأمم المتحدة. تقدم دورات في الاتصالات، الأمن السيبراني، الذكاء الاصطناعي، والسياسات الرقمية.",
-        "en": "The International Telecommunication Union (ITU) Academy, a UN agency. Offers courses in telecommunications, cybersecurity, AI, and digital policies.",
-        "tr": "Birleşmiş Milletler'e bağlı ITU Akademisi. Telekomünikasyon, siber güvenlik, yapay zeka ve dijital politikalar alanlarında kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "cybersecurity",
@@ -1028,15 +982,13 @@
           },
           "officialUrl": "https://academy.itu.int/training-courses/full-catalogue/by-topic?search_api_fulltext=Internet%20of%20Things"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "English"
+        "Multilingual"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.edx.org/courses",
+      "officialUrl": "https://academy.itu.int/training-courses/full-catalogue",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -1055,34 +1007,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=edx.org&sz=128",
+        "src": "https://academy.itu.int/themes/custom/itu_academy/src/assets/images/logos/ITU-logo.svg",
         "alt": {
-          "ar": "Edx",
-          "en": "Edx",
-          "tr": "Edx"
+          "ar": "ITU Academy",
+          "en": "ITU Academy",
+          "tr": "ITU Academy"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 6,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://academy.itu.int/training-courses/full-catalogue",
+      "categoryId": "technology",
+      "description": {
+        "ar": "أكاديمية الاتحاد الدولي للاتصالات (ITU) التابعة للأمم المتحدة. تقدم دورات في الاتصالات، الأمن السيبراني، الذكاء الاصطناعي، والسياسات الرقمية.",
+        "en": "The International Telecommunication Union (ITU) Academy, a UN agency. Offers courses in telecommunications, cybersecurity, AI, and digital policies.",
+        "tr": "Birleşmiş Milletler'e bağlı ITU Akademisi. Telekomünikasyon, siber güvenlik, yapay zeka ve dijital politikalar alanlarında kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-7",
       "name": {
         "ar": "Edx",
         "en": "Edx",
         "tr": "Edx"
       },
-      "freeCertificate": false,
-      "displayOrder": 7,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": false,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.edx.org/courses",
-      "categoryId": "education",
-      "id": "plat-7",
-      "description": {
-        "ar": "منصة تعليمية رائدة تأسست من Harvard وMIT. تقدم آلاف الدورات من أفضل الجامعات العالمية. يمكنك الاستماع للدورات مجاناً ولكن تحتاج دفع مالي للحصول على الشهادة.",
-        "en": "A leading educational platform founded by Harvard and MIT. Offers thousands of courses from top global universities. Audit for free, pay for certificates.",
-        "tr": "Harvard ve MIT tarafından kurulan öncü bir eğitim platformu. En iyi üniversitelerden binlerce kurs sunar. Ücretsiz dinleyin, sertifika için ödeme yapın."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "architecture",
@@ -1327,15 +1281,13 @@
           },
           "officialUrl": "https://www.edx.org/learn/social-science"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.codecademy.com/catalog",
+      "officialUrl": "https://www.edx.org/courses",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -1354,34 +1306,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=codecademy.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=edx.org&sz=128",
         "alt": {
-          "ar": "Code Academy",
-          "en": "Code Academy",
-          "tr": "Code Academy"
+          "ar": "Edx",
+          "en": "Edx",
+          "tr": "Edx"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 7,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": false,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.edx.org/courses",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليمية رائدة تأسست من Harvard وMIT. تقدم آلاف الدورات من أفضل الجامعات العالمية. يمكنك الاستماع للدورات مجاناً ولكن تحتاج دفع مالي للحصول على الشهادة.",
+        "en": "A leading educational platform founded by Harvard and MIT. Offers thousands of courses from top global universities. Audit for free, pay for certificates.",
+        "tr": "Harvard ve MIT tarafından kurulan öncü bir eğitim platformu. En iyi üniversitelerden binlerce kurs sunar. Ücretsiz dinleyin, sertifika için ödeme yapın."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-8",
       "name": {
         "ar": "Code Academy",
         "en": "Code Academy",
         "tr": "Code Academy"
       },
-      "freeCertificate": false,
-      "displayOrder": 8,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.codecademy.com/catalog",
-      "categoryId": "programming_data",
-      "id": "plat-8",
-      "description": {
-        "ar": "منصة تفاعلية لتعلم البرمجة. تقدم مسارات تعليمية في Python، JavaScript، HTML/CSS، SQL، وغيرها مع بيئة تدريب تفاعلية.",
-        "en": "An interactive platform for learning programming. Offers learning paths in Python, JavaScript, HTML/CSS, SQL, and more with an interactive coding environment.",
-        "tr": "Programlama öğrenmek için etkileşimli bir platform. Python, JavaScript, HTML/CSS, SQL ve daha fazlasında öğrenme yolları sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "ai",
@@ -1716,15 +1670,13 @@
           },
           "officialUrl": "https://www.codecademy.com/catalog/subject/web-development"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Multilingual"
+        "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://event.unitar.org/full-catalog?search=&type%5B3%5D=3&price%5Bmin%5D=0&price%5Bmax%5D=96591&date%5Bmin%5D=&date%5Bmax%5D=&quick_filter=all",
+      "officialUrl": "https://www.codecademy.com/catalog",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -1743,34 +1695,36 @@
         }
       },
       "logo": {
-        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73nI5R5jGuTI2qnICsNl6aBz0o_5Hf5ET5w&s",
+        "src": "https://www.google.com/s2/favicons?domain=codecademy.com&sz=128",
         "alt": {
-          "ar": "Unitar",
-          "en": "Unitar",
-          "tr": "Unitar"
+          "ar": "Code Academy",
+          "en": "Code Academy",
+          "tr": "Code Academy"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 8,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.codecademy.com/catalog",
+      "categoryId": "programming_data",
+      "description": {
+        "ar": "منصة تفاعلية لتعلم البرمجة. تقدم مسارات تعليمية في Python، JavaScript، HTML/CSS، SQL، وغيرها مع بيئة تدريب تفاعلية.",
+        "en": "An interactive platform for learning programming. Offers learning paths in Python, JavaScript, HTML/CSS, SQL, and more with an interactive coding environment.",
+        "tr": "Programlama öğrenmek için etkileşimli bir platform. Python, JavaScript, HTML/CSS, SQL ve daha fazlasında öğrenme yolları sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-9",
       "name": {
         "ar": "Unitar",
         "en": "Unitar",
         "tr": "Unitar"
       },
-      "freeCertificate": false,
-      "displayOrder": 9,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://event.unitar.org/full-catalog?search=&type%5B3%5D=3&price%5Bmin%5D=0&price%5Bmax%5D=96591&date%5Bmin%5D=&date%5Bmax%5D=&quick_filter=all",
-      "categoryId": "education",
-      "id": "plat-9",
-      "description": {
-        "ar": "منصة تعليمية تابعة لمعهد الأمم المتحدة للتدريب والبحث (UNITAR). تقدم دورات في التنمية المستدامة، الدبلوماسية، إدارة الأزمات، والقيادة.",
-        "en": "An educational platform from the UN Institute for Training and Research (UNITAR). Offers courses in sustainable development, diplomacy, crisis management, and leadership.",
-        "tr": "Birleşmiş Milletler Eğitim ve Araştırma Enstitüsü'ne (UNITAR) bağlı bir eğitim platformu. Sürdürülebilir kalkınma, diplomasi, kriz yönetimi ve liderlik kursları sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "peace",
@@ -1826,15 +1780,13 @@
           },
           "officialUrl": "https://event.unitar.org/full-catalog?search=UNOSAT"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "Multilingual"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://e.huawei.com/en/talent/learning/#/home",
+      "officialUrl": "https://event.unitar.org/full-catalog?search=&type%5B3%5D=3&price%5Bmin%5D=0&price%5Bmax%5D=96591&date%5Bmin%5D=&date%5Bmax%5D=&quick_filter=all",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -1853,34 +1805,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=huawei.com&sz=128",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73nI5R5jGuTI2qnICsNl6aBz0o_5Hf5ET5w&s",
         "alt": {
-          "ar": "Huawei",
-          "en": "Huawei",
-          "tr": "Huawei"
+          "ar": "Unitar",
+          "en": "Unitar",
+          "tr": "Unitar"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 9,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://event.unitar.org/full-catalog?search=&type%5B3%5D=3&price%5Bmin%5D=0&price%5Bmax%5D=96591&date%5Bmin%5D=&date%5Bmax%5D=&quick_filter=all",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليمية تابعة لمعهد الأمم المتحدة للتدريب والبحث (UNITAR). تقدم دورات في التنمية المستدامة، الدبلوماسية، إدارة الأزمات، والقيادة.",
+        "en": "An educational platform from the UN Institute for Training and Research (UNITAR). Offers courses in sustainable development, diplomacy, crisis management, and leadership.",
+        "tr": "Birleşmiş Milletler Eğitim ve Araştırma Enstitüsü'ne (UNITAR) bağlı bir eğitim platformu. Sürdürülebilir kalkınma, diplomasi, kriz yönetimi ve liderlik kursları sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-10",
       "name": {
         "ar": "Huawei",
         "en": "Huawei",
         "tr": "Huawei"
       },
-      "freeCertificate": false,
-      "displayOrder": 10,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://e.huawei.com/en/talent/learning/#/home",
-      "categoryId": "technology",
-      "id": "plat-10",
-      "description": {
-        "ar": "أكاديمية هواوي الرسمية. تقدم دورات مجانية في الشبكات، الذكاء الاصطناعي، الحوسبة السحابية، الأمن السيبراني، وإنترنت الأشياء مع شهادات معتمدة.",
-        "en": "The official Huawei Academy. Offers free courses in networking, AI, cloud computing, cybersecurity, and IoT with accredited certificates.",
-        "tr": "Resmi Huawei Akademisi. Ağ, yapay zeka, bulut bilişim, siber güvenlik ve IoT alanlarında ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "cloud-computing",
@@ -2089,9 +2043,62 @@
           },
           "officialUrl": "https://e.huawei.com/en/talent/search/?q=LTE"
         }
-      ]
+      ],
+      "languageIds": [
+        "Multilingual"
+      ],
+      "pricingModel": "free",
+      "officialCount": null,
+      "officialUrl": "https://e.huawei.com/en/talent/learning/#/home",
+      "editorial": {
+        "bestFor": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "strengths": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "limitations": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        }
+      },
+      "logo": {
+        "src": "https://www.google.com/s2/favicons?domain=huawei.com&sz=128",
+        "alt": {
+          "ar": "Huawei",
+          "en": "Huawei",
+          "tr": "Huawei"
+        }
+      },
+      "freeCertificate": false,
+      "displayOrder": 10,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://e.huawei.com/en/talent/learning/#/home",
+      "categoryId": "technology",
+      "description": {
+        "ar": "أكاديمية هواوي الرسمية. تقدم دورات مجانية في الشبكات، الذكاء الاصطناعي، الحوسبة السحابية، الأمن السيبراني، وإنترنت الأشياء مع شهادات معتمدة.",
+        "en": "The official Huawei Academy. Offers free courses in networking, AI, cloud computing, cybersecurity, and IoT with accredited certificates.",
+        "tr": "Resmi Huawei Akademisi. Ağ, yapay zeka, bulut bilişim, siber güvenlik ve IoT alanlarında ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
     },
     {
+      "id": "plat-11",
+      "name": {
+        "ar": "openlearn.aucegypt.edu",
+        "en": "openlearn.aucegypt.edu",
+        "tr": "openlearn.aucegypt.edu"
+      },
+      "fields": [],
       "languageIds": [
         "English"
       ],
@@ -2123,11 +2130,6 @@
           "tr": "openlearn.aucegypt.edu"
         }
       },
-      "name": {
-        "ar": "openlearn.aucegypt.edu",
-        "en": "openlearn.aucegypt.edu",
-        "tr": "openlearn.aucegypt.edu"
-      },
       "freeCertificate": false,
       "displayOrder": 11,
       "platformType": "",
@@ -2136,69 +2138,21 @@
       "hasFreeContent": true,
       "catalogUrl": "https://openlearn.aucegypt.edu/course/index.php?categoryid=2",
       "categoryId": "languages",
-      "id": "plat-11",
       "description": {
         "ar": "تقدم الصفحة مساراً تعليمياً متكاملاً لتعلم اللغة الإنجليزية، مُصمم ليغطي جميع المستويات من المبتدئ حتى المتقدم، مع تركيز خاص على التحضير للدراسة الجامعية. وكذلك لديها دورات في مجالات أخرى مثل التعليم والحضارات.",
         "en": "Offers a complete learning path for English, designed for all levels from beginner to advanced, with a focus on university preparation. Also has courses in other fields like education and civilizations.",
         "tr": "ingilizce öğrenmek için başlangıçtan ileri seviyeye kadar tüm seviyeleri kapsayan, üniversite hazırlığına odaklanan eksiksiz bir öğrenme yolu sunar. Eğitim ve medeniyetler gibi diğer alanlarda da kursları vardır."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     },
     {
-      "languageIds": [
-        "Multilingual"
-      ],
-      "pricingModel": "free",
-      "officialCount": null,
-      "officialUrl": "https://www.life-global.org/allcourses",
-      "editorial": {
-        "bestFor": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "strengths": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "limitations": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        }
-      },
-      "logo": {
-        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDNOFTTB0IX77-gTg6-9-NHcEriWC8Hc3NYQ&s",
-        "alt": {
-          "ar": "HP Life",
-          "en": "HP Life",
-          "tr": "HP Life"
-        }
-      },
+      "id": "plat-12",
       "name": {
         "ar": "HP Life",
         "en": "HP Life",
         "tr": "HP Life"
       },
-      "freeCertificate": false,
-      "displayOrder": 12,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.life-global.org/allcourses",
-      "categoryId": "business_marketing",
-      "id": "plat-12",
-      "description": {
-        "ar": "منصة HP للتعلم مدى الحياة. تقدم دورات مجانية في ريادة الأعمال، التسويق الرقمي، المهارات المالية، وتكنولوجيا المعلومات.",
-        "en": "HP's lifelong learning platform. Offers free courses in entrepreneurship, digital marketing, financial skills, and IT.",
-        "tr": "HP'nin yaşam boyu öğrenme platformu. Girişimcilik, dijital pazarlama, finansal beceriler ve BT alanlarında ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "communication",
@@ -2254,15 +2208,13 @@
           },
           "officialUrl": "https://www.life-global.org/categorylist/6-career-development"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "English"
+        "Multilingual"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/",
+      "officialUrl": "https://www.life-global.org/allcourses",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -2281,34 +2233,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=128",
+        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDNOFTTB0IX77-gTg6-9-NHcEriWC8Hc3NYQ&s",
         "alt": {
-          "ar": "Nvidia",
-          "en": "Nvidia",
-          "tr": "Nvidia"
+          "ar": "HP Life",
+          "en": "HP Life",
+          "tr": "HP Life"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 12,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.life-global.org/allcourses",
+      "categoryId": "business_marketing",
+      "description": {
+        "ar": "منصة HP للتعلم مدى الحياة. تقدم دورات مجانية في ريادة الأعمال، التسويق الرقمي، المهارات المالية، وتكنولوجيا المعلومات.",
+        "en": "HP's lifelong learning platform. Offers free courses in entrepreneurship, digital marketing, financial skills, and IT.",
+        "tr": "HP'nin yaşam boyu öğrenme platformu. Girişimcilik, dijital pazarlama, finansal beceriler ve BT alanlarında ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-13",
       "name": {
         "ar": "Nvidia",
         "en": "Nvidia",
         "tr": "Nvidia"
       },
-      "freeCertificate": false,
-      "displayOrder": 13,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": false,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/",
-      "categoryId": "programming_data",
-      "id": "plat-13",
-      "description": {
-        "ar": "منصة إنفيديا الرائدة في الذكاء الاصطناعي وتعلم الآلة. تقدم دورات مجانية في التعلم العميق، CUDA، معالجة الصور، والذكاء الاصطناعي التوليدي. جميع الدورات مجانية ولكن دورة واحدة فقط بشهادة والباقي بدون شهادات.",
-        "en": "Nvidia's leading platform for AI and machine learning. Offers free courses in deep learning, CUDA, image processing, and generative AI. All courses are free but only one offers a certificate.",
-        "tr": "Yapay zeka ve makine öğreniminde Nvidia'nın öncü platformu. Derin öğrenme, CUDA, görüntü işleme ve üretken yapay zeka alanlarında ücretsiz kurslar sunar. Tüm kurslar ücretsizdir ancak yalnızca biri sertifika verir."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "accelerated-computing",
@@ -2364,15 +2318,13 @@
           },
           "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/?tab=simulation-and-physical-ai&section=self-paced-courses"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Multilingual"
+        "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.netacad.com/catalogs/learn",
+      "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -2391,34 +2343,36 @@
         }
       },
       "logo": {
-        "src": "https://www.cloudcommunications.com/hubfs/Imported_Blog_Media/Cisco-Nov-17-2023-05-40-40-6925-AM.png",
+        "src": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=128",
         "alt": {
-          "ar": "Cisco",
-          "en": "Cisco",
-          "tr": "Cisco"
+          "ar": "Nvidia",
+          "en": "Nvidia",
+          "tr": "Nvidia"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 13,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": false,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/",
+      "categoryId": "programming_data",
+      "description": {
+        "ar": "منصة إنفيديا الرائدة في الذكاء الاصطناعي وتعلم الآلة. تقدم دورات مجانية في التعلم العميق، CUDA، معالجة الصور، والذكاء الاصطناعي التوليدي. جميع الدورات مجانية ولكن دورة واحدة فقط بشهادة والباقي بدون شهادات.",
+        "en": "Nvidia's leading platform for AI and machine learning. Offers free courses in deep learning, CUDA, image processing, and generative AI. All courses are free but only one offers a certificate.",
+        "tr": "Yapay zeka ve makine öğreniminde Nvidia'nın öncü platformu. Derin öğrenme, CUDA, görüntü işleme ve üretken yapay zeka alanlarında ücretsiz kurslar sunar. Tüm kurslar ücretsizdir ancak yalnızca biri sertifika verir."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-14",
       "name": {
         "ar": "Cisco",
         "en": "Cisco",
         "tr": "Cisco"
       },
-      "freeCertificate": false,
-      "displayOrder": 14,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.netacad.com/catalogs/learn",
-      "categoryId": "technology",
-      "id": "plat-14",
-      "description": {
-        "ar": "أكاديمية سيسكو الرسمية. تقدم دورات في الشبكات (CCNA)، الأمن السيبراني، إنترنت الأشياء، وLinux مع شهادات معترف بها عالمياً.",
-        "en": "The official Cisco Academy. Offers courses in networking (CCNA), cybersecurity, IoT, and Linux with globally recognized certificates.",
-        "tr": "Resmi Cisco Akademisi. Ağ (CCNA), siber güvenlik, IoT ve Linux alanlarında küresel olarak tanınan sertifikalarla kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "cybersecurity",
@@ -2501,15 +2455,13 @@
           },
           "officialUrl": "https://www.netacad.com/learning-collections/cisco-packet-tracer"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "English"
+        "Multilingual"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.open.edu/openlearn/free-courses/full-catalogue",
+      "officialUrl": "https://www.netacad.com/catalogs/learn",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -2528,34 +2480,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=open.edu&sz=128",
+        "src": "https://www.cloudcommunications.com/hubfs/Imported_Blog_Media/Cisco-Nov-17-2023-05-40-40-6925-AM.png",
         "alt": {
-          "ar": "Open Learn",
-          "en": "Open Learn",
-          "tr": "Open Learn"
+          "ar": "Cisco",
+          "en": "Cisco",
+          "tr": "Cisco"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 14,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.netacad.com/catalogs/learn",
+      "categoryId": "technology",
+      "description": {
+        "ar": "أكاديمية سيسكو الرسمية. تقدم دورات في الشبكات (CCNA)، الأمن السيبراني، إنترنت الأشياء، وLinux مع شهادات معترف بها عالمياً.",
+        "en": "The official Cisco Academy. Offers courses in networking (CCNA), cybersecurity, IoT, and Linux with globally recognized certificates.",
+        "tr": "Resmi Cisco Akademisi. Ağ (CCNA), siber güvenlik, IoT ve Linux alanlarında küresel olarak tanınan sertifikalarla kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-15",
       "name": {
         "ar": "Open Learn",
         "en": "Open Learn",
         "tr": "Open Learn"
       },
-      "freeCertificate": false,
-      "displayOrder": 15,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.open.edu/openlearn/free-courses/full-catalogue",
-      "categoryId": "education",
-      "id": "plat-15",
-      "description": {
-        "ar": "منصة التعلم المفتوح التابعة للجامعة المفتوحة (Open University) في المملكة المتحدة. تقدم مئات الدورات الأكاديمية المجانية بالكامل مع شهادات إتمام.",
-        "en": "The Open Learning platform from the Open University in the UK. Offers hundreds of fully free academic courses with completion certificates.",
-        "tr": "BK'deki Açık Üniversite'ye bağlı bir platform. Tamamen ücretsiz yüzlerce akademik kurs ve tamamlama sertifikaları sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "money-business",
@@ -2638,16 +2592,13 @@
           },
           "officialUrl": "https://www.open.edu/openlearn/digital/free-courses"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Arabic",
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://skillshop.withgoogle.com/",
+      "officialUrl": "https://www.open.edu/openlearn/free-courses/full-catalogue",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -2666,34 +2617,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=google.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=open.edu&sz=128",
         "alt": {
-          "ar": "Google (Skillshop)",
-          "en": "Google (Skillshop)",
-          "tr": "Google (Skillshop)"
+          "ar": "Open Learn",
+          "en": "Open Learn",
+          "tr": "Open Learn"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 15,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.open.edu/openlearn/free-courses/full-catalogue",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة التعلم المفتوح التابعة للجامعة المفتوحة (Open University) في المملكة المتحدة. تقدم مئات الدورات الأكاديمية المجانية بالكامل مع شهادات إتمام.",
+        "en": "The Open Learning platform from the Open University in the UK. Offers hundreds of fully free academic courses with completion certificates.",
+        "tr": "BK'deki Açık Üniversite'ye bağlı bir platform. Tamamen ücretsiz yüzlerce akademik kurs ve tamamlama sertifikaları sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-16",
       "name": {
         "ar": "Google (Skillshop)",
         "en": "Google (Skillshop)",
         "tr": "Google (Skillshop)"
       },
-      "freeCertificate": false,
-      "displayOrder": 16,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://skillshop.withgoogle.com/",
-      "categoryId": "business_marketing",
-      "id": "plat-16",
-      "description": {
-        "ar": "منصة جوجل الرسمية لبناء المهارات. تقدم دورات مجانية في Google Ads، Analytics، التسويق الرقمي، Android، والسحابة مع شهادات معتمدة.",
-        "en": "Google's official skill-building platform. Offers free courses in Google Ads, Analytics, digital marketing, Android, and cloud with accredited certificates.",
-        "tr": "Google'ın resmi beceri geliştirme platformu. Google Ads, Analytics, dijital pazarlama, Android ve bulut alanlarında ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "google-ads",
@@ -2749,15 +2702,14 @@
           },
           "officialUrl": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=2885-waze-academy"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
+        "Arabic",
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.sololearn.com/en/learn",
+      "officialUrl": "https://skillshop.withgoogle.com/",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -2776,34 +2728,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=sololearn.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=google.com&sz=128",
         "alt": {
-          "ar": "Solo Learn",
-          "en": "Solo Learn",
-          "tr": "Solo Learn"
+          "ar": "Google (Skillshop)",
+          "en": "Google (Skillshop)",
+          "tr": "Google (Skillshop)"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 16,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://skillshop.withgoogle.com/",
+      "categoryId": "business_marketing",
+      "description": {
+        "ar": "منصة جوجل الرسمية لبناء المهارات. تقدم دورات مجانية في Google Ads، Analytics، التسويق الرقمي، Android، والسحابة مع شهادات معتمدة.",
+        "en": "Google's official skill-building platform. Offers free courses in Google Ads, Analytics, digital marketing, Android, and cloud with accredited certificates.",
+        "tr": "Google'ın resmi beceri geliştirme platformu. Google Ads, Analytics, dijital pazarlama, Android ve bulut alanlarında ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-17",
       "name": {
         "ar": "Solo Learn",
         "en": "Solo Learn",
         "tr": "Solo Learn"
       },
-      "freeCertificate": false,
-      "displayOrder": 17,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": false,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.sololearn.com/en/learn",
-      "categoryId": "programming_data",
-      "id": "plat-17",
-      "description": {
-        "ar": "تطبيق ومنصة تفاعلية لتعلم البرمجة بلغة مبسطة. تدعم العديد من لغات البرمجة مثل Python، Java، C++، JavaScript وتتيح التعلم عبر الجوال.",
-        "en": "An interactive app and platform for learning programming in a simplified way. Supports many languages like Python, Java, C++, JavaScript with mobile learning.",
-        "tr": "Basitleştirilmiş bir şekilde programlama öğrenmek için etkileşimli bir uygulama ve platform. Mobil öğrenme ile Python, Java, C++, JavaScript gibi birçok dili destekler."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "programming-foundations",
@@ -2850,15 +2804,13 @@
           },
           "officialUrl": "https://www.sololearn.com/en/learn/"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://researcheracademy.elsevier.com/learn",
+      "officialUrl": "https://www.sololearn.com/en/learn",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -2877,34 +2829,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=elsevier.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=sololearn.com&sz=128",
         "alt": {
-          "ar": "Research Academy",
-          "en": "Research Academy",
-          "tr": "Research Academy"
+          "ar": "Solo Learn",
+          "en": "Solo Learn",
+          "tr": "Solo Learn"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 17,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": false,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.sololearn.com/en/learn",
+      "categoryId": "programming_data",
+      "description": {
+        "ar": "تطبيق ومنصة تفاعلية لتعلم البرمجة بلغة مبسطة. تدعم العديد من لغات البرمجة مثل Python، Java، C++، JavaScript وتتيح التعلم عبر الجوال.",
+        "en": "An interactive app and platform for learning programming in a simplified way. Supports many languages like Python, Java, C++, JavaScript with mobile learning.",
+        "tr": "Basitleştirilmiş bir şekilde programlama öğrenmek için etkileşimli bir uygulama ve platform. Mobil öğrenme ile Python, Java, C++, JavaScript gibi birçok dili destekler."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-18",
       "name": {
         "ar": "Research Academy",
         "en": "Research Academy",
         "tr": "Research Academy"
       },
-      "freeCertificate": false,
-      "displayOrder": 18,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://researcheracademy.elsevier.com/learn",
-      "categoryId": "education",
-      "id": "plat-18",
-      "description": {
-        "ar": "أكاديمية ELSEVIER للتدريب على البحث العلمي. تقدم دورات مجانية في الكتابة الأكاديمية، النشر العلمي، تحليل البيانات البحثية، وإدارة المراجع.",
-        "en": "Elsevier's research training academy. Offers free courses in academic writing, scientific publishing, research data analysis, and reference management.",
-        "tr": "Elsevier'in araştırma eğitim akademisi. Akademik yazım, bilimsel yayıncılık, araştırma veri analizi ve referans yönetimi alanlarında ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "research-preparation",
@@ -2951,15 +2905,13 @@
           },
           "officialUrl": "https://researcheracademy.elsevier.com/communicating-research"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.w3schools.com/where_to_start.asp",
+      "officialUrl": "https://researcheracademy.elsevier.com/learn",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -2978,34 +2930,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=w3schools.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=elsevier.com&sz=128",
         "alt": {
-          "ar": "W3 School",
-          "en": "W3 School",
-          "tr": "W3 School"
+          "ar": "Research Academy",
+          "en": "Research Academy",
+          "tr": "Research Academy"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 18,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://researcheracademy.elsevier.com/learn",
+      "categoryId": "education",
+      "description": {
+        "ar": "أكاديمية ELSEVIER للتدريب على البحث العلمي. تقدم دورات مجانية في الكتابة الأكاديمية، النشر العلمي، تحليل البيانات البحثية، وإدارة المراجع.",
+        "en": "Elsevier's research training academy. Offers free courses in academic writing, scientific publishing, research data analysis, and reference management.",
+        "tr": "Elsevier'in araştırma eğitim akademisi. Akademik yazım, bilimsel yayıncılık, araştırma veri analizi ve referans yönetimi alanlarında ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-19",
       "name": {
         "ar": "W3 School",
         "en": "W3 School",
         "tr": "W3 School"
       },
-      "freeCertificate": false,
-      "displayOrder": 19,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": false,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.w3schools.com/where_to_start.asp",
-      "categoryId": "programming_data",
-      "id": "plat-19",
-      "description": {
-        "ar": "أشهر منصة مجانية لتعلم برمجة الويب. تقدم دروساً تفاعلية في HTML، CSS، JavaScript، Python، SQL، PHP وأكثر.",
-        "en": "The most popular free platform for learning web programming. Offers interactive tutorials in HTML, CSS, JavaScript, Python, SQL, PHP and more.",
-        "tr": "Web programlama öğrenmek için en popüler ücretsiz platform. HTML, CSS, JavaScript, Python, SQL, PHP ve daha fazlasında etkileşimli dersler sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "html",
@@ -3196,16 +3150,13 @@
           },
           "officialUrl": "https://www.w3schools.com/rust/"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Arabic",
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.khanacademy.org/",
+      "officialUrl": "https://www.w3schools.com/where_to_start.asp",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -3224,34 +3175,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=khanacademy.org&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=w3schools.com&sz=128",
         "alt": {
-          "ar": "Khan Academy",
-          "en": "Khan Academy",
-          "tr": "Khan Academy"
+          "ar": "W3 School",
+          "en": "W3 School",
+          "tr": "W3 School"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 19,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": false,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.w3schools.com/where_to_start.asp",
+      "categoryId": "programming_data",
+      "description": {
+        "ar": "أشهر منصة مجانية لتعلم برمجة الويب. تقدم دروساً تفاعلية في HTML، CSS، JavaScript، Python، SQL، PHP وأكثر.",
+        "en": "The most popular free platform for learning web programming. Offers interactive tutorials in HTML, CSS, JavaScript, Python, SQL, PHP and more.",
+        "tr": "Web programlama öğrenmek için en popüler ücretsiz platform. HTML, CSS, JavaScript, Python, SQL, PHP ve daha fazlasında etkileşimli dersler sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-20",
       "name": {
         "ar": "Khan Academy",
         "en": "Khan Academy",
         "tr": "Khan Academy"
       },
-      "freeCertificate": false,
-      "displayOrder": 20,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.khanacademy.org/",
-      "categoryId": "education",
-      "id": "plat-20",
-      "description": {
-        "ar": "منصة تعليمية غير ربحية تقدم تعليماً مجانياً للجميع. تغطي الرياضيات، العلوم، البرمجة، التاريخ، والاقتصاد بمحتوى عالي الجودة.",
-        "en": "A non-profit educational platform offering free education for everyone. Covers math, science, programming, history, and economics with high-quality content.",
-        "tr": "Herkes için ücretsiz eğitim sunan kar amacı gütmeyen bir eğitim platformu. Yüksek kaliteli içerikle matematik, fen, programlama, tarih ve ekonomi konularını kapsar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "math",
@@ -3334,16 +3287,14 @@
           },
           "officialUrl": "https://www.khanacademy.org/partner-content"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "Arabic",
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.couponami.com/",
+      "officialUrl": "https://www.khanacademy.org/",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -3362,34 +3313,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=couponami.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=khanacademy.org&sz=128",
         "alt": {
-          "ar": "CouponAmI",
-          "en": "CouponAmI",
-          "tr": "CouponAmI"
+          "ar": "Khan Academy",
+          "en": "Khan Academy",
+          "tr": "Khan Academy"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 20,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.khanacademy.org/",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليمية غير ربحية تقدم تعليماً مجانياً للجميع. تغطي الرياضيات، العلوم، البرمجة، التاريخ، والاقتصاد بمحتوى عالي الجودة.",
+        "en": "A non-profit educational platform offering free education for everyone. Covers math, science, programming, history, and economics with high-quality content.",
+        "tr": "Herkes için ücretsiz eğitim sunan kar amacı gütmeyen bir eğitim platformu. Yüksek kaliteli içerikle matematik, fen, programlama, tarih ve ekonomi konularını kapsar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-21",
       "name": {
         "ar": "CouponAmI (سابقًا DiscUdemy)",
         "en": "CouponAmI (formerly DiscUdemy)",
         "tr": "CouponAmI (eski adıyla DiscUdemy)"
       },
-      "freeCertificate": false,
-      "displayOrder": 21,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.couponami.com/category",
-      "categoryId": "education",
-      "id": "plat-21",
-      "description": {
-        "ar": "منصة مستقلة لاكتشاف كوبونات Udemy المجانية النشطة والمتحقق منها. كانت تُعرف سابقًا باسم DiscUdemy، وهي ليست تابعة لـUdemy.",
-        "en": "An independent platform for discovering active, verified free Udemy coupons. Formerly DiscUdemy; it is not affiliated with Udemy.",
-        "tr": "Aktif ve doğrulanmış ücretsiz Udemy kuponlarını keşfetmek için bağımsız bir platformdur. Eski adı DiscUdemy olup Udemy ile bağlantılı değildir."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "development",
@@ -3445,9 +3398,63 @@
           },
           "officialUrl": "https://www.couponami.com/category/personal-development"
         }
-      ]
+      ],
+      "languageIds": [
+        "Arabic",
+        "English"
+      ],
+      "pricingModel": "free",
+      "officialCount": null,
+      "officialUrl": "https://www.couponami.com/",
+      "editorial": {
+        "bestFor": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "strengths": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "limitations": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        }
+      },
+      "logo": {
+        "src": "https://www.google.com/s2/favicons?domain=couponami.com&sz=128",
+        "alt": {
+          "ar": "CouponAmI",
+          "en": "CouponAmI",
+          "tr": "CouponAmI"
+        }
+      },
+      "freeCertificate": false,
+      "displayOrder": 21,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.couponami.com/category",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة مستقلة لاكتشاف كوبونات Udemy المجانية النشطة والمتحقق منها. كانت تُعرف سابقًا باسم DiscUdemy، وهي ليست تابعة لـUdemy.",
+        "en": "An independent platform for discovering active, verified free Udemy coupons. Formerly DiscUdemy; it is not affiliated with Udemy.",
+        "tr": "Aktif ve doğrulanmış ücretsiz Udemy kuponlarını keşfetmek için bağımsız bir platformdur. Eski adı DiscUdemy olup Udemy ile bağlantılı değildir."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
     },
     {
+      "id": "plat-22",
+      "name": {
+        "ar": "Kaggle",
+        "en": "Kaggle",
+        "tr": "Kaggle"
+      },
+      "fields": [],
       "languageIds": [
         "English"
       ],
@@ -3479,11 +3486,6 @@
           "tr": "Kaggle"
         }
       },
-      "name": {
-        "ar": "Kaggle",
-        "en": "Kaggle",
-        "tr": "Kaggle"
-      },
       "freeCertificate": false,
       "displayOrder": 22,
       "platformType": "",
@@ -3492,17 +3494,22 @@
       "hasFreeContent": true,
       "catalogUrl": "https://www.kaggle.com/learn",
       "categoryId": "programming_data",
-      "id": "plat-22",
       "description": {
         "ar": "منصة علم البيانات والذكاء الاصطناعي التابعة لجوجل. تقدم دورات مجانية، مسابقات، ومشاريع عملية في Python، التعلم الآلي، وتحليل البيانات.",
         "en": "Google's data science and AI platform. Offers free courses, competitions, and hands-on projects in Python, machine learning, and data analysis.",
         "tr": "Google'ın veri bilimi ve yapay zeka platformu. Python, makine öğrenimi ve veri analizinde ücretsiz kurslar, yarışmalar ve uygulamalı projeler sunar."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     },
     {
+      "id": "plat-23",
+      "name": {
+        "ar": "GitHub Learn",
+        "en": "GitHub Learn",
+        "tr": "GitHub Learn"
+      },
+      "fields": [],
       "languageIds": [
         "English"
       ],
@@ -3534,11 +3541,6 @@
           "tr": "GitHub Learn"
         }
       },
-      "name": {
-        "ar": "GitHub Learn",
-        "en": "GitHub Learn",
-        "tr": "GitHub Learn"
-      },
       "freeCertificate": false,
       "displayOrder": 23,
       "platformType": "",
@@ -3547,69 +3549,21 @@
       "hasFreeContent": true,
       "catalogUrl": "https://skills.github.com/",
       "categoryId": "programming_data",
-      "id": "plat-23",
       "description": {
         "ar": "منصة جيت هاب التعليمية. تقدم دورات تفاعلية مجانية في Git، GitHub، DevOps، وأتمتة workflows.",
         "en": "GitHub's learning platform. Offers free interactive courses in Git, GitHub, DevOps, and workflow automation.",
         "tr": "GitHub'ın öğrenme platformu. Git, GitHub, DevOps ve iş akışı otomasyonu alanlarında ücretsiz etkileşimli kurslar sunar."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     },
     {
-      "languageIds": [
-        "Multilingual"
-      ],
-      "pricingModel": "free",
-      "officialCount": null,
-      "officialUrl": "https://www.skills.google/",
-      "editorial": {
-        "bestFor": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "strengths": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "limitations": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        }
-      },
-      "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=cloud.google.com&sz=128",
-        "alt": {
-          "ar": "Google Cloud",
-          "en": "Google Cloud",
-          "tr": "Google Cloud"
-        }
-      },
+      "id": "plat-24",
       "name": {
         "ar": "Google Cloud",
         "en": "Google Cloud",
         "tr": "Google Cloud"
       },
-      "freeCertificate": false,
-      "displayOrder": 24,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.skills.google/",
-      "categoryId": "technology",
-      "id": "plat-24",
-      "description": {
-        "ar": "منصة جوجل كلاود التعليمية. تقدم دورات مجانية في الحوسبة السحابية، البيانات الضخمة، التعلم الآلي، وبنية الخدمات السحابية مع شهادات.",
-        "en": "Google Cloud's learning platform. Offers free courses in cloud computing, big data, machine learning, and cloud architecture with certificates.",
-        "tr": "Google Cloud öğrenme platformu. Bulut bilişim, büyük veri, makine öğrenimi ve bulut mimarisi alanlarında ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "infrastructure-modernization",
@@ -3692,16 +3646,13 @@
           },
           "officialUrl": "https://www.skills.google/catalog?keywords=Cloud%20Business%20Leadership"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Arabic",
-        "English"
+        "Multilingual"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.freecodecamp.org/learn",
+      "officialUrl": "https://www.skills.google/",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -3720,34 +3671,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=freecodecamp.org&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=cloud.google.com&sz=128",
         "alt": {
-          "ar": "Free Code Camp",
-          "en": "Free Code Camp",
-          "tr": "Free Code Camp"
+          "ar": "Google Cloud",
+          "en": "Google Cloud",
+          "tr": "Google Cloud"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 24,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.skills.google/",
+      "categoryId": "technology",
+      "description": {
+        "ar": "منصة جوجل كلاود التعليمية. تقدم دورات مجانية في الحوسبة السحابية، البيانات الضخمة، التعلم الآلي، وبنية الخدمات السحابية مع شهادات.",
+        "en": "Google Cloud's learning platform. Offers free courses in cloud computing, big data, machine learning, and cloud architecture with certificates.",
+        "tr": "Google Cloud öğrenme platformu. Bulut bilişim, büyük veri, makine öğrenimi ve bulut mimarisi alanlarında ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-25",
       "name": {
         "ar": "Free Code Camp",
         "en": "Free Code Camp",
         "tr": "Free Code Camp"
       },
-      "freeCertificate": false,
-      "displayOrder": 25,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.freecodecamp.org/learn",
-      "categoryId": "programming_data",
-      "id": "plat-25",
-      "description": {
-        "ar": "منصة غير ربحية لتعلم البرمجة مجاناً بالكامل. تقدم مسارات تعليمية في تطوير الويب، Python، التعلم الآلي، وعلوم البيانات مع شهادات مجانية.",
-        "en": "A non-profit platform for learning programming completely free. Offers learning paths in web development, Python, machine learning, and data science with free certificates.",
-        "tr": "Tamamen ücretsiz programlama öğrenmek için kar amacı gütmeyen bir platform. Web geliştirme, Python, makine öğrenimi ve veri biliminde ücretsiz sertifikalarla öğrenme yolları sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "certified-full-stack-developer",
@@ -3812,16 +3765,14 @@
           },
           "officialUrl": "https://www.freecodecamp.org/learn/back-end-development-and-apis/"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "Arabic",
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.coursera.org/courses",
+      "officialUrl": "https://www.freecodecamp.org/learn",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -3840,34 +3791,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=coursera.org&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=freecodecamp.org&sz=128",
         "alt": {
-          "ar": "Coursera",
-          "en": "Coursera",
-          "tr": "Coursera"
+          "ar": "Free Code Camp",
+          "en": "Free Code Camp",
+          "tr": "Free Code Camp"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 25,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.freecodecamp.org/learn",
+      "categoryId": "programming_data",
+      "description": {
+        "ar": "منصة غير ربحية لتعلم البرمجة مجاناً بالكامل. تقدم مسارات تعليمية في تطوير الويب، Python، التعلم الآلي، وعلوم البيانات مع شهادات مجانية.",
+        "en": "A non-profit platform for learning programming completely free. Offers learning paths in web development, Python, machine learning, and data science with free certificates.",
+        "tr": "Tamamen ücretsiz programlama öğrenmek için kar amacı gütmeyen bir platform. Web geliştirme, Python, makine öğrenimi ve veri biliminde ücretsiz sertifikalarla öğrenme yolları sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-26",
       "name": {
         "ar": "Coursera",
         "en": "Coursera",
         "tr": "Coursera"
       },
-      "freeCertificate": false,
-      "displayOrder": 26,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": false,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.coursera.org/courses",
-      "categoryId": "education",
-      "id": "plat-26",
-      "description": {
-        "ar": "منصة تعليمية رائدة تقدم دورات من أفضل الجامعات والشركات. المحتوى مجاني بالكامل، ولكن تحتاج للدفع للحصول على الشهادة.",
-        "en": "A leading educational platform from top universities and companies. Content is completely free to access, but you need to pay for the certificate.",
-        "tr": "En iyi üniversitelerden ve şirketlerden kurslar sunan öncü bir platform. İçerik tamamen ücretsizdir ancak sertifika için ödeme yapmanız gerekir."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "arts-humanities",
@@ -3968,15 +3921,14 @@
           },
           "officialUrl": "https://www.coursera.org/browse/social-sciences"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
+        "Arabic",
         "English"
       ],
-      "pricingModel": "paid",
+      "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses",
+      "officialUrl": "https://www.coursera.org/courses",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -3995,34 +3947,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=simplilearn.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=coursera.org&sz=128",
         "alt": {
-          "ar": "Simple Learn",
-          "en": "Simple Learn",
-          "tr": "Simple Learn"
+          "ar": "Coursera",
+          "en": "Coursera",
+          "tr": "Coursera"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 26,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": false,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.coursera.org/courses",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليمية رائدة تقدم دورات من أفضل الجامعات والشركات. المحتوى مجاني بالكامل، ولكن تحتاج للدفع للحصول على الشهادة.",
+        "en": "A leading educational platform from top universities and companies. Content is completely free to access, but you need to pay for the certificate.",
+        "tr": "En iyi üniversitelerden ve şirketlerden kurslar sunan öncü bir platform. İçerik tamamen ücretsizdir ancak sertifika için ödeme yapmanız gerekir."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-27",
       "name": {
         "ar": "Simple Learn",
         "en": "Simple Learn",
         "tr": "Simple Learn"
       },
-      "freeCertificate": false,
-      "displayOrder": 27,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": false,
-      "catalogUrl": "https://www.simplilearn.com/skillup-free-online-courses",
-      "categoryId": "business_marketing",
-      "id": "plat-27",
-      "description": {
-        "ar": "منصة تعليمية تقدم دورات في إدارة المشاريع، الأمن السيبراني، الذكاء الاصطناعي، وتحليل البيانات مع شهادات مهنية.",
-        "en": "An educational platform offering courses in project management, cybersecurity, AI, and data analysis with professional certificates.",
-        "tr": "Proje yönetimi, siber güvenlik, yapay zeka ve veri analizi alanlarında profesyonel sertifikalarla kurslar sunan bir eğitim platformu."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "generative-ai",
@@ -4150,16 +4104,13 @@
           },
           "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses/self-development"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Arabic",
         "English"
       ],
-      "pricingModel": "free",
+      "pricingModel": "paid",
       "officialCount": null,
-      "officialUrl": "https://alison.com/courses",
+      "officialUrl": "https://www.simplilearn.com/skillup-free-online-courses",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -4178,34 +4129,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=alison.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=simplilearn.com&sz=128",
         "alt": {
-          "ar": "Alison",
-          "en": "Alison",
-          "tr": "Alison"
+          "ar": "Simple Learn",
+          "en": "Simple Learn",
+          "tr": "Simple Learn"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 27,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": false,
+      "catalogUrl": "https://www.simplilearn.com/skillup-free-online-courses",
+      "categoryId": "business_marketing",
+      "description": {
+        "ar": "منصة تعليمية تقدم دورات في إدارة المشاريع، الأمن السيبراني، الذكاء الاصطناعي، وتحليل البيانات مع شهادات مهنية.",
+        "en": "An educational platform offering courses in project management, cybersecurity, AI, and data analysis with professional certificates.",
+        "tr": "Proje yönetimi, siber güvenlik, yapay zeka ve veri analizi alanlarında profesyonel sertifikalarla kurslar sunan bir eğitim platformu."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-28",
       "name": {
         "ar": "Alison",
         "en": "Alison",
         "tr": "Alison"
       },
-      "freeCertificate": false,
-      "displayOrder": 28,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://alison.com/courses",
-      "categoryId": "education",
-      "id": "plat-28",
-      "description": {
-        "ar": "منصة تعليم مجاني رائدة تقدم آلاف الدورات في مختلف المجالات مع شهادات مجانية. تغطي المهارات الوظيفية والتقنية والشخصية.",
-        "en": "A leading free education platform offering thousands of courses across various fields with free certificates. Covers job, technical, and personal skills.",
-        "tr": "Binlerce kursta ücretsiz sertifikalar sunan öncü bir ücretsiz eğitim platformu. İş, teknik ve kişisel becerileri kapsar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "it",
@@ -4288,15 +4241,14 @@
           },
           "officialUrl": "https://alison.com/courses/education"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
+        "Arabic",
         "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://learn.saylor.org/course/index.php",
+      "officialUrl": "https://alison.com/courses",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -4315,34 +4267,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=saylor.org&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=alison.com&sz=128",
         "alt": {
-          "ar": "Saylor",
-          "en": "Saylor",
-          "tr": "Saylor"
+          "ar": "Alison",
+          "en": "Alison",
+          "tr": "Alison"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 28,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://alison.com/courses",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليم مجاني رائدة تقدم آلاف الدورات في مختلف المجالات مع شهادات مجانية. تغطي المهارات الوظيفية والتقنية والشخصية.",
+        "en": "A leading free education platform offering thousands of courses across various fields with free certificates. Covers job, technical, and personal skills.",
+        "tr": "Binlerce kursta ücretsiz sertifikalar sunan öncü bir ücretsiz eğitim platformu. İş, teknik ve kişisel becerileri kapsar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-29",
       "name": {
         "ar": "Saylor",
         "en": "Saylor",
         "tr": "Saylor"
       },
-      "freeCertificate": false,
-      "displayOrder": 29,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://learn.saylor.org/course/index.php",
-      "categoryId": "education",
-      "id": "plat-29",
-      "description": {
-        "ar": "أكاديمية سايلور غير الربحية. تقدم دورات أكاديمية مجانية بالكامل تعادل المقررات الجامعية مع شهادات إتمام.",
-        "en": "The non-profit Saylor Academy. Offers fully free academic courses equivalent to university-level courses with completion certificates.",
-        "tr": "Kar amacı gütmeyen Saylor Akademisi. Üniversite düzeyinde tamamen ücretsiz akademik kurslar ve tamamlama sertifikaları sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "arts-humanities",
@@ -4407,9 +4361,62 @@
           },
           "officialUrl": "https://learn.saylor.org/course/index.php?categoryid=85"
         }
-      ]
+      ],
+      "languageIds": [
+        "English"
+      ],
+      "pricingModel": "free",
+      "officialCount": null,
+      "officialUrl": "https://learn.saylor.org/course/index.php",
+      "editorial": {
+        "bestFor": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "strengths": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "limitations": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        }
+      },
+      "logo": {
+        "src": "https://www.google.com/s2/favicons?domain=saylor.org&sz=128",
+        "alt": {
+          "ar": "Saylor",
+          "en": "Saylor",
+          "tr": "Saylor"
+        }
+      },
+      "freeCertificate": false,
+      "displayOrder": 29,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://learn.saylor.org/course/index.php",
+      "categoryId": "education",
+      "description": {
+        "ar": "أكاديمية سايلور غير الربحية. تقدم دورات أكاديمية مجانية بالكامل تعادل المقررات الجامعية مع شهادات إتمام.",
+        "en": "The non-profit Saylor Academy. Offers fully free academic courses equivalent to university-level courses with completion certificates.",
+        "tr": "Kar amacı gütmeyen Saylor Akademisi. Üniversite düzeyinde tamamen ücretsiz akademik kurslar ve tamamlama sertifikaları sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
     },
     {
+      "id": "plat-30",
+      "name": {
+        "ar": "سطر Satr",
+        "en": "سطر Satr",
+        "tr": "سطر Satr"
+      },
+      "fields": [],
       "languageIds": [
         "Arabic"
       ],
@@ -4441,11 +4448,6 @@
           "tr": "سطر Satr"
         }
       },
-      "name": {
-        "ar": "سطر Satr",
-        "en": "سطر Satr",
-        "tr": "سطر Satr"
-      },
       "freeCertificate": false,
       "displayOrder": 30,
       "platformType": "",
@@ -4454,69 +4456,21 @@
       "hasFreeContent": true,
       "catalogUrl": "https://satr.codes",
       "categoryId": "programming_data",
-      "id": "plat-30",
       "description": {
         "ar": "منصة سعودية لتعلم البرمجة والتقنيات الحديثة باللغة العربية. تقدم دورات مجانية في لغات البرمجة والأمن السيبراني وقواعد البيانات.",
         "en": "A Saudi platform for learning programming and modern technologies in Arabic. Offers free courses in programming languages, cybersecurity, and databases.",
         "tr": "Arapça programlama ve modern teknolojiler öğrenmek için bir Suudi platformu. Programlama dilleri, siber güvenlik ve veritabanlarında ücretsiz kurslar sunar."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     },
     {
-      "languageIds": [
-        "Arabic"
-      ],
-      "pricingModel": "free",
-      "officialCount": null,
-      "officialUrl": "https://www.edraak.org/explore/?type=course",
-      "editorial": {
-        "bestFor": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "strengths": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "limitations": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        }
-      },
-      "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=edraak.org&sz=128",
-        "alt": {
-          "ar": "إدراك Edraak",
-          "en": "إدراك Edraak",
-          "tr": "إدراك Edraak"
-        }
-      },
+      "id": "plat-31",
       "name": {
         "ar": "إدراك Edraak",
         "en": "إدراك Edraak",
         "tr": "إدراك Edraak"
       },
-      "freeCertificate": false,
-      "displayOrder": 31,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.edraak.org/explore/?type=course",
-      "categoryId": "education",
-      "id": "plat-31",
-      "description": {
-        "ar": "منصة تعليمية عربية من مؤسسة الملكة رانيا للتعليم والتنمية. تقدم مساقات مجانية عبر الإنترنت باللغة العربية من أفضل الجامعات والخبراء العرب والعالميين مع شهادات إتمام.",
-        "en": "An Arab educational platform from the Queen Rania Foundation. Offers free online courses in Arabic from top Arab and global universities and experts.",
-        "tr": "Kraliçe Rania Vakfı'ndan bir Arap eğitim platformu. En iyi Arap ve küresel üniversitelerden Arapça ücretsiz çevrimiçi kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "business-entrepreneurship",
@@ -4617,15 +4571,13 @@
           },
           "officialUrl": "https://www.edraak.org/explore/?query=%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20%D8%A7%D9%84%D9%85%D8%A8%D9%86%D9%8A%D8%A9"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "Arabic"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.m3aarf.com/certified/courses",
+      "officialUrl": "https://www.edraak.org/explore/?type=course",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -4644,34 +4596,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=m3aarf.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=edraak.org&sz=128",
         "alt": {
-          "ar": "معارف Maaref",
-          "en": "معارف Maaref",
-          "tr": "معارف Maaref"
+          "ar": "إدراك Edraak",
+          "en": "إدراك Edraak",
+          "tr": "إدراك Edraak"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 31,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.edraak.org/explore/?type=course",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة تعليمية عربية من مؤسسة الملكة رانيا للتعليم والتنمية. تقدم مساقات مجانية عبر الإنترنت باللغة العربية من أفضل الجامعات والخبراء العرب والعالميين مع شهادات إتمام.",
+        "en": "An Arab educational platform from the Queen Rania Foundation. Offers free online courses in Arabic from top Arab and global universities and experts.",
+        "tr": "Kraliçe Rania Vakfı'ndan bir Arap eğitim platformu. En iyi Arap ve küresel üniversitelerden Arapça ücretsiz çevrimiçi kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-32",
       "name": {
         "ar": "معارف Maaref",
         "en": "معارف Maaref",
         "tr": "معارف Maaref"
       },
-      "freeCertificate": false,
-      "displayOrder": 32,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.m3aarf.com/certified/courses",
-      "categoryId": "education",
-      "id": "plat-32",
-      "description": {
-        "ar": "منصة عربية تضم آلاف الدورات المجانية في مختلف المجالات. تقدم دورات في البرمجة، اللغات، التصميم، الإدارة، والتسويق مع شهادات معتمدة.",
-        "en": "An Arab platform with thousands of free courses across various fields. Offers courses in programming, languages, design, management, and marketing with accredited certificates.",
-        "tr": "Binlerce ücretsiz kursu olan bir Arap platformu. Programlama, diller, tasarım, yönetim ve pazarlama alanlarında akredite sertifikalarla kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "programming",
@@ -4745,9 +4699,62 @@
           },
           "officialUrl": "https://www.m3aarf.com/certified/cat/22/%D8%AF%D9%88%D8%B1%D8%A7%D8%AA-%D9%81%D9%86%D9%88%D9%86"
         }
-      ]
+      ],
+      "languageIds": [
+        "Arabic"
+      ],
+      "pricingModel": "free",
+      "officialCount": null,
+      "officialUrl": "https://www.m3aarf.com/certified/courses",
+      "editorial": {
+        "bestFor": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "strengths": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "limitations": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        }
+      },
+      "logo": {
+        "src": "https://www.google.com/s2/favicons?domain=m3aarf.com&sz=128",
+        "alt": {
+          "ar": "معارف Maaref",
+          "en": "معارف Maaref",
+          "tr": "معارف Maaref"
+        }
+      },
+      "freeCertificate": false,
+      "displayOrder": 32,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.m3aarf.com/certified/courses",
+      "categoryId": "education",
+      "description": {
+        "ar": "منصة عربية تضم آلاف الدورات المجانية في مختلف المجالات. تقدم دورات في البرمجة، اللغات، التصميم، الإدارة، والتسويق مع شهادات معتمدة.",
+        "en": "An Arab platform with thousands of free courses across various fields. Offers courses in programming, languages, design, management, and marketing with accredited certificates.",
+        "tr": "Binlerce ücretsiz kursu olan bir Arap platformu. Programlama, diller, tasarım, yönetim ve pazarlama alanlarında akredite sertifikalarla kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
     },
     {
+      "id": "plat-33",
+      "name": {
+        "ar": "رواق Rwaq",
+        "en": "رواق Rwaq",
+        "tr": "رواق Rwaq"
+      },
+      "fields": [],
       "languageIds": [
         "Arabic"
       ],
@@ -4779,11 +4786,6 @@
           "tr": "رواق Rwaq"
         }
       },
-      "name": {
-        "ar": "رواق Rwaq",
-        "en": "رواق Rwaq",
-        "tr": "رواق Rwaq"
-      },
       "freeCertificate": false,
       "displayOrder": 33,
       "platformType": "",
@@ -4792,69 +4794,21 @@
       "hasFreeContent": true,
       "catalogUrl": "https://www.rwaq.org/courses",
       "categoryId": "education",
-      "id": "plat-33",
       "description": {
         "ar": "المنصة العربية للتعليم المفتوح. تقدم مواد أكاديمية مجانية باللغة العربية في شتى المجالات والتخصصات من محاضرين متطوعين. تمنح شهادات إتمام لبعض المواد.",
         "en": "The Arab open education platform. Offers free academic materials in Arabic across various fields from volunteer instructors. Grants completion certificates for some courses.",
         "tr": "Arap açık eğitim platformu. Gönüllü eğitmenlerden çeşitli alanlarda Arapça ücretsiz akademik materyaller sunar. Bazı dersler için tamamlama sertifikası verir."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     },
     {
-      "languageIds": [
-        "English"
-      ],
-      "pricingModel": "paid",
-      "officialCount": null,
-      "officialUrl": "https://www.datacamp.com/courses",
-      "editorial": {
-        "bestFor": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "strengths": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "limitations": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        }
-      },
-      "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=datacamp.com&sz=128",
-        "alt": {
-          "ar": "DataCamp",
-          "en": "DataCamp",
-          "tr": "DataCamp"
-        }
-      },
+      "id": "plat-34",
       "name": {
         "ar": "DataCamp",
         "en": "DataCamp",
         "tr": "DataCamp"
       },
-      "freeCertificate": false,
-      "displayOrder": 34,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": false,
-      "catalogUrl": "https://www.datacamp.com/courses",
-      "categoryId": "programming_data",
-      "id": "plat-34",
-      "description": {
-        "ar": "منصة متخصصة في تعلم علوم البيانات والذكاء الاصطناعي والتحليل الإحصائي. تقدم مئات الدورات التفاعلية والتمارين العملية بلغة Python وR وSQL وغيرها.",
-        "en": "A specialized platform for learning data science, AI, and statistical analysis. Offers hundreds of interactive courses and hands-on exercises in Python, R, SQL, and more.",
-        "tr": "Veri bilimi, yapay zeka ve istatistiksel analiz öğrenmek için özel bir platform. Python, R, SQL ve daha fazlasında yüzlerce etkileşimli kurs sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "artificial-intelligence",
@@ -4919,15 +4873,13 @@
           },
           "officialUrl": "https://www.datacamp.com/category/cloud"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
         "English"
       ],
-      "pricingModel": "free",
+      "pricingModel": "paid",
       "officialCount": null,
-      "officialUrl": "https://www.semrush.com/academy/",
+      "officialUrl": "https://www.datacamp.com/courses",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -4946,34 +4898,36 @@
         }
       },
       "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=semrush.com&sz=128",
+        "src": "https://www.google.com/s2/favicons?domain=datacamp.com&sz=128",
         "alt": {
-          "ar": "Semrush",
-          "en": "Semrush",
-          "tr": "Semrush"
+          "ar": "DataCamp",
+          "en": "DataCamp",
+          "tr": "DataCamp"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 34,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": false,
+      "catalogUrl": "https://www.datacamp.com/courses",
+      "categoryId": "programming_data",
+      "description": {
+        "ar": "منصة متخصصة في تعلم علوم البيانات والذكاء الاصطناعي والتحليل الإحصائي. تقدم مئات الدورات التفاعلية والتمارين العملية بلغة Python وR وSQL وغيرها.",
+        "en": "A specialized platform for learning data science, AI, and statistical analysis. Offers hundreds of interactive courses and hands-on exercises in Python, R, SQL, and more.",
+        "tr": "Veri bilimi, yapay zeka ve istatistiksel analiz öğrenmek için özel bir platform. Python, R, SQL ve daha fazlasında yüzlerce etkileşimli kurs sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-35",
       "name": {
         "ar": "Semrush",
         "en": "Semrush",
         "tr": "Semrush"
       },
-      "freeCertificate": false,
-      "displayOrder": 35,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.semrush.com/academy/",
-      "categoryId": "business_marketing",
-      "id": "plat-35",
-      "description": {
-        "ar": "أكاديمية Semrush لتعلم التسويق الرقمي. تقدم دورات مجانية في تحسين محركات البحث (SEO)، التسويق بالمحتوى، الإعلانات المدفوعة (PPC)، ووسائل التواصل الاجتماعي مع شهادات معتمدة.",
-        "en": "Semrush Academy for digital marketing learning. Offers free courses in SEO, content marketing, PPC, and social media with accredited certificates.",
-        "tr": "Dijital pazarlama öğrenimi için Semrush Akademisi. SEO, içerik pazarlaması, PPC ve sosyal medya alanlarında ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "seo",
@@ -5110,15 +5064,13 @@
           },
           "officialUrl": "https://www.semrush.com/academy/courses/?categories=competitive-research"
         }
-      ]
-    },
-    {
+      ],
       "languageIds": [
-        "Turkish"
+        "English"
       ],
       "pricingModel": "free",
       "officialCount": null,
-      "officialUrl": "https://www.btkakademi.gov.tr/portal/courses",
+      "officialUrl": "https://www.semrush.com/academy/",
       "editorial": {
         "bestFor": {
           "ar": [],
@@ -5137,34 +5089,36 @@
         }
       },
       "logo": {
-        "src": "https://assets-btkakademi-gov-tr.akamaized.net/api/service/v1/public/51/assets/logo.png?ts=1738148275127",
+        "src": "https://www.google.com/s2/favicons?domain=semrush.com&sz=128",
         "alt": {
-          "ar": "btkakademi.gov.tr",
-          "en": "btkakademi.gov.tr",
-          "tr": "btkakademi.gov.tr"
+          "ar": "Semrush",
+          "en": "Semrush",
+          "tr": "Semrush"
         }
       },
+      "freeCertificate": false,
+      "displayOrder": 35,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.semrush.com/academy/",
+      "categoryId": "business_marketing",
+      "description": {
+        "ar": "أكاديمية Semrush لتعلم التسويق الرقمي. تقدم دورات مجانية في تحسين محركات البحث (SEO)، التسويق بالمحتوى، الإعلانات المدفوعة (PPC)، ووسائل التواصل الاجتماعي مع شهادات معتمدة.",
+        "en": "Semrush Academy for digital marketing learning. Offers free courses in SEO, content marketing, PPC, and social media with accredited certificates.",
+        "tr": "Dijital pazarlama öğrenimi için Semrush Akademisi. SEO, içerik pazarlaması, PPC ve sosyal medya alanlarında ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
+    },
+    {
+      "id": "plat-36",
       "name": {
         "ar": "btkakademi.gov.tr",
         "en": "btkakademi.gov.tr",
         "tr": "btkakademi.gov.tr"
       },
-      "freeCertificate": false,
-      "displayOrder": 36,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://www.btkakademi.gov.tr/portal/courses",
-      "categoryId": "technology",
-      "id": "plat-36",
-      "description": {
-        "ar": "منصة التعليم التركية الرسمية من هيئة تقنية المعلومات والاتصالات. تقدم دورات مجانية في البرمجة، الأمن السيبراني، علم البيانات، الذكاء الاصطناعي، وتقنية المعلومات مع شهادات معتمدة.",
-        "en": "Turkey's official education platform from the ICT Authority. Offers free courses in programming, cybersecurity, data science, AI, and IT with accredited certificates.",
-        "tr": "BTK'nın resmi eğitim platformu. Programlama, siber güvenlik, veri bilimi, yapay zeka ve BT alanlarında ücretsiz kurslar ve sertifikalar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "software",
@@ -5247,9 +5201,62 @@
           },
           "officialUrl": "https://www.btkakademi.gov.tr/portal/catalog?categoryId=2353"
         }
-      ]
+      ],
+      "languageIds": [
+        "Turkish"
+      ],
+      "pricingModel": "free",
+      "officialCount": null,
+      "officialUrl": "https://www.btkakademi.gov.tr/portal/courses",
+      "editorial": {
+        "bestFor": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "strengths": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "limitations": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        }
+      },
+      "logo": {
+        "src": "https://assets-btkakademi-gov-tr.akamaized.net/api/service/v1/public/51/assets/logo.png?ts=1738148275127",
+        "alt": {
+          "ar": "btkakademi.gov.tr",
+          "en": "btkakademi.gov.tr",
+          "tr": "btkakademi.gov.tr"
+        }
+      },
+      "freeCertificate": false,
+      "displayOrder": 36,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://www.btkakademi.gov.tr/portal/courses",
+      "categoryId": "technology",
+      "description": {
+        "ar": "منصة التعليم التركية الرسمية من هيئة تقنية المعلومات والاتصالات. تقدم دورات مجانية في البرمجة، الأمن السيبراني، علم البيانات، الذكاء الاصطناعي، وتقنية المعلومات مع شهادات معتمدة.",
+        "en": "Turkey's official education platform from the ICT Authority. Offers free courses in programming, cybersecurity, data science, AI, and IT with accredited certificates.",
+        "tr": "BTK'nın resmi eğitim platformu. Programlama, siber güvenlik, veri bilimi, yapay zeka ve BT alanlarında ücretsiz kurslar ve sertifikalar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
     },
     {
+      "id": "plat-37",
+      "name": {
+        "ar": "MATLAB Academy",
+        "en": "MATLAB Academy",
+        "tr": "MATLAB Academy"
+      },
+      "fields": [],
       "languageIds": [
         "English"
       ],
@@ -5281,11 +5288,6 @@
           "tr": "MATLAB Academy"
         }
       },
-      "name": {
-        "ar": "MATLAB Academy",
-        "en": "MATLAB Academy",
-        "tr": "MATLAB Academy"
-      },
       "freeCertificate": false,
       "displayOrder": 37,
       "platformType": "",
@@ -5294,70 +5296,21 @@
       "hasFreeContent": true,
       "catalogUrl": "https://matlabacademy.mathworks.com/?page=1&fq=course&sort=featured",
       "categoryId": "programming_data",
-      "id": "plat-37",
       "description": {
         "ar": "أكاديمية MATLAB من MathWorks. تقدم دورات تفاعلية في MATLAB وSimulink ومعالجة الإشارات والصور والتعلم الآلي. بعض الدورات مجانية والأخرى مدفوعة.",
         "en": "MATLAB Academy by MathWorks. Offers interactive courses in MATLAB, Simulink, signal processing, image processing, and machine learning. Some courses are free, others paid.",
         "tr": "MathWorks'tan MATLAB Akademisi. MATLAB, Simulink, sinyal işleme, görüntü işleme ve makine öğreniminde etkileşimli kurslar sunar. Bazı kurslar ücretsiz, bazıları ücretlidir."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     },
     {
-      "languageIds": [
-        "Arabic",
-        "English"
-      ],
-      "pricingModel": "free",
-      "officialCount": null,
-      "officialUrl": "https://academy.hubspot.com/courses?contentType=COURSE",
-      "editorial": {
-        "bestFor": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "strengths": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        },
-        "limitations": {
-          "ar": [],
-          "en": [],
-          "tr": []
-        }
-      },
-      "logo": {
-        "src": "https://www.google.com/s2/favicons?domain=hubspot.com&sz=128",
-        "alt": {
-          "ar": "HubSpot Academy",
-          "en": "HubSpot Academy",
-          "tr": "HubSpot Academy"
-        }
-      },
+      "id": "plat-38",
       "name": {
         "ar": "HubSpot Academy",
         "en": "HubSpot Academy",
         "tr": "HubSpot Academy"
       },
-      "freeCertificate": false,
-      "displayOrder": 38,
-      "platformType": "",
-      "featured": false,
-      "certificateAvailable": true,
-      "hasFreeContent": true,
-      "catalogUrl": "https://academy.hubspot.com/courses?contentType=COURSE",
-      "categoryId": "business_marketing",
-      "id": "plat-38",
-      "description": {
-        "ar": "أكاديمية HubSpot لتعلم التسويق والمبيعات وخدمة العملاء. تقدم دورات مجانية بالكامل مع شهادات معتمدة في التسويق الداخلي والتجارة الإلكترونية.",
-        "en": "HubSpot Academy for learning marketing, sales, and customer service. Offers completely free courses with accredited certificates in inbound marketing and e-commerce.",
-        "tr": "Pazarlama, satış ve müşteri hizmetleri için HubSpot Akademisi. Gelen pazarlama ve e-ticaret alanlarında tamamen ücretsiz kurslar sunar."
-      },
-      "officialCountType": "courses",
-      "lastVerified": null,
       "fields": [
         {
           "id": "marketing",
@@ -5395,9 +5348,63 @@
           },
           "officialUrl": "https://academy.hubspot.com/courses/software"
         }
-      ]
+      ],
+      "languageIds": [
+        "Arabic",
+        "English"
+      ],
+      "pricingModel": "free",
+      "officialCount": null,
+      "officialUrl": "https://academy.hubspot.com/courses?contentType=COURSE",
+      "editorial": {
+        "bestFor": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "strengths": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        },
+        "limitations": {
+          "ar": [],
+          "en": [],
+          "tr": []
+        }
+      },
+      "logo": {
+        "src": "https://www.google.com/s2/favicons?domain=hubspot.com&sz=128",
+        "alt": {
+          "ar": "HubSpot Academy",
+          "en": "HubSpot Academy",
+          "tr": "HubSpot Academy"
+        }
+      },
+      "freeCertificate": false,
+      "displayOrder": 38,
+      "platformType": "",
+      "featured": false,
+      "certificateAvailable": true,
+      "hasFreeContent": true,
+      "catalogUrl": "https://academy.hubspot.com/courses?contentType=COURSE",
+      "categoryId": "business_marketing",
+      "description": {
+        "ar": "أكاديمية HubSpot لتعلم التسويق والمبيعات وخدمة العملاء. تقدم دورات مجانية بالكامل مع شهادات معتمدة في التسويق الداخلي والتجارة الإلكترونية.",
+        "en": "HubSpot Academy for learning marketing, sales, and customer service. Offers completely free courses with accredited certificates in inbound marketing and e-commerce.",
+        "tr": "Pazarlama, satış ve müşteri hizmetleri için HubSpot Akademisi. Gelen pazarlama ve e-ticaret alanlarında tamamen ücretsiz kurslar sunar."
+      },
+      "officialCountType": "courses",
+      "lastVerified": null
     },
     {
+      "id": "plat-39",
+      "name": {
+        "ar": "HackerRank",
+        "en": "HackerRank",
+        "tr": "HackerRank"
+      },
+      "fields": [],
       "languageIds": [
         "English"
       ],
@@ -5429,11 +5436,6 @@
           "tr": "HackerRank"
         }
       },
-      "name": {
-        "ar": "HackerRank",
-        "en": "HackerRank",
-        "tr": "HackerRank"
-      },
       "freeCertificate": false,
       "displayOrder": 39,
       "platformType": "",
@@ -5442,17 +5444,22 @@
       "hasFreeContent": true,
       "catalogUrl": "https://www.hackerrank.com/skills-verification",
       "categoryId": "programming_data",
-      "id": "plat-39",
       "description": {
         "ar": "منصة عالمية للتحديات البرمجية واختبار المهارات. تقدم دورات تفاعلية ومشاريع عملية في Python، Java، SQL، والخوارزميات مع شهادات إتقان.",
         "en": "A global platform for coding challenges and skill testing. Offers interactive courses and hands-on projects in Python, Java, SQL, and algorithms with skill certificates.",
         "tr": "Kodlama zorlukları ve beceri testi için küresel bir platform. Python, Java, SQL ve algoritmalarda etkileşimli kurslar ve beceri sertifikaları sunar."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     },
     {
+      "id": "plat-40",
+      "name": {
+        "ar": "كورسات",
+        "en": "كورسات",
+        "tr": "كورسات"
+      },
+      "fields": [],
       "languageIds": [
         "Arabic"
       ],
@@ -5484,11 +5491,6 @@
           "tr": "كورسات"
         }
       },
-      "name": {
-        "ar": "كورسات",
-        "en": "كورسات",
-        "tr": "كورسات"
-      },
       "freeCertificate": false,
       "displayOrder": 40,
       "platformType": "",
@@ -5497,15 +5499,13 @@
       "hasFreeContent": true,
       "catalogUrl": "https://www.coursat.org/categories",
       "categoryId": "education",
-      "id": "plat-40",
       "description": {
         "ar": "منصة عربية تقدم آلاف الدورات المجانية في مختلف المجالات مثل البرمجة والتصميم والتسويق والإدارة مع شهادات إتمام.",
         "en": "An Arab platform offering thousands of free courses in various fields like programming, design, marketing, and management with completion certificates.",
         "tr": "Programlama, tasarım, pazarlama ve yönetim gibi çeşitli alanlarda binlerce ücretsiz kurs sunan bir Arap platformu."
       },
       "officialCountType": "courses",
-      "lastVerified": null,
-      "fields": []
+      "lastVerified": null
     }
   ],
   "settings": {
