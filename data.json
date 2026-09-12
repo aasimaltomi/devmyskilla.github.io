@@ -2075,7 +2075,7 @@
           "tr": "Huawei"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 10,
       "platformType": "",
       "featured": false,
