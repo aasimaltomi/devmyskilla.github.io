@@ -4576,7 +4576,7 @@
         "Arabic"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 300,
       "officialUrl": "https://www.edraak.org/explore/?type=course",
       "editorial": {
         "bestFor": {
@@ -4603,7 +4603,7 @@
           "tr": "إدراك Edraak"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 31,
       "platformType": "",
       "featured": false,
