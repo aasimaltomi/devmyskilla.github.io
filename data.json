@@ -2910,7 +2910,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 38,
       "officialUrl": "https://researcheracademy.elsevier.com/learn",
       "editorial": {
         "bestFor": {
@@ -2937,7 +2937,7 @@
           "tr": "Research Academy"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 18,
       "platformType": "",
       "featured": false,
