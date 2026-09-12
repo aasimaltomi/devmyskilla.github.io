@@ -1286,7 +1286,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 3931,
       "officialUrl": "https://www.edx.org/courses",
       "editorial": {
         "bestFor": {
@@ -1317,7 +1317,7 @@
       "displayOrder": 7,
       "platformType": "",
       "featured": false,
-      "certificateAvailable": false,
+      "certificateAvailable": true,
       "hasFreeContent": true,
       "catalogUrl": "https://www.edx.org/courses",
       "categoryId": "education",
