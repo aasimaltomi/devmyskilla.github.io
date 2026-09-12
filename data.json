@@ -4247,7 +4247,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 5813,
       "officialUrl": "https://alison.com/courses",
       "editorial": {
         "bestFor": {
@@ -4274,7 +4274,7 @@
           "tr": "Alison"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 28,
       "platformType": "",
       "featured": false,
