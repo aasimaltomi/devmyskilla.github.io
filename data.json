@@ -2594,7 +2594,9 @@
         }
       ],
       "languageIds": [
-        "English،Ukrainian،Welsh"
+        "English",
+        "Ukrainian",
+        "Welsh"
       ],
       "pricingModel": "free",
       "officialCount": 947,
