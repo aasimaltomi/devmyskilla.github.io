@@ -4704,7 +4704,7 @@
         "Arabic"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 20000,
       "officialUrl": "https://www.m3aarf.com/certified/courses",
       "editorial": {
         "bestFor": {
@@ -4731,7 +4731,7 @@
           "tr": "معارف Maaref"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 32,
       "platformType": "",
       "featured": false,
