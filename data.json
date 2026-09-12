@@ -2323,7 +2323,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 51,
       "officialUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/",
       "editorial": {
         "bestFor": {
@@ -2356,7 +2356,7 @@
       "featured": false,
       "certificateAvailable": false,
       "hasFreeContent": true,
-      "catalogUrl": "https://www.nvidia.com/en-us/training/self-paced-courses/",
+      "catalogUrl": "https://www.nvidia.com/en-us/training/find-training/?Free+Courses=Free",
       "categoryId": "programming_data",
       "description": {
         "ar": "منصة إنفيديا الرائدة في الذكاء الاصطناعي وتعلم الآلة. تقدم دورات مجانية في التعلم العميق، CUDA، معالجة الصور، والذكاء الاصطناعي التوليدي. جميع الدورات مجانية ولكن دورة واحدة فقط بشهادة والباقي بدون شهادات.",
