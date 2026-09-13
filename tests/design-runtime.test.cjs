@@ -89,21 +89,21 @@ test('validateDesign rejects unsafe or malformed settings', () => {
   assert.throws(() => DesignRuntime.validateDesign(arbitraryKey), /key/);
 });
 
-test('applyTheme changes only approved CSS variables', () => {
+test('applyTheme changes only approved design CSS variables', () => {
   const root = fakeRoot();
   DesignRuntime.applyTheme(DEFAULT_DESIGN, root);
 
-  assert.equal(root.style.getPropertyValue('--primary'), '#4f46e5');
-  assert.equal(root.style.getPropertyValue('--primary-2'), '#7c3aed');
-  assert.equal(root.style.getPropertyValue('--bg'), '#f7f8fc');
-  assert.equal(root.style.getPropertyValue('--surface'), '#ffffff');
-  assert.equal(root.style.getPropertyValue('--text'), '#15162a');
-  assert.equal(root.style.getPropertyValue('--muted'), '#6b7087');
-  assert.equal(root.style.getPropertyValue('--border'), '#e4e6f0');
-  assert.equal(root.style.getPropertyValue('--radius'), '22px');
-  assert.equal(root.style.getPropertyValue('--button-radius'), '14px');
-  assert.equal(root.style.getPropertyValue('--container'), '1240px');
-  assert.equal(root.style.getPropertyValue('--base-font-size'), '16px');
+  assert.equal(root.style.getPropertyValue('--design-primary'), '#4f46e5');
+  assert.equal(root.style.getPropertyValue('--design-secondary'), '#7c3aed');
+  assert.equal(root.style.getPropertyValue('--design-background'), '#f7f8fc');
+  assert.equal(root.style.getPropertyValue('--design-surface'), '#ffffff');
+  assert.equal(root.style.getPropertyValue('--design-text'), '#15162a');
+  assert.equal(root.style.getPropertyValue('--design-muted-text'), '#6b7087');
+  assert.equal(root.style.getPropertyValue('--design-border'), '#e4e6f0');
+  assert.equal(root.style.getPropertyValue('--design-card-radius'), '22px');
+  assert.equal(root.style.getPropertyValue('--design-button-radius'), '14px');
+  assert.equal(root.style.getPropertyValue('--design-content-max-width'), '1240px');
+  assert.equal(root.style.getPropertyValue('--design-base-font-size'), '16px');
   assert.equal(root.dataset.designAlign, 'start');
 });
 
@@ -154,7 +154,7 @@ test('loadAndApplyDesign leaves compiled CSS untouched when design fetch fails',
   });
 
   assert.equal(result, null);
-  assert.equal(root.style.getPropertyValue('--primary'), '');
+  assert.equal(root.style.getPropertyValue('--design-primary'), '');
 });
 
 test('homepage markup registers the exact safe section allowlist and loads design runtime', () => {
