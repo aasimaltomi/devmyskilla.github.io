@@ -147,6 +147,7 @@
       '--design-border': design.theme.border,
       '--design-base-font-size': `${design.typography.baseSize}px`,
       '--design-heading-scale': String(design.typography.headingScale),
+      '--design-heading-multiplier': String(design.typography.headingScale / 1.25),
       '--design-body-weight': String(design.typography.bodyWeight),
       '--design-heading-weight': String(design.typography.headingWeight),
       '--design-card-radius': `${design.shape.cardRadius}px`,
@@ -160,7 +161,10 @@
     };
 
     for (const [name, value] of Object.entries(variables)) target.style.setProperty(name, value);
-    if (target.dataset) target.dataset.designAlign = design.layout.textAlign;
+    if (target.dataset) {
+      target.dataset.designAlign = design.layout.textAlign;
+      target.dataset.designApplied = 'true';
+    }
     return design;
   }
 
@@ -201,7 +205,20 @@
       if (!response || !response.ok) return null;
       const design = validateDesign(await response.json());
       applyTheme(design, targetRoot);
-      applyHomepageLayout(design, documentRef);
+
+      if (
+        documentRef &&
+        documentRef.readyState === 'loading' &&
+        typeof documentRef.addEventListener === 'function'
+      ) {
+        documentRef.addEventListener(
+          'DOMContentLoaded',
+          () => applyHomepageLayout(design, documentRef),
+          { once: true },
+        );
+      } else {
+        applyHomepageLayout(design, documentRef);
+      }
       return design;
     } catch (_error) {
       return null;
