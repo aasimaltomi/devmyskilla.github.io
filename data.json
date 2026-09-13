@@ -5206,7 +5206,7 @@
         "Turkish"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 425,
       "officialUrl": "https://www.btkakademi.gov.tr/portal/courses",
       "editorial": {
         "bestFor": {
@@ -5233,7 +5233,7 @@
           "tr": "btkakademi.gov.tr"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 36,
       "platformType": "",
       "featured": false,
