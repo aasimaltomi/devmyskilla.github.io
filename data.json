@@ -2708,7 +2708,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 100,
       "officialUrl": "https://skillshop.withgoogle.com/",
       "editorial": {
         "bestFor": {
