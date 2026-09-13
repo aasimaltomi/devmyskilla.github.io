@@ -104,7 +104,9 @@ test('applyTheme changes only approved design CSS variables', () => {
   assert.equal(root.style.getPropertyValue('--design-button-radius'), '14px');
   assert.equal(root.style.getPropertyValue('--design-content-max-width'), '1240px');
   assert.equal(root.style.getPropertyValue('--design-base-font-size'), '16px');
+  assert.equal(root.style.getPropertyValue('--design-heading-multiplier'), '1');
   assert.equal(root.dataset.designAlign, 'start');
+  assert.equal(root.dataset.designApplied, 'true');
 });
 
 test('applyHomepageLayout can hide and reorder only registered homepage sections', () => {
@@ -142,6 +144,54 @@ test('applyHomepageLayout can hide and reorder only registered homepage sections
 
   assert.equal(elements.problemSection.hidden, true);
   assert.equal(elements.landingHero.hidden, false);
+  assert.deepEqual(order.slice(0, 2), ['courseCategories', 'landingHero']);
+});
+
+test('loadAndApplyDesign defers homepage layout until DOMContentLoaded when booted in head', async () => {
+  const root = fakeRoot();
+  const order = [];
+  let onReady = null;
+  const main = {
+    appendChild(element) {
+      order.push(element.id);
+      element.parentElement = main;
+    },
+  };
+  const elements = Object.fromEntries(
+    DEFAULT_DESIGN.layout.sectionOrder.map((id) => [
+      id,
+      { id, hidden: false, parentElement: main, dataset: { designSection: id } },
+    ]),
+  );
+  const documentRef = {
+    readyState: 'loading',
+    addEventListener(name, callback) {
+      if (name === 'DOMContentLoaded') onReady = callback;
+    },
+    querySelector(selector) {
+      return selector === '.landing-main' ? main : null;
+    },
+    getElementById(id) {
+      return elements[id] || null;
+    },
+  };
+
+  const design = clone(DEFAULT_DESIGN);
+  design.layout.sectionOrder = [
+    'courseCategories',
+    'landingHero',
+    ...DEFAULT_DESIGN.layout.sectionOrder.slice(2),
+  ];
+
+  await DesignRuntime.loadAndApplyDesign({
+    fetchFn: async () => ({ ok: true, json: async () => design }),
+    root,
+    documentRef,
+  });
+
+  assert.deepEqual(order, []);
+  assert.equal(typeof onReady, 'function');
+  onReady();
   assert.deepEqual(order.slice(0, 2), ['courseCategories', 'landingHero']);
 });
 
