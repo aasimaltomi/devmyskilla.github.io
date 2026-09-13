@@ -5261,7 +5261,7 @@
         "English"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 106,
       "officialUrl": "https://matlabacademy.mathworks.com/?page=1&fq=course&sort=featured",
       "editorial": {
         "bestFor": {
@@ -5288,7 +5288,7 @@
           "tr": "MATLAB Academy"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 37,
       "platformType": "",
       "featured": false,
