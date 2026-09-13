@@ -5464,7 +5464,7 @@
         "Arabic"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 322,
       "officialUrl": "https://www.coursat.org/categories",
       "editorial": {
         "bestFor": {
@@ -5491,7 +5491,7 @@
           "tr": "كورسات"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 40,
       "platformType": "",
       "featured": false,
