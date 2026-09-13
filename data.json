@@ -4421,7 +4421,7 @@
         "Arabic"
       ],
       "pricingModel": "free",
-      "officialCount": null,
+      "officialCount": 100,
       "officialUrl": "https://satr.codes",
       "editorial": {
         "bestFor": {
@@ -4448,7 +4448,7 @@
           "tr": "سطر Satr"
         }
       },
-      "freeCertificate": false,
+      "freeCertificate": true,
       "displayOrder": 30,
       "platformType": "",
       "featured": false,
