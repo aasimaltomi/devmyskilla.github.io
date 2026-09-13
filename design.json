@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "theme": {
+    "primary": "#4f46e5",
+    "secondary": "#7c3aed",
+    "background": "#f7f8fc",
+    "surface": "#ffffff",
+    "text": "#15162a",
+    "mutedText": "#6b7087",
+    "border": "#e4e6f0"
+  },
+  "typography": {
+    "baseSize": 16,
+    "headingScale": 1.25,
+    "bodyWeight": 400,
+    "headingWeight": 800
+  },
+  "shape": {
+    "cardRadius": 22,
+    "buttonRadius": 14,
+    "borderWidth": 1
+  },
+  "spacing": {
+    "sectionGap": 84,
+    "cardGap": 16,
+    "contentMaxWidth": 1240
+  },
+  "layout": {
+    "textAlign": "start",
+    "sectionOrder": [
+      "landingHero",
+      "courseCategories",
+      "problemSection",
+      "aboutProject",
+      "whySection",
+      "howItWorks",
+      "landingStats",
+      "developerSection",
+      "landingCta"
+    ],
+    "hiddenSections": []
+  }
+}

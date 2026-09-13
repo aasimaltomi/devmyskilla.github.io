@@ -1,0 +1,19 @@
+:root[data-design-applied="true"]{--design-heading-multiplier:calc(var(--design-heading-scale,1.25) / 1.25)}
+:root[data-design-applied="true"]:not([data-theme="dark"]){--bg:var(--design-background,#f7f8fc);--surface:var(--design-surface,#ffffff);--text:var(--design-text,#15162a);--muted:var(--design-muted-text,#6b7087);--primary:var(--design-primary,#4f46e5);--primary-2:var(--design-secondary,#7c3aed);--border:var(--design-border,#e4e6f0);--radius:var(--design-card-radius,22px);--container:var(--design-content-max-width,1240px)}
+:root[data-design-applied="true"][data-theme="dark"]{--primary:var(--design-primary,#8b7cff);--primary-2:var(--design-secondary,#a855f7);--radius:var(--design-card-radius,22px);--container:var(--design-content-max-width,1240px)}
+:root[data-design-applied="true"] body{font-size:var(--design-base-font-size,16px);font-weight:var(--design-body-weight,400)}
+:root[data-design-applied="true"] h1,:root[data-design-applied="true"] h2,:root[data-design-applied="true"] h3,:root[data-design-applied="true"] strong{font-weight:var(--design-heading-weight,800)}
+:root[data-design-applied="true"] .btn,:root[data-design-applied="true"] .btn-inline,:root[data-design-applied="true"] .mini-btn,:root[data-design-applied="true"] .btn-reset,:root[data-design-applied="true"] .icon-btn,:root[data-design-applied="true"] .lang-select{border-radius:var(--design-button-radius,14px);border-width:var(--design-border-width,1px)}
+:root[data-design-applied="true"] .platform-card,:root[data-design-applied="true"] .category-card,:root[data-design-applied="true"] .problem-card,:root[data-design-applied="true"] .why-card,:root[data-design-applied="true"] .developer-card,:root[data-design-applied="true"] .about-panel,:root[data-design-applied="true"] .process-step{border-radius:var(--design-card-radius,22px);border-width:var(--design-border-width,1px)}
+:root[data-design-applied="true"] .section{padding-block:var(--design-section-gap,84px)}
+:root[data-design-applied="true"] .landing-section{padding-block:calc(var(--design-section-gap,84px) * 1.142857)}
+:root[data-design-applied="true"] .category-grid,:root[data-design-applied="true"] .featured-grid,:root[data-design-applied="true"] .platform-grid,:root[data-design-applied="true"] .problem-grid{gap:var(--design-card-gap,16px)}
+:root[data-design-applied="true"] .process-grid{gap:calc(var(--design-card-gap,16px) * .8)}
+:root[data-design-applied="true"] .landing-copy h1{font-size:clamp(calc(2.7rem * var(--design-heading-multiplier,1)),6vw,calc(5.6rem * var(--design-heading-multiplier,1)))}
+:root[data-design-applied="true"] .landing-heading h2{font-size:clamp(calc(2rem * var(--design-heading-multiplier,1)),4vw,calc(3.5rem * var(--design-heading-multiplier,1)))}
+:root[data-design-applied="true"] .hero-platform h1{font-size:clamp(calc(42px * var(--design-heading-multiplier,1)),5.7vw,calc(76px * var(--design-heading-multiplier,1)))}
+:root[data-design-applied="true"] .section-heading h2{font-size:clamp(calc(28px * var(--design-heading-multiplier,1)),3.6vw,calc(46px * var(--design-heading-multiplier,1)))}
+:root[data-design-align="center"] .landing-copy,:root[data-design-align="center"] .landing-heading,:root[data-design-align="center"] .about-panel,:root[data-design-align="center"] .developer-card,:root[data-design-align="center"] .final-card{text-align:center}
+:root[data-design-align="center"] .landing-actions,:root[data-design-align="center"] .landing-heading{justify-content:center;margin-inline:auto}
+:root[data-design-align="end"] .landing-copy,:root[data-design-align="end"] .landing-heading,:root[data-design-align="end"] .about-panel,:root[data-design-align="end"] .developer-card,:root[data-design-align="end"] .final-card{text-align:end}
+:root[data-design-align="end"] .landing-actions{justify-content:flex-end}
